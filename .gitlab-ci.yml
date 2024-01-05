@@ -86,13 +86,11 @@ cache:
 #
 # Learn more about GitLab cache: https://docs.gitlab.com/ee/ci/caching/index.html
 before_script:
-  - 'echo "SOURCE_CODE_PATH: $SOURCE_CODE_PATH"'
-  - 'echo "PROJECT_FILE_PATH: $PROJECT_FILE_PATH"'
-  - 'echo "NUGET_PACKAGES_DIRECTORY: $NUGET_PACKAGES_DIRECTORY"'
   - 'cd $SOURCE_CODE_PATH'
   - 'pwd'
   - 'ls -la'
-  - 'dotnet restore $PROJECT_FILE_PATH --packages $NUGET_PACKAGES_DIRECTORY'
+  - 'dotnet restore $SOURCE_CODE_PATH/$PROJECT_FILE_PATH --packages $NUGET_PACKAGES_DIRECTORY'
+
 
 
 build:

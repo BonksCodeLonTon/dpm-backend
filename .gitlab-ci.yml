@@ -29,7 +29,8 @@ variables:
   NUGET_PACKAGES_DIRECTORY: '.nuget'
   # 3) A relative path to the source code from project repository root.
   # NOTE: Please edit this path so it matches the structure of your project!
-  SOURCE_CODE_PATH: 'code/DPM.API/'
+  SOURCE_CODE_PATH: 'code/'  # Adjust this path based on your project structure
+  PROJECT_FILE_PATH: 'code/DPM.API/DPM.API.csproj'  
 
 # ### Define global cache rule
 #
@@ -86,7 +87,7 @@ cache:
 # Learn more about GitLab cache: https://docs.gitlab.com/ee/ci/caching/index.html
 before_script:
   - 'cd $SOURCE_CODE_PATH'
-  - 'dotnet restore --packages $NUGET_PACKAGES_DIRECTORY'
+  - 'dotnet restore $PROJECT_FILE_PATH --packages $NUGET_PACKAGES_DIRECTORY'
 
 build:
   stage: build

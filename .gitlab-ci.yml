@@ -26,7 +26,7 @@ variables:
   # 1) Name of directory where restore and build objects are stored.
   OBJECTS_DIRECTORY: 'obj'
   # 2) Name of directory used for keeping restored dependencies.
-  # NUGET_PACKAGES_DIRECTORY: '.nuget'
+  NUGET_PACKAGES_DIRECTORY: '.nuget'
   # 3) A relative path to the source code from project repository root.
   # NOTE: Please edit this path so it matches the structure of your project!
   SOURCE_CODE_PATH: '*/*/'
@@ -59,7 +59,7 @@ cache:
     # 2) Other NuGet and MSBuild related files. Also needed.
     - '$SOURCE_CODE_PATH$OBJECTS_DIRECTORY/*.csproj.nuget.*'
     # 3) Path to the directory where restored dependencies are kept.
-  #  - '$NUGET_PACKAGES_DIRECTORY'
+    - '$NUGET_PACKAGES_DIRECTORY'
   #
   # 'pull-push' policy means that latest cache will be downloaded (if it exists)
   # before executing the job, and a newer version will be uploaded afterwards.
@@ -84,8 +84,8 @@ cache:
 # in the root of project repository, so its content can be cached.
 #
 # Learn more about GitLab cache: https://docs.gitlab.com/ee/ci/caching/index.html
-#before_script:
-#  - 'dotnet restore --packages $NUGET_PACKAGES_DIRECTORY'
+before_script:
+  - 'dotnet restore --packages $NUGET_PACKAGES_DIRECTORY'
 
 build:
   stage: build

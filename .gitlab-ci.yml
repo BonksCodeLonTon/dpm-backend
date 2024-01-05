@@ -89,7 +89,7 @@ before_script:
   - 'cd $SOURCE_CODE_PATH'
   - 'pwd'
   - 'ls -la'
-#  - 'dotnet restore --packages $NUGET_PACKAGES_DIRECTORY'
+  - 'dotnet restore --packages $NUGET_PACKAGES_DIRECTORY'
 
 
 build:

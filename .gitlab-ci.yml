@@ -15,12 +15,13 @@ cache:
   policy: pull-push
 
 before_script:
-  - cd $SOURCE_CODE_PATH
-  - pwd
-  - ls -la
-  - echo "NUGET_PACKAGES_DIRECTORY: $NUGET_PACKAGES_DIRECTORY"
-  - echo "PROJECT_FILE_PATH: $PROJECT_FILE_PATH"
-  - dotnet restore --packages $NUGET_PACKAGES_DIRECTORY
+  - >
+    cd $SOURCE_CODE_PATH &&
+    pwd &&
+    ls -la &&
+    echo "NUGET_PACKAGES_DIRECTORY: $NUGET_PACKAGES_DIRECTORY" &&
+    echo "PROJECT_FILE_PATH: $PROJECT_FILE_PATH" &&
+    dotnet restore --packages $NUGET_PACKAGES_DIRECTORY
 
 build:
   stage: build

@@ -30,7 +30,7 @@ variables:
   # 3) A relative path to the source code from project repository root.
   # NOTE: Please edit this path so it matches the structure of your project!
   SOURCE_CODE_PATH: 'code/'  # Adjust this path based on your project structure
-  PROJECT_FILE_PATH: 'code/DPM.API/DPM.API.csproj'  
+  PROJECT_FILE_PATH: 'DPM.API/DPM.API.csproj'  
 
 # ### Define global cache rule
 #
@@ -89,7 +89,7 @@ before_script:
   - 'cd $SOURCE_CODE_PATH'
   - 'pwd'
   - 'ls -la'
-  - 'dotnet restore $SOURCE_CODE_PATH/$PROJECT_FILE_PATH --packages $NUGET_PACKAGES_DIRECTORY'
+  - 'dotnet restore $PROJECT_FILE_PATH --packages $NUGET_PACKAGES_DIRECTORY'
 
 
 

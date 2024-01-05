@@ -26,11 +26,11 @@ variables:
   # 1) Name of directory where restore and build objects are stored.
   OBJECTS_DIRECTORY: 'obj'
   # 2) Name of directory used for keeping restored dependencies.
-  NUGET_PACKAGES_DIRECTORY: '/*.nuget'
+  NUGET_PACKAGES_DIRECTORY: '**/*.nuget'
   # 3) A relative path to the source code from project repository root.
   # NOTE: Please edit this path so it matches the structure of your project!
   SOURCE_CODE_PATH: 'code/'  # Adjust this path based on your project structure
-  PROJECT_FILE_PATH: 'DPM.API/DPM.BackEnd.sln'  
+  PROJECT_FILE_PATH: '**/*.sln'  
 
 # ### Define global cache rule
 #
@@ -89,7 +89,7 @@ before_script:
   - 'cd $SOURCE_CODE_PATH'
   - 'pwd'
   - 'ls -la'
-  - 'dotnet restore --packages $NUGET_PACKAGES_DIRECTORY'
+  - 'dotnet restore --packages $PROJECT_FILE_PATH'
 
 
 build:

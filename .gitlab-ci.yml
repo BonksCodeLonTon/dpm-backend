@@ -1,10 +1,10 @@
 image: mcr.microsoft.com/dotnet/sdk:6.0
 
 variables:
-  OBJECTS_DIRECTORY: obj
-  NUGET_PACKAGES_DIRECTORY: "/**/*.nuget"  # Adjust if necessary
+  OBJECTS_DIRECTORY: "*/*/obj"
+  NUGET_PACKAGES_DIRECTORY: "*/*.nuget"  # Adjust if necessary
   SOURCE_CODE_PATH: code/
-  PROJECT_FILE_PATH: "/**/*.sln"
+  PROJECT_FILE_PATH: "*/*.sln"
 
 cache:
   key: "$CI_JOB_STAGE-$CI_COMMIT_REF_SLUG"

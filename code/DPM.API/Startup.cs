@@ -1,28 +1,34 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System;
-using System.IO;
+﻿using Autofac;
+using DPM.API.Ultilities;
+using DPM.Infrastructure.Modules;
 using System.Text.Json.Serialization;
 
 namespace DPM.API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IWebHostEnvironment _env;
+
+        public Startup(IConfiguration configuration , IWebHostEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
         }
 
         public IConfiguration Configuration { get; }
-
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterModule(new InfrastructureModule(Configuration));
+        }
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(Configuration);
 
             services.AddLocalization();
+
+            services.ConfigureSwagger();
+
+            services.ConfigureLogging(Configuration, _env);
 
             services.AddCors(options =>
             {

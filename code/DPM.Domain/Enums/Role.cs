@@ -8,8 +8,9 @@ namespace DPM.Domain.Enums
 {
     public enum Role
     {
-        Manager,
-        Supporter,
+        PortAuthority,
+        Military,
+        Fishermen,
         User
     }
 }

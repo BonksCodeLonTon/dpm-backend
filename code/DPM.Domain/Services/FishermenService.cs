@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using DPM.Domain.Entities;
 using DPM.Domain.Common.Interfaces;
+using DPM.Domain.Repositories;
 
 namespace DPM.Domain.Services
 {
     public class FishermenService : BaseService<Fishermen>, IFishermenService
     {
-        private readonly IGenericRepository<Fishermen> _fishermenRepository;
+        private readonly IFishermenRepository _fishermenRepository;
 
-        public FishermenService(IGenericRepository<Fishermen> fishermenRepository, IUnitOfWork unitOfWork)
+        public FishermenService(IFishermenRepository fishermenRepository, IUnitOfWork unitOfWork)
             : base(unitOfWork)
         {
-            _fishermenRepository = fishermenRepository ?? throw new ArgumentNullException(nameof(fishermenRepository));
+            _fishermenRepository = fishermenRepository;
         }
 
         public IEnumerable<Fishermen> GetAllFishermen()

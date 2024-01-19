@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -30,7 +30,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DPM.Applications\DPM.Applications.csproj" />
-    <ProjectReference Include="..\DPM.Core\DPM.Core.csproj" />
     <ProjectReference Include="..\DPM.Domain\DPM.Domain.csproj" />
     <ProjectReference Include="..\DPM.Infrastructure\DPM.Infrastructure.csproj" />
     <ProjectReference Include="..\DPM.Shared\DPM.Shared.csproj" />

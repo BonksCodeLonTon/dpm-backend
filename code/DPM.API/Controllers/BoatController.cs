@@ -15,7 +15,7 @@ namespace DPM.API.Controllers
 
         public BoatController(BoatService boatService)
         {
-            _boatService = boatService ?? throw new ArgumentNullException(nameof(boatService));
+            _boatService = boatService;
         }
 
         [HttpGet]

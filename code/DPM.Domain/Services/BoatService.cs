@@ -1,6 +1,7 @@
 ﻿using DPM.Domain.Common.Interfaces;
 using DPM.Domain.Entities;
 using DPM.Domain.Interfaces;
+using DPM.Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -9,9 +10,9 @@ namespace DPM.Domain.Services
 {
     public class BoatService : BaseService<Boat>, IBoatService
     {
-        private readonly IGenericRepository<Boat> _boatRepository;
+        private readonly IBoatRepository _boatRepository;
 
-        public BoatService(IGenericRepository<Boat> boatRepository, IUnitOfWork unitOfWork)
+        public BoatService(IBoatRepository boatRepository, IUnitOfWork unitOfWork)
             : base(unitOfWork)
         {
             _boatRepository = boatRepository ?? throw new ArgumentNullException(nameof(boatRepository));

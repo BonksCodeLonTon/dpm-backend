@@ -5,15 +5,13 @@ VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPM.API", "DPM.API.csproj", "{563C4A50-B003-4741-A098-AA033CF99644}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPM.Core", "..\DPM.Core\DPM.Core.csproj", "{2FA9981F-1625-4D03-9D94-F3AF18B0280C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPM.Infrastructure", "..\DPM.Infrastructure\DPM.Infrastructure.csproj", "{71C4AAAA-3BAC-4C20-AD83-85AF2FBBB70B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPM.Domain", "..\DPM.Domain\DPM.Domain.csproj", "{8A0AA7B4-6AF4-4D2D-A297-1752541DF9E7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPM.Applications", "..\DPM.Applications\DPM.Applications.csproj", "{07F9B75A-18D6-4DD8-9764-3E707E1CAECC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPM.Shared", "..\DPM.Shared\DPM.Shared.csproj", "{34815AD1-67F1-425C-9C51-29780C74CA7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPM.Shared", "..\DPM.Shared\DPM.Shared.csproj", "{34815AD1-67F1-425C-9C51-29780C74CA7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{563C4A50-B003-4741-A098-AA033CF99644}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{563C4A50-B003-4741-A098-AA033CF99644}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{563C4A50-B003-4741-A098-AA033CF99644}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2FA9981F-1625-4D03-9D94-F3AF18B0280C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2FA9981F-1625-4D03-9D94-F3AF18B0280C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2FA9981F-1625-4D03-9D94-F3AF18B0280C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2FA9981F-1625-4D03-9D94-F3AF18B0280C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{71C4AAAA-3BAC-4C20-AD83-85AF2FBBB70B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{71C4AAAA-3BAC-4C20-AD83-85AF2FBBB70B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71C4AAAA-3BAC-4C20-AD83-85AF2FBBB70B}.Release|Any CPU.ActiveCfg = Release|Any CPU

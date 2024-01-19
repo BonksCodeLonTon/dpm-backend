@@ -24,7 +24,7 @@ namespace DPM.Infrastructure.Modules
         protected override void Load(ContainerBuilder builder)
         {
             var applicationAssembly = AppDomain.CurrentDomain.GetAssemblies()
-              .Where(x => x.GetName().Name == "EzTicket.Api.Application")
+              .Where(x => x.GetName().Name == "DPM.BackEnd.Application")
               .FirstOrDefault(Assembly.GetExecutingAssembly());
             builder.RegisterModule(new CacheModule(_configuration));
             builder.RegisterModule(new DatabaseModule(_configuration));

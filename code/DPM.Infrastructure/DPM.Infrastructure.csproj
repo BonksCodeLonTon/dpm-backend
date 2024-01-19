@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -37,6 +37,10 @@
   <ItemGroup>
     <ProjectReference Include="..\DPM.Applications\DPM.Applications.csproj" />
     <ProjectReference Include="..\DPM.Domain\DPM.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="I18n\Locales\" />
   </ItemGroup>
 
 </Project>

@@ -16,6 +16,12 @@ namespace DPM.Infrastructure.Modules
             builder.RegisterType<UserRepository>()
               .As<IUserRepository>()
               .InstancePerLifetimeScope();
+            builder.RegisterType<BoatRepository>()
+              .As<IBoatRepository>()
+              .InstancePerLifetimeScope();
+            builder.RegisterType<FishermenRepository>()
+              .As<IFishermenRepository>()
+              .InstancePerLifetimeScope();
         }
     }
 

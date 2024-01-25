@@ -11,6 +11,5 @@ namespace DPM.Domain.Enums
         PortAuthority,
         Military,
         Fishermen,
-        User
     }
 }

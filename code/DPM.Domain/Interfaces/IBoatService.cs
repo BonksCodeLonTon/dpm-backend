@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DPM.Domain.Interfaces
 {
-    internal interface IBoatService
+    public interface IBoatService
     {
         IEnumerable<Boat> GetAllBoats();
         Boat GetBoatById(long id);

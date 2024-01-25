@@ -1,15 +1,17 @@
 ﻿using DPM.Domain.Entities;
 using DPM.Domain.Enums;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Role = DPM.Domain.Common.Models.Role;
 namespace DPM.Infrastructure.Database
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<User, Role, long>
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {
@@ -23,9 +25,7 @@ namespace DPM.Infrastructure.Database
             {
                 entity.ToTable("users");
                 entity.Property(e => e.Id).IsRequired().HasColumnType("bigint").HasDefaultValueSql("generate_id()");
-                entity.Property(e => e.CognitoSub).IsRequired().HasColumnType("varchar(256)");
                 entity.Property(e => e.Email).IsRequired().HasColumnType("varchar(128)");
-                entity.Property(e => e.Username).IsRequired().HasColumnType("varchar(64)");
                 entity.Property(e => e.FullName).HasColumnType("varchar(64)");
                 entity.Property(e => e.Address).HasColumnType("varchar(256)");
                 entity.Property(e => e.PhoneNumber).HasColumnType("varchar(16)");
@@ -38,9 +38,7 @@ namespace DPM.Infrastructure.Database
                 entity.Property(e => e.UpdatedAt).IsRequired().HasDefaultValueSql("now()");
 
                 entity.HasKey(e => e.Id);
-                entity.HasIndex(e => e.CognitoSub).IsUnique();
                 entity.HasIndex(e => e.Email).IsUnique();
-                entity.HasIndex(e => e.Username).IsUnique();
                 entity
               .HasOne(e => e.Creator)
               .WithMany()
@@ -120,6 +118,7 @@ namespace DPM.Infrastructure.Database
 
                 entity.HasQueryFilter(e => !e.IsDeleted);
             });
+
         }
         public override int SaveChanges()
         {

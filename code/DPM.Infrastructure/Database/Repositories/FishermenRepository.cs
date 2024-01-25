@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using DPM.Domain.Common.Interfaces;
 using DPM.Domain.Entities;
 using DPM.Domain.Repositories;
 

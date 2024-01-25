@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 
 namespace DPM.Domain.Repositories
 {
-    public interface IUserRepository : IGenericRepository<User>
+    public interface IUserRepository : IBaseRepository<User>
     {
-        IQueryable<User> Find(string query, float minSimilarity = 0.7f, long limit = 10);
     }
 }

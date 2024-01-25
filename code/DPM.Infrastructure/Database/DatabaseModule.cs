@@ -90,7 +90,6 @@ namespace DPM.Infrastructure.Database
         protected override void Load(ContainerBuilder builder)
         {
             var options = _configuration.GetRequiredSection(Options.SectionName).Get<Options>();
-
             var connectionStrings = ConnectionStrings.FromEnvOptions(options);
             var healthCheckConnectionString = ConnectionStrings.FromEnvOptions(options, false);
             var services = new ServiceCollection();

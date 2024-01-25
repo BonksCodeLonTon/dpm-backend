@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DPM.Domain.Entities;
+using DPM.Domain.Interfaces;
 using DPM.Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,9 +12,9 @@ namespace DPM.API.Controllers
     [ApiController]
     public class BoatController : ControllerBase
     {
-        private readonly BoatService _boatService;
+        private readonly IBoatService _boatService;
 
-        public BoatController(BoatService boatService)
+        public BoatController(IBoatService boatService)
         {
             _boatService = boatService;
         }

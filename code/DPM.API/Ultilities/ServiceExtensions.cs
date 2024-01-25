@@ -1,4 +1,8 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using DPM.Domain.Common.Models;
+using DPM.Domain.Entities;
+using DPM.Infrastructure.Database;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Sinks.Elasticsearch;
 using System.Reflection;
@@ -7,6 +11,37 @@ namespace DPM.API.Ultilities
 {
     public static class ServiceExtensions
     {
+        public static void ConfigureIdentity(this IServiceCollection services)
+        {
+            services.AddIdentity<User, Role>(options =>
+            {
+                options.Password.RequiredLength = 1;
+                options.Password.RequireDigit = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequiredLength = 10;
+                options.User.RequireUniqueEmail = true;
+                options.SignIn.RequireConfirmedEmail = true;
+                options.SignIn.RequireConfirmedPhoneNumber = true;
+            })
+            .AddEntityFrameworkStores<AppDbContext>()
+            .AddDefaultTokenProviders();
+        }
+        public static void ConfigureCookies(this IServiceCollection services)
+        {
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+                options.LoginPath = $"/login/";                                 
+                options.LogoutPath = $"/logout/";
+                options.AccessDeniedPath = $"/Account/AccessDenied";
+            });
+            services.Configure<SecurityStampValidatorOptions>(options =>
+            {
+                options.ValidationInterval = TimeSpan.FromSeconds(5);
+            });
+        }
         public static void ConfigureSwagger(this IServiceCollection services)
         {
             services.AddSwaggerGen(c =>
@@ -50,30 +85,6 @@ namespace DPM.API.Ultilities
                 c.AddSecurityRequirement(security);
             });
         }
-        public static void ConfigureLogging(this IServiceCollection services, IConfiguration configuration, IWebHostEnvironment environment)
-        {
-            var logger = new LoggerConfiguration()
-                .Enrich.FromLogContext()
-                .Enrich.WithMachineName()
-                .WriteTo.Debug()
-                .WriteTo.Console()
-                .WriteTo.Elasticsearch(ConfigureElasticSink(configuration, environment))
-                .Enrich.WithProperty("Environment", environment.EnvironmentName)
-                .ReadFrom.Configuration(configuration)
-                .CreateLogger();
-
-            Log.Logger = logger;
-
-            services.AddSingleton<Serilog.ILogger>(logger);
-        }
-
-        private static ElasticsearchSinkOptions ConfigureElasticSink(IConfiguration configuration, IWebHostEnvironment environment)
-        {
-            return new ElasticsearchSinkOptions(new Uri(configuration["ElasticConfiguration:Uri"]))
-            {
-                AutoRegisterTemplate = true,
-                IndexFormat = $"{Assembly.GetExecutingAssembly()?.GetName()?.Name?.ToLower().Replace(".", "-")}-{environment?.EnvironmentName?.ToLower().Replace(".", "-")}-{DateTime.UtcNow:yyyy-MM}"
-            };
-        }
+ 
     }
 }

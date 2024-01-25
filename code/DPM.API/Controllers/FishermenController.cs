@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using DPM.Domain.Entities;
 using DPM.Domain.Services;
+using DPM.Domain.Interfaces;
 
 namespace DPM.API.Controllers
 {
@@ -10,9 +11,9 @@ namespace DPM.API.Controllers
     [ApiController]
     public class FishermenController : ControllerBase
     {
-        private readonly FishermenService _fishermenService;
+        private readonly IFishermenService _fishermenService;
 
-        public FishermenController(FishermenService fishermenService)
+        public FishermenController(IFishermenService fishermenService)
         {
             _fishermenService = fishermenService;
         }

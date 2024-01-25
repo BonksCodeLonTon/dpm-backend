@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using DPM.Applications;
+using DPM.Infrastructure.Auth;
 using DPM.Infrastructure.Database;
+using DPM.Infrastructure.Serilog;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -26,8 +28,17 @@ namespace DPM.Infrastructure.Modules
             var applicationAssembly = AppDomain.CurrentDomain.GetAssemblies()
               .Where(x => x.GetName().Name == "DPM.BackEnd.Application")
               .FirstOrDefault(Assembly.GetExecutingAssembly());
+            builder.RegisterModule(new ConfigurationModule(_configuration));
+            builder.RegisterModule(new AuthModule(_configuration));
+            builder.RegisterModule(new AutoMapperModule(applicationAssembly));
             builder.RegisterModule(new CacheModule(_configuration));
             builder.RegisterModule(new DatabaseModule(_configuration));
+            builder.RegisterModule(new AutoMapperModule(applicationAssembly));
+            builder.RegisterModule(new FluentValidationModule(applicationAssembly));
+            builder.RegisterModule(new MediatRModule(applicationAssembly));
+            builder.RegisterModule(new SerilogModule(_configuration));
+            builder.RegisterModule(new JwtModule(_configuration));
+            builder.RegisterModule(new ServiceModule());
 
         }
     }

@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Localization;
 using DPM.Infrastructure.Modules;
 using DPM.Infrastructure.Common;
 using DPM.API.Ultilities;
+using Serilog;
+using Serilog.Sinks.Elasticsearch;
+using Serilog.Formatting.Json;
+using Serilog.Sinks.File;
 
 var builder = WebApplication.CreateBuilder(args);
 

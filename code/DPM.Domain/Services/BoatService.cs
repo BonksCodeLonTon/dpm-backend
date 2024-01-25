@@ -12,8 +12,8 @@ namespace DPM.Domain.Services
     {
         private readonly IBoatRepository _boatRepository;
 
-        public BoatService(IBoatRepository boatRepository, IUnitOfWork unitOfWork)
-            : base(unitOfWork)
+        public BoatService(IBoatRepository boatRepository, IUnitOfWorkFactory unitOfWorkFactory)
+            : base(unitOfWorkFactory) 
         {
             _boatRepository = boatRepository ?? throw new ArgumentNullException(nameof(boatRepository));
         }
@@ -36,7 +36,9 @@ namespace DPM.Domain.Services
             }
 
             _boatRepository.Add(boat);
-            await UnitOfWork.CommitAsync();
+
+            using var unitOfWork = _unitOfWorkFactory.Create();
+            await unitOfWork.CommitAsync();
         }
 
         public async Task UpdateBoat(Boat boat)
@@ -47,7 +49,8 @@ namespace DPM.Domain.Services
             }
 
             _boatRepository.Update(boat);
-            await UnitOfWork.CommitAsync();
+            using var unitOfWork = _unitOfWorkFactory.Create();
+            await unitOfWork.CommitAsync();
         }
 
         public async Task DeleteBoat(long id)
@@ -57,7 +60,8 @@ namespace DPM.Domain.Services
             if (boat != null)
             {
                 _boatRepository.Delete(boat);
-                await UnitOfWork.CommitAsync();
+                using var unitOfWork = _unitOfWorkFactory.Create();
+                await unitOfWork.CommitAsync();
             }
         }
     }

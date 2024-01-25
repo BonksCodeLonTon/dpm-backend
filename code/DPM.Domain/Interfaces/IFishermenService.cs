@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using DPM.Domain.Entities;
 
-namespace DPM.Domain.Common.Interfaces
+namespace DPM.Domain.Interfaces
 {
     public interface IFishermenService
     {

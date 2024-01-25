@@ -4,12 +4,11 @@ namespace DPM.Domain.Services
 {
     public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class
     {
-        protected readonly IUnitOfWork UnitOfWork;
+        protected readonly IUnitOfWorkFactory _unitOfWorkFactory;
 
-        public BaseService(IUnitOfWork unitOfWork)
+        public BaseService(IUnitOfWorkFactory unitOfWorkFactory)
         {
-            UnitOfWork = unitOfWork;
+            _unitOfWorkFactory = unitOfWorkFactory ?? throw new ArgumentNullException(nameof(unitOfWorkFactory));
         }
-
     }
 }

@@ -23,7 +23,7 @@ namespace DPM.Infrastructure.Database
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<User>(entity =>
             {
-                entity.ToTable("users");
+                entity.ToTable("Users");
                 entity.Property(e => e.Id).IsRequired().HasColumnType("bigint").HasDefaultValueSql("generate_id()");
                 entity.Property(e => e.Email).IsRequired().HasColumnType("varchar(128)");
                 entity.Property(e => e.FullName).HasColumnType("varchar(64)");
@@ -52,9 +52,9 @@ namespace DPM.Infrastructure.Database
                     entity.HasQueryFilter(e => !e.IsDeleted);
 
                 });
-            modelBuilder.Entity<Boat>(entity =>
+            modelBuilder.Entity<Ship>(entity =>
             {
-                entity.ToTable("boats");
+                entity.ToTable("Boats");
                 entity.Property(e => e.Id).IsRequired().HasColumnType("bigint").HasDefaultValueSql("generate_id()");
                 entity.Property(e => e.ClassNumber).IsRequired().HasColumnType("varchar(128)");
                 entity.Property(e => e.Name).IsRequired().HasColumnType("varchar(128)");
@@ -76,7 +76,7 @@ namespace DPM.Infrastructure.Database
                 entity
                   .HasOne(e => e.Owner)
                   .WithOne()
-                  .HasForeignKey<Boat>(e => e.OwnerId);
+                  .HasForeignKey<Ship>(e => e.OwnerId);
                 entity
                   .HasOne(e => e.Creator)
                   .WithMany()
@@ -92,7 +92,7 @@ namespace DPM.Infrastructure.Database
 
             modelBuilder.Entity<Fishermen>(entity =>
             {
-                entity.ToTable("fishermens");
+                entity.ToTable("Fishermens");
                 entity.Property(e => e.Id).IsRequired().HasColumnType("bigint").HasDefaultValueSql("generate_id()");
                 entity.Property(e => e.UserId).IsRequired().HasColumnType("bigint");
                 entity.Property(e => e.IsDisabled).IsRequired().HasDefaultValue(false);

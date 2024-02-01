@@ -20,13 +20,13 @@ namespace DPM.API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Boat> Get()
+        public IEnumerable<Ship> Get()
         {
             return _boatService.GetAllBoats();
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Boat> Get(long id)
+        public ActionResult<Ship> Get(long id)
         {
             var boat = _boatService.GetBoatById(id);
 
@@ -39,7 +39,7 @@ namespace DPM.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Boat boat)
+        public async Task<IActionResult> Post([FromBody] Ship boat)
         {
             if (boat == null)
             {
@@ -52,7 +52,7 @@ namespace DPM.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(long id, [FromBody] Boat boat)
+        public async Task<IActionResult> Put(long id, [FromBody] Ship boat)
         {
             if (id != boat.Id)
             {

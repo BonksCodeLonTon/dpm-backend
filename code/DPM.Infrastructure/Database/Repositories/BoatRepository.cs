@@ -5,7 +5,7 @@ using DPM.Domain.Repositories;
 
 namespace DPM.Infrastructure.Database.Repositories
 {
-    internal class BoatRepository : GenericRepository<Boat>, IBoatRepository
+    internal class BoatRepository : GenericRepository<Ship>, IBoatRepository
     {
         public BoatRepository(ILifetimeScope scope) : base(scope)
         {

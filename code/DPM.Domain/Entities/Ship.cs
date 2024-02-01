@@ -3,7 +3,7 @@
 
 namespace DPM.Domain.Entities
 {
-    public class Boat : BaseEntity, ISoftDeletableEntity, IAuditableEntity
+    public class Ship : BaseEntity, ISoftDeletableEntity, IAuditableEntity
     {
         public string Name { get; set; }
         public string ClassNumber { get; set; }

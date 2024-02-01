@@ -16,8 +16,8 @@ namespace DPM.Domain.Entities
         public bool IsDeleted { get; set; }
         public long? CreatedBy { get; set; }
         public long? UpdatedBy { get; set; }
-        public bool? IsOwner => Boat != null ? (Boat.OwnerId == Id) : null;
-        public Boat? Boat { get; set; }
+        public bool? IsOwner => Ship != null ? (Ship.OwnerId == Id) : null;
+        public Ship? Ship { get; set; }
         public User? User { get; set; }
         public User? Creator { get; set; }
         public User? Updater { get; set; }

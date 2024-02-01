@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DPM.Domain.Enums
+namespace DPM.Domain.Models.RequestModel.Boat
 {
-    public enum Role
+    public class BoatGetByImoModel
     {
-        PortAuthority,
-        Military,
-        Fishermen,
-        Admin
     }
 }

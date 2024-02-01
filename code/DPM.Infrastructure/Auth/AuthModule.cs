@@ -69,6 +69,7 @@ namespace DPM.Infrastructure.Auth
             // Authorization policies
             services.AddAuthorization(options =>
             {
+                options.AddPolicy("IsAdmin", policy => policy.Requirements.Add(new IsAdminRequirement()));
                 options.AddPolicy("IsMilitary", policy => policy.Requirements.Add(new IsRoleRequirement(Domain.Enums.Role.Military)));
                 options.AddPolicy("IsPortAuthority", policy => policy.Requirements.Add(new IsRoleRequirement(Domain.Enums.Role.PortAuthority)));
 

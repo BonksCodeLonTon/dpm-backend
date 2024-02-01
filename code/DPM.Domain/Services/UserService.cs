@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DPM.Domain.Enums
+namespace DPM.Domain.Services
 {
-    public enum Role
+    internal class UserService
     {
-        PortAuthority,
-        Military,
-        Fishermen,
-        Admin
     }
 }

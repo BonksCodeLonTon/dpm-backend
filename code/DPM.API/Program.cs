@@ -16,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") != "Production")
 {
-    builder.WebHost.UseUrls("http://localhost:5000", "http://localhost:5001", "http://localhost:5002");
+    builder.WebHost.UseUrls("http://localhost:5000");
 }
 
 builder.Host.ConfigureHostConfiguration((config) => config.AddEnvironmentVariables());
@@ -44,9 +44,11 @@ builder.Services.AddCors(options =>
           .AllowAnyHeader()
           .AllowAnyMethod()));
 
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
-if (!app.Environment.IsProduction())
+if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(c =>

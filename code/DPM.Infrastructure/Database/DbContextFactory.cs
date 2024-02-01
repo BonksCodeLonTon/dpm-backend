@@ -10,22 +10,9 @@ namespace DPM.Infrastructure.Database
     {
         public AppDbContext CreateDbContext(string[] args)
         {
-            var configuration = new ConfigurationBuilder()
-                   .AddEnvironmentVariables()
-                   .Build();
-            var services = new ServiceCollection();
-
-            services.AddOptions<DatabaseModule.Options>()
-               .Bind(configuration.GetRequiredSection(DatabaseModule.Options.SectionName))
-               .ValidateDataAnnotations()
-               .ValidateOnStart();
-            var provider = services.BuildServiceProvider();
-            var options = provider.GetRequiredService<IOptionsSnapshot<DatabaseModule.Options>>().Value;
-            var connectionStrings = DatabaseModule.ConnectionStrings.FromEnvOptions(options);
-
             return new AppDbContext(
               new DbContextOptionsBuilder()
-                .UseNpgsql(connectionStrings.Writer)
+                .UseNpgsql("Host=localhost; Database=DPM; Username=postgres; Password=Abc@12345")
                 .Options);
         }
     }

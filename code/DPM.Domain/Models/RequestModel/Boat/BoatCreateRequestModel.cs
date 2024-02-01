@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DPM.Domain.Enums
+namespace DPM.Domain.Models.RequestModel
 {
-    public enum Role
+    internal class BoatCreateRequestModel
     {
-        PortAuthority,
-        Military,
-        Fishermen,
-        Admin
     }
 }

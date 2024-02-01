@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DPM.Domain.Repositories
 {
-    public interface IBoatRepository : IGenericRepository<Boat>
+    public interface IBoatRepository : IGenericRepository<Ship>
     {
     }
 }

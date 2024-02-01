@@ -9,10 +9,10 @@ namespace DPM.Domain.Interfaces
 {
     public interface IBoatService
     {
-        IEnumerable<Boat> GetAllBoats();
-        Boat GetBoatById(long id);
-        Task AddBoat(Boat boat);
-        Task UpdateBoat(Boat boat);
+        IEnumerable<Ship> GetAllBoats();
+        Ship GetBoatById(long id);
+        Task AddBoat(Ship boat);
+        Task UpdateBoat(Ship boat);
         Task DeleteBoat(long id);
     }
 }

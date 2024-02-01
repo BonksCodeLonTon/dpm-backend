@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DPM.Domain.Services
 {
-    public class BoatService : BaseService<Boat>, IBoatService
+    public class BoatService : BaseService<Ship>, IBoatService
     {
         private readonly IBoatRepository _boatRepository;
 
@@ -18,17 +18,17 @@ namespace DPM.Domain.Services
             _boatRepository = boatRepository ?? throw new ArgumentNullException(nameof(boatRepository));
         }
 
-        public IEnumerable<Boat> GetAllBoats()
+        public IEnumerable<Ship> GetAllBoats()
         {
             return _boatRepository.GetAll();
         }
 
-        public Boat GetBoatById(long id)
+        public Ship GetBoatById(long id)
         {
             return _boatRepository.GetById(id);
         }
 
-        public async Task AddBoat(Boat boat)
+        public async Task AddBoat(Ship boat)
         {
             if (boat == null)
             {
@@ -41,7 +41,7 @@ namespace DPM.Domain.Services
             await unitOfWork.CommitAsync();
         }
 
-        public async Task UpdateBoat(Boat boat)
+        public async Task UpdateBoat(Ship boat)
         {
             if (boat == null)
             {

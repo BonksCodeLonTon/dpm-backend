@@ -30,6 +30,4 @@ namespace DPM.Domain.Models.ResponseModel
 
         public object Search { get; set; } 
     }
-
-
 }

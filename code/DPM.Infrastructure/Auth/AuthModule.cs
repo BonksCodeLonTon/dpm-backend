@@ -8,13 +8,18 @@ using Autofac.Extensions.DependencyInjection;
 using DPM.Domain.Common.Models;
 using DPM.Domain.Entities;
 using DPM.Infrastructure.Auth.Policies;
+using DPM.Infrastructure.Common;
 using DPM.Infrastructure.Database;
+using DPM.Infrastructure.Providers.Aws.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Protocols;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
 namespace DPM.Infrastructure.Auth
 {
@@ -31,42 +36,34 @@ namespace DPM.Infrastructure.Auth
         {
             var services = new ServiceCollection();
 
-            services.AddOptions<JwtModule.Options>()
-              .Bind(_configuration.GetRequiredSection(JwtModule.Options.SectionName))
+            services.AddOptions<CognitoService.Options>()
+              .Bind(_configuration.GetRequiredSection(CognitoService.Options.SectionName))
               .ValidateDataAnnotations()
               .ValidateOnStart();
+            var options = _configuration.GetSection(CognitoService.Options.SectionName).Get<CognitoService.Options>();
+            var cognitoIssuer = $"https://cognito-idp.{Constants.AwsRegion}.amazonaws.com/{options.UserPoolId}";
+            var cognitoAudience = options.UserPoolClientId;
 
-            // Add Identity
-            services.AddIdentity<User, Role>()
-                .AddEntityFrameworkStores<AppDbContext>()
-                .AddDefaultTokenProviders();
+            services
+                .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.ConfigurationManager = new ConfigurationManager<OpenIdConnectConfiguration>(
+           $"{cognitoIssuer}/.well-known/openid-configuration",
+           new OpenIdConnectConfigurationRetriever(),
+           new HttpDocumentRetriever { RequireHttps = true });
+                    options.TokenValidationParameters =
+           new TokenValidationParameters
+                    {
+                        ValidIssuer = cognitoIssuer,
+                        ValidAudience = cognitoAudience,
+                        ValidateIssuerSigningKey = true,
+                        ValidateIssuer = true,
+                        ValidateLifetime = true,
+                        ValidateAudience = true,
+                    };
+                });
 
-            services.Configure<IdentityOptions>(options =>
-            {
-                options.Password.RequiredLength = 1;
-                options.Password.RequireDigit = true;
-                options.Password.RequireNonAlphanumeric = true;
-                options.Password.RequireUppercase = true;
-                options.Password.RequireLowercase = true;
-                options.Password.RequiredLength = 10;
-                options.User.RequireUniqueEmail = true;
-                options.SignIn.RequireConfirmedEmail = true;
-                options.SignIn.RequireConfirmedPhoneNumber = true;
-            });
-
-            services.AddAuthentication(options =>
-            {
-                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            })
-            .AddCookie(options =>
-            {
-                options.LoginPath = "/Account/Login";
-                options.AccessDeniedPath = "/Account/AccessDenied";
-            });
-
-            // Authorization policies
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("IsAdmin", policy => policy.Requirements.Add(new IsAdminRequirement()));
@@ -75,8 +72,7 @@ namespace DPM.Infrastructure.Auth
 
             });
 
-            // Authorization handlers
-
+            services.AddSingleton<IAuthorizationHandler, IsRoleHandler>();
             builder.Populate(services);
         }
     }

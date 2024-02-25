@@ -4,13 +4,12 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using System.Text.Json;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Localization;
-using DPM.Infrastructure.Modules;
 using DPM.Infrastructure.Common;
 using DPM.API.Ultilities;
-using Serilog;
-using Serilog.Sinks.Elasticsearch;
-using Serilog.Formatting.Json;
-using Serilog.Sinks.File;
+using DPM.Infrastructure;
+using Amazon.XRay.Recorder.Handlers.AwsSdk;
+
+AWSSDKHandler.RegisterXRayForAllServices();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,21 +20,18 @@ if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") != "Production"
 
 builder.Host.ConfigureHostConfiguration((config) => config.AddEnvironmentVariables());
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
-
-builder.Host.ConfigureServices((hostContext, services) =>
+builder.Host.ConfigureContainer<ContainerBuilder>((ctx, containerBuilder) =>
 {
-    services.ConfigureSwagger();
-});
-
-builder.Host.ConfigureContainer<ContainerBuilder>((hostContext, containerBuilder) =>
-{
-    containerBuilder.RegisterModule(new InfrastructureModule(hostContext.Configuration));
+    containerBuilder.RegisterModule(new InfrastructureModule(ctx.Configuration));
     containerBuilder.RegisterInstance<IConfiguration>(builder.Configuration);
 });
+builder.Services
+    .AddControllers()
+    .AddApplicationPart(typeof(InfrastructureModule).Assembly);
+
+
 
 // Use ConfigureServices for other service registrations
-builder.Services.AddControllers()
-    .AddApplicationPart(typeof(InfrastructureModule).Assembly);
 
 builder.Services.AddCors(options =>
     options.AddPolicy(name: "AllOrigins", policy =>
@@ -43,6 +39,11 @@ builder.Services.AddCors(options =>
           .WithOrigins("*")
           .AllowAnyHeader()
           .AllowAnyMethod()));
+
+builder.Host.ConfigureServices((hostContext, services) =>
+{
+    services.ConfigureSwagger();
+});
 
 builder.Services.AddSwaggerGen();
 

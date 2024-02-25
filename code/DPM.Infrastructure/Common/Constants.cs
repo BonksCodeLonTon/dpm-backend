@@ -10,6 +10,8 @@ namespace DPM.Infrastructure.Common
 {
     public class Constants
     {
+        public static readonly string AwsRegion = "ap-southeast-1" ?? throw new Exception("AWS_REGION is not set");
+
         public static readonly CultureInfo[] SupportedCultures = new[]
         {
       new CultureInfo("en-US"),

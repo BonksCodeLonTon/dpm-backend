@@ -10,6 +10,7 @@ namespace DPM.Infrastructure.Database
     {
         public AppDbContext CreateDbContext(string[] args)
         {
+
             return new AppDbContext(
               new DbContextOptionsBuilder()
                 .UseNpgsql("Host=localhost; Database=DPM; Username=postgres; Password=Abc@12345")

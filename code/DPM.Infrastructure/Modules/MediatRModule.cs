@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using Autofac;
+using DPM.Applications;
 using DPM.Applications.Behaviours;
 using MediatR.Extensions.Autofac.DependencyInjection;
 using MediatR.Extensions.Autofac.DependencyInjection.Builder;
@@ -17,6 +18,7 @@ namespace DPM.Infrastructure.Modules
 
         protected override void Load(ContainerBuilder builder)
         {
+
             var configuration = MediatRConfigurationBuilder
               .Create(_assembly)
               .WithAllOpenGenericHandlerTypesRegistered()

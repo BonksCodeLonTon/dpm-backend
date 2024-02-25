@@ -23,11 +23,11 @@ namespace DPM.Infrastructure.Modules
             builder.RegisterType<RequestContextService>()
               .As<IRequestContextService>()
               .SingleInstance();
-            builder.RegisterType<FishermenService>()
-              .As<IFishermenService>()
+            builder.RegisterType<JwtService>()
+              .As<IJwtService>()
               .SingleInstance();
-            builder.RegisterType<BoatService>()
-              .As<IBoatService>()
+            builder.RegisterType<AsyncRunnerService>()
+              .As<IAsyncRunnerService>()
               .SingleInstance();
         }
     }

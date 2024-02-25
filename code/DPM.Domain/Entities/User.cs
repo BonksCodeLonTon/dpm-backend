@@ -10,11 +10,14 @@ using System.Threading.Tasks;
 
 namespace DPM.Domain.Entities
 {
-    public class User : IdentityUser<long>, ISoftDeletableEntity, IAuditableEntity
+    public class User : BaseEntity, ISoftDeletableEntity, IAuditableEntity
     {
+        public string CognitoSub { get; set; } = default!;
         public string? FullName { get; set; }
         public string? Address { get; set; }
         public string? PhoneNumber { get; set; }
+        public string Username { get; set; } = default!;
+        public string Email { get; set; } = default!;
         public Gender? Gender { get; set; }
         public string? Avatar { get; set; }
         public RoleType RoleType { get; set; } = default!;
@@ -22,7 +25,6 @@ namespace DPM.Domain.Entities
         public bool IsDeleted { get; set; }
         public long? CreatedBy { get; set; }
         public long? UpdatedBy { get; set; }
-
         public User? Creator { get; set; }
         public User? Updater { get; set; }
         public long Id { get; set; }

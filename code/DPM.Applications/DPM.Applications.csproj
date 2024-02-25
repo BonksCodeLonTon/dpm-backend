@@ -7,11 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.1.1" />
+    <ProjectReference Include="..\DPM.Domain\DPM.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DPM.Domain\DPM.Domain.csproj" />
+    <Folder Include="Features\Ships\GetMyShip\" />
+    <Folder Include="Features\Ships\DeleteShip\" />
+    <Folder Include="Features\Ships\UpdateShip\" />
+    <Folder Include="Features\Users\UpdateUsers\" />
   </ItemGroup>
 
 </Project>

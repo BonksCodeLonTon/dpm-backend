@@ -33,7 +33,6 @@ namespace DPM.Infrastructure.Services
           : throw new UnauthorizedException();
         public string Origin => GetOrigin();
         public User User => GetUser();
-
         public string GetOrigin()
         {
             if (_httpContextAccessor?.HttpContext?.Request.Headers.TryGetValue("Custom-Origin", out var origin) ?? false)
@@ -66,6 +65,27 @@ namespace DPM.Infrastructure.Services
         }
 
 
+        public Ship GetShip()
+        {
+            var context = _httpContextAccessor.HttpContext
+              ?? throw new InvalidOperationException("HttpContext is null");
+            var user = User;
+            using var scope = _parentScope.BeginLifetimeScope();
+            var repository = scope.Resolve<IShipRepository>();
+            var ship = repository
+              .GetAll(
+                ReadConsistency.Cached,
+                relations: new[] { "ShipOwner" })
+              .FirstOrDefault(o => o.Owner!.Id == user.Id)
+              ?? throw new ForbiddenException();
+
+            if (ship.IsDisabled)
+            {
+                throw new LockedException();
+            }
+
+            return (Ship)(context.Items["Ship"] = ship);
+        }
 
         public void SetValue(string key, object value)
         {

@@ -21,18 +21,13 @@ namespace DPM.Domain.Entities
         public Gender? Gender { get; set; }
         public string? Avatar { get; set; }
         public RoleType RoleType { get; set; } = default!;
+        public Role Role { get; set; }
         public bool IsDisabled { get; set; }
         public bool IsDeleted { get; set; }
         public long? CreatedBy { get; set; }
         public long? UpdatedBy { get; set; }
         public User? Creator { get; set; }
         public User? Updater { get; set; }
-        public long Id { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
-        [NotMapped]
-        public ICollection<BaseDomainEvent> DomainEvents { get; init; } = new List<BaseDomainEvent>();
-
     }
 
 }

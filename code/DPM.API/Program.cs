@@ -8,8 +8,18 @@ using DPM.Infrastructure.Common;
 using DPM.API.Ultilities;
 using DPM.Infrastructure;
 using Amazon.XRay.Recorder.Handlers.AwsSdk;
-
-AWSSDKHandler.RegisterXRayForAllServices();
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
+using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerUI;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,28 +35,53 @@ builder.Host.ConfigureContainer<ContainerBuilder>((ctx, containerBuilder) =>
     containerBuilder.RegisterModule(new InfrastructureModule(ctx.Configuration));
     containerBuilder.RegisterInstance<IConfiguration>(builder.Configuration);
 });
+
+// Adding services for Controllers
 builder.Services
     .AddControllers()
     .AddApplicationPart(typeof(InfrastructureModule).Assembly);
 
-
-
-// Use ConfigureServices for other service registrations
-
+// Configure CORS
 builder.Services.AddCors(options =>
     options.AddPolicy(name: "AllOrigins", policy =>
         policy
-          .WithOrigins("*")
-          .AllowAnyHeader()
-          .AllowAnyMethod()));
+            .WithOrigins("*")
+            .AllowAnyHeader()
+            .AllowAnyMethod()));
 
-builder.Host.ConfigureServices((hostContext, services) =>
+// Configure Swagger
+builder.Services.AddSwaggerGen(c =>
 {
-    services.ConfigureSwagger();
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "DPM.API", Version = "v1" });
+
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT"
+    });
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
+    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DPM.API.xml"));
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new List<string>()
+        }
+    });
 });
-
-builder.Services.AddSwaggerGen();
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -54,13 +89,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("./swagger/v1/swagger.json", "API v1");
+        c.SwaggerEndpoint("swagger/v1/swagger.json", "API v1");
         c.RoutePrefix = string.Empty;
     });
 }
-
 app.UseCors("AllOrigins");
 
+// Request Localization Middleware
 app.UseRequestLocalization(new RequestLocalizationOptions
 {
     SupportedCultures = Constants.SupportedCultures,
@@ -73,29 +108,34 @@ app.UseRequestLocalization(new RequestLocalizationOptions
 });
 
 app.UseAuthentication();
+app.UseRouting();
 app.UseAuthorization();
 
-app.MapControllers();
+app.UseEndpoints(config =>
+    {
+        // Health Checks
+        config.MapHealthChecks("/health", new HealthCheckOptions
+        {
+            Predicate = _ => true,
+            ResponseWriter = async (context, report) =>
+            {
+                context.Response.ContentType = "application/json";
+                context.Response.StatusCode = report.Status == HealthStatus.Healthy ? StatusCodes.Status200OK : StatusCodes.Status503ServiceUnavailable;
 
-app.UseRouting()
-   .UseEndpoints(config => config.MapHealthChecks("/health", new HealthCheckOptions
-   {
-       Predicate = _ => true,
-       ResponseWriter = (context, report) =>
-       {
-           context.Response.ContentType = "application/json";
-           context.Response.StatusCode = report.Status == HealthStatus.Healthy ? StatusCodes.Status200OK : StatusCodes.Status503ServiceUnavailable;
+                await context.Response.WriteAsync(JsonSerializer.Serialize(new
+                {
+                    status = report.Status.ToString(),
+                    services = report.Entries.Select(e => new
+                    {
+                        name = e.Key,
+                        status = Enum.GetName(typeof(HealthStatus), e.Value.Status),
+                    })
+                }));
+            }
+        });
 
-           return context.Response.WriteAsync(JsonSerializer.Serialize(new
-           {
-               status = report.Status.ToString(),
-               services = report.Entries.Select(e => new
-               {
-                   name = e.Key,
-                   status = Enum.GetName(typeof(HealthStatus), e.Value.Status),
-               })
-           }));
-       }
-   }));
+        config.MapControllers();
+    });
 
 app.Run();
+    

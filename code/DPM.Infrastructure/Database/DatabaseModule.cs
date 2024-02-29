@@ -111,6 +111,7 @@ namespace DPM.Infrastructure.Database
                     .AddInterceptors(ctx.Resolve<IEnumerable<SaveChangesInterceptor>>())
                     .AddInterceptors(ctx.Resolve<IEnumerable<DbCommandInterceptor>>())
                     .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+                    .UseSnakeCaseNamingConvention()
                     .UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()))
                     .EnableSensitiveDataLogging()
             );

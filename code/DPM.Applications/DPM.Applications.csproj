@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,10 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Ships\GetMyShip\" />
+    <Folder Include="Features\Map\" />
+    <Folder Include="Features\Fishermen\" />
+    <Folder Include="Features\FishTracking\" />
+    <Folder Include="Features\Allowance\" />
+    <Folder Include="Features\Weather\" />
     <Folder Include="Features\Ships\DeleteShip\" />
-    <Folder Include="Features\Ships\UpdateShip\" />
-    <Folder Include="Features\Users\UpdateUsers\" />
   </ItemGroup>
 
 </Project>

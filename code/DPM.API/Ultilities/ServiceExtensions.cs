@@ -11,37 +11,6 @@ namespace DPM.API.Ultilities
 {
     public static class ServiceExtensions
     {
-        public static void ConfigureIdentity(this IServiceCollection services)
-        {
-            services.AddIdentity<User, Role>(options =>
-            {
-                options.Password.RequiredLength = 1;
-                options.Password.RequireDigit = true;
-                options.Password.RequireNonAlphanumeric = true;
-                options.Password.RequireUppercase = true;
-                options.Password.RequireLowercase = true;
-                options.Password.RequiredLength = 10;
-                options.User.RequireUniqueEmail = true;
-                options.SignIn.RequireConfirmedEmail = true;
-                options.SignIn.RequireConfirmedPhoneNumber = true;
-            })
-            .AddEntityFrameworkStores<AppDbContext>()
-            .AddDefaultTokenProviders();
-        }
-        public static void ConfigureCookies(this IServiceCollection services)
-        {
-            services.ConfigureApplicationCookie(options =>
-            {
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-                options.LoginPath = $"/login/";                                 
-                options.LogoutPath = $"/logout/";
-                options.AccessDeniedPath = $"/Account/AccessDenied";
-            });
-            services.Configure<SecurityStampValidatorOptions>(options =>
-            {
-                options.ValidationInterval = TimeSpan.FromSeconds(5);
-            });
-        }
         public static void ConfigureSwagger(this IServiceCollection services)
         {
             services.AddSwaggerGen(c =>

@@ -76,7 +76,7 @@ namespace DPM.Infrastructure.Services
               .GetAll(
                 ReadConsistency.Cached,
                 relations: new[] { "ShipOwner" })
-              .FirstOrDefault(o => o.Owner!.Id == user.Id)
+              .FirstOrDefault(o => o.OwnerId == user.Id)
               ?? throw new ForbiddenException();
 
             if (ship.IsDisabled)

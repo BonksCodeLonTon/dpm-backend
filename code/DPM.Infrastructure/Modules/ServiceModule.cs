@@ -1,15 +1,7 @@
 ﻿using Autofac;
 using DPM.Applications.Services;
-using DPM.Domain.Common.Interfaces;
-using DPM.Domain.Interfaces;
-using DPM.Domain.Services;
 using DPM.Infrastructure.Services;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DPM.Infrastructure.Modules
 {

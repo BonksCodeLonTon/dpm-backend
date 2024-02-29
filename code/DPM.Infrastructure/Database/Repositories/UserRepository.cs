@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using DPM.Domain.Common;
 using DPM.Domain.Entities;
 using DPM.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,13 @@ namespace DPM.Infrastructure.Database.Repositories
         public UserRepository(ILifetimeScope scope) : base(scope)
         {
         }
+
+        public User GetByUsername(string username, ReadConsistency readConsistency = ReadConsistency.Strong, bool tracking = false, params string[] relations)
+        {
+            return GetAll(readConsistency, tracking, relations).FirstOrDefault(x => x.Username == username);
+
+        }
+
         IQueryable<User> IUserRepository.Find(string query, float minSimilarity, long limit)
         {
             if (minSimilarity > 0)
@@ -24,7 +32,7 @@ namespace DPM.Infrastructure.Database.Repositories
 
             var result = _readonlyDbSet
               .FromSqlRaw(@$"
-      SELECT * FROM users
+      SELECT * FROM Users
       {(minSimilarity > 0 ? @"
       WHERE
         (full_name)::text <<% {0}

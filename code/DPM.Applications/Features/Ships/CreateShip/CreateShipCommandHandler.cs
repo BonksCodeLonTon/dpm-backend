@@ -1,4 +1,5 @@
-﻿using DPM.Domain.Common.Interfaces;
+﻿using AutoMapper;
+using DPM.Domain.Common.Interfaces;
 using DPM.Domain.Entities;
 using DPM.Domain.Exceptions;
 using DPM.Domain.Repositories;
@@ -12,14 +13,18 @@ namespace DPM.Applications.Features.Ships.CreateShip
     {
         private readonly IUnitOfWorkFactory _unitOfWorkFactory;
         private readonly IShipRepository _shipRepository;
+        private readonly IMapper _mapper;
+
 
         public CreateShipCommandHandler(
             IUnitOfWorkFactory unitOfWorkFactory,
-            IShipRepository shipRepository
+            IShipRepository shipRepository,
+            IMapper mapper
         )
         {
             _unitOfWorkFactory = unitOfWorkFactory;
             _shipRepository = shipRepository;
+            _mapper = mapper;
         }
 
         public async Task<Ship> Handle(CreateShipCommand request, CancellationToken cancellationToken)
@@ -30,25 +35,14 @@ namespace DPM.Applications.Features.Ships.CreateShip
             {
                 throw new ConflictException(nameof(Ship));
             }
+            var ship = _mapper.Map<CreateShipCommand, Ship>(request);
+            using var unitOfWork = _unitOfWorkFactory.Create(deferred: true);
+            
+            _shipRepository.Add(ship);
+            
+            await _shipRepository.SaveChangesAsync(cancellationToken);
+            await unitOfWork.CommitAsync(cancellationToken);
 
-            var ship = new Ship
-            {
-                Name = request.Name,
-                ClassNumber = request.ClassNumber,
-                IMONumber = request.IMONumber,
-                Purpose = request.Purpose,
-                RegisterNumber = request.RegisterNumber,
-                GrossTonnage = request.GrossTonnage,
-                TotalPower = request.TotalPower,
-                IsDisabled = false,
-                CreatedBy = request.CreatedBy
-            };
-
-            using (var unitOfWork = _unitOfWorkFactory.Create())
-            {
-                _shipRepository.Add(ship);
-                await unitOfWork.CommitAsync();
-            }
             return ship;
         }
     }

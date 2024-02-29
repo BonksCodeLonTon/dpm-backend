@@ -60,7 +60,7 @@ namespace DPM.Infrastructure.Auth
                         ValidateIssuerSigningKey = true,
                         ValidateIssuer = true,
                         ValidateLifetime = true,
-                        ValidateAudience = true,
+                        ValidateAudience = false,
                     };
                 });
 

@@ -2,10 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+	<SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,7 +30,6 @@
     <ProjectReference Include="..\DPM.Applications\DPM.Applications.csproj" />
     <ProjectReference Include="..\DPM.Domain\DPM.Domain.csproj" />
     <ProjectReference Include="..\DPM.Infrastructure\DPM.Infrastructure.csproj" />
-    <ProjectReference Include="..\DPM.Shared\DPM.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

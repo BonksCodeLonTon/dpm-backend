@@ -3,8 +3,8 @@ using Amazon.Lambda.CognitoEvents;
 using Amazon.Lambda.Serialization.SystemTextJson;
 using Npgsql;
 using Dapper;
-using DPM.Domain.Entities;
 using DPM.Functions.Shared;
+using DPM.Domain.Entities;
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(DefaultLambdaJsonSerializer))]
 
@@ -27,6 +27,7 @@ public class Function
         {
           { "user_id", user.Id.ToString() },
           { "role_type", Enum.GetName(user.RoleType)! },
+            {"role", Enum.GetName(user.Role)! }
         }
         };
 

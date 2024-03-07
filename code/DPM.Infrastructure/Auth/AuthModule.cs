@@ -69,7 +69,6 @@ namespace DPM.Infrastructure.Auth
                 options.AddPolicy("IsAdmin", policy => policy.Requirements.Add(new IsAdminRequirement()));
                 options.AddPolicy("IsMilitary", policy => policy.Requirements.Add(new IsRoleRequirement(Domain.Enums.Role.Military)));
                 options.AddPolicy("IsPortAuthority", policy => policy.Requirements.Add(new IsRoleRequirement(Domain.Enums.Role.PortAuthority)));
-
             });
 
             services.AddSingleton<IAuthorizationHandler, IsRoleHandler>();

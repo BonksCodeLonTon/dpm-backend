@@ -22,15 +22,11 @@ namespace DPM.Infrastructure.Modules
         protected override void Load(ContainerBuilder builder)
         {
             var services = new ServiceCollection();
-/*
-            services.AddOptions<AppOptions>()
-              .Bind(_configuration.GetRequiredSection(AppOptions.SectionName))
-              .ValidateDataAnnotations()
-              .ValidateOnStart();
+
             services.AddOptions<CognitoService.Options>()
               .Bind(_configuration.GetRequiredSection(CognitoService.Options.SectionName))
               .ValidateDataAnnotations()
-              .ValidateOnStart();*/
+              .ValidateOnStart();
             services.AddOptions<CacheModule.Options>()
               .Bind(_configuration.GetSection(CacheModule.Options.SectionName))
               .ValidateDataAnnotations()

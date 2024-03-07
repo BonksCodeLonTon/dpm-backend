@@ -16,12 +16,10 @@ namespace DPM.Applications.Features.Auth.ConfirmSignUp
 {
     public class ConfirmSignUpCommand : IRequest<bool>
     {
-        public string ConfirmationCode { get; set; }
-        public string Sub { get; set; }
+        public string ConfirmationCode { get; set; } = default!;
+        public string Sub { get; set; }  = default!;
         public string Email { get; set; } = default!;
         public string Username { get; set; } = default!;
-        public string Password { get; set; } = default!;
-        public string FullName { get; set; } = default!;
         public string? PhoneNumber { get; set; }
         public RoleType Role { get; set; } = RoleType.User;
         public Gender? Gender { get; set; }

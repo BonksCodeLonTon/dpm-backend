@@ -19,8 +19,20 @@ namespace DPM.Infrastructure.Modules
             builder.RegisterType<ShipRepository>()
               .As<IShipRepository>()
               .InstancePerLifetimeScope();
-            builder.RegisterType<FishermenRepository>()
-              .As<IFishermenRepository>()
+            builder.RegisterType<ShipRepository>()
+              .As<IShipRepository>()
+              .InstancePerLifetimeScope();
+            builder.RegisterType<ShipRepository>()
+              .As<IShipRepository>()
+              .InstancePerLifetimeScope();
+            builder.RegisterType<ShipRepository>()
+              .As<IShipRepository>()
+              .InstancePerLifetimeScope();
+            builder.RegisterType<ShipRepository>()
+              .As<IShipRepository>()
+              .InstancePerLifetimeScope();
+            builder.RegisterType<ShipRepository>()
+              .As<IShipRepository>()
               .InstancePerLifetimeScope();
         }
     }

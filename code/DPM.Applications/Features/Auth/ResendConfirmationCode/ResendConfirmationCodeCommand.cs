@@ -9,6 +9,6 @@ namespace DPM.Applications.Features.Auth.ResendConfirmationCode
 {
     public class ResendConfirmationCodeCommand : IRequest<bool>
     {
-        public string Username { get; set; }
+        public string? Username { get; set; }
     }
 }

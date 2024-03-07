@@ -53,6 +53,7 @@ namespace DPM.API.Controllers
             return CreateSuccessResult(result);
         }
         [HttpPost("register/confirm/resend")]
+        [AllowAnonymous]
         [ProducesResponseType(typeof(HandlerResult<bool>), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> ResendConfirmSignUp(ResendConfirmationCodeCommand command)

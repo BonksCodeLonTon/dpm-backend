@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
 using DPM.Applications.Common;
-using DPM.Applications.Features.Military.InviteToMilitary;
-using DPM.Applications.Features.MilitaryUsers.ReadInviteTokenMilitary;
+using DPM.Applications.Features.MilitaryUsers.Admin.InviteToMilitary;
+using DPM.Applications.Features.MilitaryUsers.Admin.ReadInviteTokenMilitary;
 using DPM.Domain.Common.Interfaces;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -28,7 +29,7 @@ namespace DPM.API.Controllers
 
         }
         [HttpGet("invite/{token}")]
-        [ProducesResponseType(typeof(HandlerResult<bool>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> Index(string token)
         {

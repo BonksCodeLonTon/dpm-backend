@@ -7,11 +7,7 @@ namespace DPM.Infrastructure.Database
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {
-        }
-        protected DbSet<Fishermen> Fishermens { get; set; }
-        protected DbSet<CertificateShip> CertificateShips { get; set; }
-        protected DbSet<CertificateShipHistory> CertificateShipHistories { get; set; }
-         
+        }         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -58,7 +54,8 @@ namespace DPM.Infrastructure.Database
                 entity.Property(e => e.IMONumber).IsRequired().HasColumnType("varchar(128)");
                 entity.Property(e => e.RegisterNumber).IsRequired().HasColumnType("varchar(128)");
                 entity.Property(e => e.OwnerId).HasColumnType("bigint");
-                entity.Property(e => e.Purpose).IsRequired().HasColumnType("varchar(16)").HasConversion<string>().HasDefaultValue(Purpose.None);
+                entity.Property(e => e.ShipType).IsRequired().HasColumnType("varchar(16)").HasConversion<string>().HasDefaultValue(ShipType.Other);
+                entity.Property(e => e.ShipStatus).IsRequired().HasColumnType("varchar(16)").HasConversion<string>().HasDefaultValue(ShipStatus.Docked);
                 entity.Property(e => e.GrossTonnage).IsRequired().HasColumnType("varchar(128)");
                 entity.Property(e => e.TotalPower).IsRequired().HasColumnType("varchar(128)");
                 entity.Property(e => e.IsDeleted).IsRequired().HasDefaultValue(false);
@@ -86,90 +83,34 @@ namespace DPM.Infrastructure.Database
 
             });
 
-            modelBuilder.Entity<Fishermen>(entity =>
+            modelBuilder.Entity<ShipCertificate>(entity =>
             {
                 entity.Property(e => e.Id).IsRequired().HasColumnType("bigint").HasDefaultValueSql("generate_id()");
-                entity
-                  .HasOne(e => e.User)
-                  .WithOne()
-                  .HasForeignKey<User>(e => e.Id);
-                 entity.HasMany(e => e.FishingTripHistories) 
-                  .WithOne(e => e.Fishermen) 
-                  .HasForeignKey(e => e.FishermenId) 
-                  .IsRequired(false);
-                entity.Ignore(e => e.CreatedAt);
-                entity.Ignore(e => e.UpdatedAt);
-            });
-            modelBuilder.Entity<AppRole>(entity =>
-            {
-                entity.ToTable("roles");
-                entity.Property(e => e.Id).IsRequired().HasColumnType("bigint").HasDefaultValueSql("generate_id()");
-                entity.Property(e => e.RoleName).IsRequired().HasColumnType("varchar(16)").HasConversion(
-                e => e.ToString(),
-                e => (Role)Enum.Parse(typeof(Role), e))
-                .IsUnicode(false); 
-                
-                entity.Ignore(e => e.CreatedAt);
-                entity.Ignore(e => e.UpdatedAt);
-
-            });
-
-            modelBuilder.Entity<UserRole>(entity =>
-            {
-                entity.ToTable("userroles");
-                entity.Property(e => e.UserId).HasColumnType("bigint");
-                entity
-                  .HasOne(e => e.User)
-                  .WithOne()
-                  .HasForeignKey<User>(e => e.Id);
-                entity.Property(e => e.RoleId).HasColumnType("bigint");
-                entity.Ignore(e => e.CreatedAt);
-                entity.Ignore(e => e.UpdatedAt);
-            });
-
-            modelBuilder.Entity<FishingTripHistory>(entity =>
-            {
-                entity.Property(e => e.Id).IsRequired().HasColumnType("bigint").HasDefaultValueSql("generate_id()");
-                entity.Property(e => e.FishingTripId).IsRequired();
-                entity.HasIndex(e => new { e.FishingTripId });
-
-                entity.HasOne(e => e.FishingTrip)
-                .WithOne()
-                .HasForeignKey<FishingTrip>(e => e.Id)
-                .OnDelete(DeleteBehavior.Cascade);
-            });
-            modelBuilder.Entity<FishingTrip>(entity =>
-            {
-                entity.Property(e => e.ShipStatus).IsRequired().HasColumnType("varchar(16)").HasConversion<string>().HasDefaultValue(ShipStatus.Idle);
-                entity.Property(e => e.TripStatus).IsRequired().HasColumnType("varchar(16)").HasConversion<string>().HasDefaultValue(TripStatus.Undefined);
-                entity
-                  .HasOne(e => e.Creator)
-                  .WithMany()
-                  .HasForeignKey(e => e.CreatedBy)
-                  .OnDelete(DeleteBehavior.SetNull);
-                entity
-                  .HasOne(e => e.Updater)
-                  .WithMany()
-                  .HasForeignKey(e => e.UpdatedBy)
-                  .OnDelete(DeleteBehavior.SetNull);
-                entity.HasQueryFilter(e => e.Ship.IsDeleted);
-
-            });
-            modelBuilder.Entity<CertificateShip>(entity =>
-            {
-                entity.Property(e => e.Id).IsRequired().HasColumnType("bigint").HasDefaultValueSql("generate_id()");
+                entity.Property(e => e.CertificateName).IsRequired().HasColumnType("varchar(128)");
                 entity.Property(e => e.CertificateNo).IsRequired();
                 entity.Property(e => e.CertificateStatus).IsRequired().HasColumnType("varchar(64)").HasConversion<string>().HasDefaultValue(CertificateStatus.None);
-                entity.HasIndex(e => new { e.FishingTripId });
-
-                entity.HasOne(e => e.FishingTrip)
-                .WithMany()
-                .HasForeignKey(e => e.FishingTripId)
-                .OnDelete(DeleteBehavior.Cascade);
-                entity.HasQueryFilter(e => e.FishingTrip.IsDeleted);
+                entity.Property(e => e.ShipId).IsRequired();
+                entity.Property(e => e.IssueDate).HasConversion<DateTime>();
+                entity.Property(e => e.ExpiryDate).HasConversion<DateTime>();
+                entity.HasKey(e => e.Id);
+                entity.HasIndex(e => e.CertificateName).IsUnique();
+                entity.HasIndex(e => e.CertificateNo).IsUnique();
+                entity.HasOne(e => e.Ship)
+                .WithOne()
+                .HasForeignKey<ShipCertificate>(e => e.ShipId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .IsRequired(false);
             });
-            modelBuilder.Entity<CertificateShipHistory>(entity =>
+            modelBuilder.Entity<Crew>(entity =>
             {
+                entity.Property(e => e.Id).IsRequired().HasColumnType("bigint").HasDefaultValueSql("generate_id()");
+                entity.Property(e => e.Countries).HasConversion(
+                            v => v.ToString(),
+                            v => (Countries)Enum.Parse(typeof(Countries), v));
+                entity.Property(e => e.CreatedAt).HasDefaultValueSql("now()");
+                entity.Property(e => e.UpdatedAt).HasDefaultValueSql("now()");
+                entity.Property(e => e.CreatedBy).HasColumnType("bigint");
+                entity.Property(e => e.UpdatedBy).HasColumnType("bigint");
                 entity
                   .HasOne(e => e.Creator)
                   .WithMany()
@@ -180,20 +121,126 @@ namespace DPM.Infrastructure.Database
                   .WithMany()
                   .HasForeignKey(e => e.UpdatedBy)
                   .OnDelete(DeleteBehavior.SetNull);
-                entity.HasQueryFilter(e => e.CertificateShip.IsDeleted);
-
+            }
+            );
+            modelBuilder.Entity<CrewTrip>(entity =>
+            {
+                entity.HasNoKey();
+                entity.Property(e => e.CrewId).HasColumnType("bigint");
+                entity.Property(e => e.TripId).HasColumnType("varchar(128)");
+                entity
+                .HasOne(e => e.Crew)
+                .WithMany()
+                .HasForeignKey(e => e.CrewId);
+                entity.HasOne(e => e.RegisterToArrival)
+                .WithOne()
+                .HasForeignKey<CrewTrip>(e => e.TripId)
+                .IsRequired(false);
+                entity.HasOne(e => e.RegisterToDeparture)
+                .WithOne()
+                .HasForeignKey<CrewTrip>(e => e.TripId)
+                .IsRequired(false);
             });
-            modelBuilder.Entity<Map>(entity =>
+            modelBuilder.Entity<RegisterToArrival>(entity =>
+            {
+                entity.Ignore(e => e.Id);
+                entity.Property(e => e.ArrivalId).IsRequired().HasColumnType("varchar(128)").HasDefaultValueSql("generate_arrival_id()");
+                entity.Property(e => e.RegisterById).IsRequired().HasColumnType("bigint");
+                entity.Property(e => e.CaptainId).IsRequired().HasColumnType("bigint");
+                entity.Property(e => e.ShipId).IsRequired().HasColumnType("bigint");
+                entity.Property(e => e.ArrivalTime).HasConversion<DateTime>();
+                entity.Property(e => e.ActualArrivalTime).HasConversion<DateTime>();
+                entity.Property(e => e.CreatedAt).HasDefaultValueSql("now()");
+                entity.Property(e => e.UpdatedAt).HasDefaultValueSql("now()");
+                entity.Property(e => e.CreatedBy).HasColumnType("bigint");
+                entity.Property(e => e.UpdatedBy).HasColumnType("bigint");
+                entity.HasKey(e => e.ArrivalId); 
+                entity
+                  .HasOne(e => e.Ship)
+                  .WithMany()
+                  .HasForeignKey(e => e.ShipId);
+                entity.HasOne(e => e.Captain)
+                    .WithMany()
+                    .HasForeignKey(e => e.CaptainId);
+                entity.HasOne(e => e.RegisterByUser)
+                    .WithMany()
+                    .HasForeignKey(e => e.RegisterById);
+                entity
+                  .HasOne(e => e.Creator)
+                  .WithMany()
+                  .HasForeignKey(e => e.CreatedBy)
+                  .OnDelete(DeleteBehavior.SetNull);
+                entity
+                .HasOne(e => e.Port)
+                .WithMany()
+                .HasForeignKey(e => e.PortId);
+                entity
+                  .HasOne(e => e.Updater)
+                  .WithMany()
+                  .HasForeignKey(e => e.UpdatedBy)
+                  .OnDelete(DeleteBehavior.SetNull);
+                entity.HasQueryFilter(e => !e.Creator.IsDeleted && !e.Updater.IsDeleted);
+            });
+            modelBuilder.Entity<RegisterToDeparture>(entity =>
+            {
+                entity.Ignore(e => e.Id);
+                entity.Property(e => e.DepartureId).IsRequired().HasColumnType("varchar(128)").HasDefaultValueSql("generate_departure_id()");                ;
+                entity.Property(e => e.RegisterById).IsRequired().HasColumnType("bigint");
+                entity.Property(e => e.CaptainId).IsRequired().HasColumnType("bigint");
+                entity.Property(e => e.ShipId).IsRequired().HasColumnType("bigint");
+                entity.Property(e => e.DepartureTime).HasConversion<DateTime>();
+                entity.Property(e => e.ActualDepartureTime).HasConversion<DateTime>();
+                entity.Property(e => e.CreatedAt).HasDefaultValueSql("now()");
+                entity.Property(e => e.UpdatedAt).HasDefaultValueSql("now()");
+                entity.Property(e => e.CreatedBy).HasColumnType("bigint");
+                entity.Property(e => e.UpdatedBy).HasColumnType("bigint");
+                entity.HasKey(e => e.DepartureId);
+
+                entity
+                  .HasOne(e => e.Ship)
+                  .WithMany()
+                  .HasForeignKey(e => e.ShipId);
+                entity
+                    .HasOne(e => e.Port)
+                    .WithMany()
+                    .HasForeignKey(e => e.PortId);
+                entity.HasOne(e => e.Captain)
+                    .WithMany()
+                    .HasForeignKey(e => e.CaptainId);
+                entity.HasOne(e => e.Port)
+                    .WithMany()
+                    .HasForeignKey(e => e.PortId);
+                entity.HasOne(e => e.RegisterByUser)
+                    .WithMany()
+                    .HasForeignKey(e => e.RegisterById);
+                entity
+                  .HasOne(e => e.Creator)
+                  .WithMany()
+                  .HasForeignKey(e => e.CreatedBy)
+                  .OnDelete(DeleteBehavior.SetNull);
+                entity
+                  .HasOne(e => e.Updater)
+                  .WithMany()
+                  .HasForeignKey(e => e.UpdatedBy)
+                  .OnDelete(DeleteBehavior.SetNull);
+                entity.HasQueryFilter(e => !e.Creator.IsDeleted && !e.Updater.IsDeleted);
+            });
+            modelBuilder.Entity<Port>(entity =>
             {
                 entity.Property(e => e.Id).IsRequired().HasColumnType("bigint").HasDefaultValueSql("generate_id()");
-                entity.HasOne(e => e.Ship)
-                .WithOne()
-                .HasForeignKey<Map>(e => e.ShipId)
-                .OnDelete(DeleteBehavior.Cascade);
-                entity.HasQueryFilter(e => e.Ship.IsDeleted);
+                entity.Property(e => e.Name).IsRequired().HasColumnType("varchar(128)");
+                entity
+                  .HasOne(e => e.Creator)
+                  .WithMany()
+                  .HasForeignKey(e => e.CreatedBy)
+                  .OnDelete(DeleteBehavior.SetNull);
+                entity
+                  .HasOne(e => e.Updater)
+                  .WithMany()
+                  .HasForeignKey(e => e.UpdatedBy)
+                  .OnDelete(DeleteBehavior.SetNull);
 
             });
-
         }
         public override int SaveChanges()
         {

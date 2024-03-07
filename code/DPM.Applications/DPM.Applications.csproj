@@ -12,10 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Map\" />
-    <Folder Include="Features\Fishermen\" />
-    <Folder Include="Features\FishTracking\" />
-    <Folder Include="Features\Allowance\" />
+    <Folder Include="Features\MilitaryUsers\MilitarySailingApproval\" />
+    <Folder Include="Features\PortAuthorityUsers\PortAuthoritySailingApproval\" />
     <Folder Include="Features\Weather\" />
     <Folder Include="Features\Ships\DeleteShip\" />
   </ItemGroup>

@@ -11,10 +11,10 @@ namespace DPM.Domain.Enums
     {
         [Description("Đã duyệt")]
         Accepted,
-        [Description("Từ chối xuất cảng")]
+        [Description("Từ chối")]
         Rejected,
-        [Description("Đang hoãn duyệt")]
-        Pending,
+        [Description("Hết hạn")]
+        Expired,
         [Description("Đang duyệt")]
         Approving,
         None,

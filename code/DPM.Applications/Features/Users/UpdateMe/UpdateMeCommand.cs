@@ -1,10 +1,10 @@
-﻿using DPM.Domain.Entities;
-using DPM.Domain.Enums;
+﻿using DPM.Domain.Enums;
 using MediatR;
 using AutoMapper;
 using FluentValidation;
 using System.Text.RegularExpressions;
 using DPM.Applications.Common;
+using DPM.Domain.Entities;
 
 namespace DPM.Applications.Features.Users.UpdateMe
 {

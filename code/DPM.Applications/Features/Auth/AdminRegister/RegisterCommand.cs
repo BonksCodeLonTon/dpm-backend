@@ -4,8 +4,8 @@ using AutoMapper;
 using System.Text.RegularExpressions;
 using DPM.Domain.Enums;
 using DPM.Applications.Common;
-using DPM.Domain.Entities;
 using DPM.Applications.Features.Auth.Register;
+using DPM.Domain.Entities;
 
 namespace DPM.Domain.Features.Auth.Register
 {

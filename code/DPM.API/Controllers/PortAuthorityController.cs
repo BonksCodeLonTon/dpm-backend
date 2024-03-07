@@ -1,6 +1,6 @@
 ﻿using DPM.Applications.Common;
-using DPM.Applications.Features.PortAuthorityUsers.InviteToPortAuthority;
-using DPM.Applications.Features.PortAuthorityUsers.ReadInviteTokenPortAuthority;
+using DPM.Applications.Features.PortAuthorityUsers.Admin.InviteToPortAuthority;
+using DPM.Applications.Features.PortAuthorityUsers.Admin.ReadInviteTokenPortAuthority;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;

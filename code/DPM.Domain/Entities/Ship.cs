@@ -10,7 +10,8 @@ namespace DPM.Domain.Entities
         public string? IMONumber { get; set; }
         public string? RegisterNumber {get; set; }
         public string? GrossTonnage { get; set; }
-        public Purpose Purpose { get; set; }
+        public ShipType ShipType { get; set; }
+        public ShipStatus ShipStatus { get; set; }
         public string? TotalPower { get; set; }
         public long? OwnerId { get; set; }
         public User? Owner { get; set; }

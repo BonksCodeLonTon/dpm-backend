@@ -12,14 +12,12 @@ namespace DPM.Applications.Features.Auth.SignUp
     internal class SindUpCommandHandler : IRequestHandler<SignUpCommand, string>
     {
         private readonly IUserRepository _userRepository;
-        private readonly IMapper _mapper;
         private readonly IAuthenticationService _authService;
 
 
         public SindUpCommandHandler(IUserRepository userRepository, IMapper mapper, IAuthenticationService authService)
         {
             _userRepository = userRepository;
-            _mapper = mapper;
             _authService = authService;
         }
 

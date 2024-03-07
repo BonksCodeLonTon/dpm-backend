@@ -9,7 +9,6 @@ namespace DPM.Domain.Enums
     public enum Role
     {
         None,
-        Guest,
         Fishermen,
         PortAuthority,
         Military,

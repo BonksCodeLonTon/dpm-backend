@@ -10,42 +10,37 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DPM.Infrastructure.Database
 {
-  public class DatabaseModule : Module
-  {
-    public class Options
+    public class DatabaseModule : Module
     {
-      public static readonly string SectionName = "Database";
-
-      public string? Name { get; set; }
-      public string? SecretName { get; set; }
-      public string? WriterHost { get; set; }
-      public ushort? WriterPort { get; set; }
-      public string? ReaderHost { get; set; }
-      public ushort? ReaderPort { get; set; }
-      public string? Username { get; set; }
-      public string? Password { get; set; }
-    }
-
-    public class ConnectionStrings
-    {
-      public string DatabaseName { get; private set; } = default!;
-      public string Writer { get; private set; } = default!;
-      public string Reader { get; private set; } = default!;
-
-      public static ConnectionStrings FromEnvOptions(Options options, bool pooling = true)
-      {
-        return new ConnectionStrings
+        public class Options
         {
-          DatabaseName = options.Name ?? throw new Exception("Database name is required"),
-          Writer = $@"
+            public static readonly string SectionName = "Database";
+
+            public string? Name { get; set; }
+            public string? SecretName { get; set; }
+            public string? WriterHost { get; set; }
+            public ushort? WriterPort { get; set; }
+            public string? ReaderHost { get; set; }
+            public ushort? ReaderPort { get; set; }
+            public string? Username { get; set; }
+            public string? Password { get; set; }
+        }
+
+        public class ConnectionStrings
+        {
+            public string DatabaseName { get; private set; } = default!;
+            public string Writer { get; private set; } = default!;
+            public string Reader { get; private set; } = default!;
+
+            public static ConnectionStrings FromEnvOptions(Options options, bool pooling = true)
+            {
+                return new ConnectionStrings
+                {
+                    DatabaseName = options.Name ?? throw new Exception("Database name is required"),
+                    Writer = $@"
             Server={options.WriterHost};
             Port={options.WriterPort};
             Userid={options.Username};
@@ -55,7 +50,7 @@ namespace DPM.Infrastructure.Database
               Maximum Pool Size=20;
               Connection Idle Lifetime=60;
               Connection Lifetime=600" : "Pooling=false")}".Replace("\n", ""),
-          Reader = $@"
+                    Reader = $@"
             Server={options.ReaderHost};
             Port={options.ReaderPort};
             Userid={options.Username};
@@ -65,27 +60,27 @@ namespace DPM.Infrastructure.Database
               Maximum Pool Size=20;
               Connection Idle Lifetime=60;
               Connection Lifetime=600" : "Pooling=false")}".Replace("\n", "")
-        };
-      }
-    }
-    
-    public class SecretConfig
-    {
-      public string Password { get; set; } = default!;
-      public string DbName { get; set; } = default!;
-      public string Engine { get; set; } = default!;
-      public ushort Port { get; set; } = default!;
-      public string DbInstanceIdentifier { get; set; } = default!;
-      public string Host { get; set; } = default!;
-      public string Username { get; set; } = default!;
-    }
+                };
+            }
+        }
 
-    private readonly IConfiguration _configuration;
+        public class SecretConfig
+        {
+            public string Password { get; set; } = default!;
+            public string DbName { get; set; } = default!;
+            public string Engine { get; set; } = default!;
+            public ushort Port { get; set; } = default!;
+            public string DbInstanceIdentifier { get; set; } = default!;
+            public string Host { get; set; } = default!;
+            public string Username { get; set; } = default!;
+        }
 
-    public DatabaseModule(IConfiguration configuration)
-    {
-      _configuration = configuration;
-    }
+        private readonly IConfiguration _configuration;
+
+        public DatabaseModule(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
 
         protected override void Load(ContainerBuilder builder)
         {
@@ -139,5 +134,4 @@ namespace DPM.Infrastructure.Database
             builder.RegisterModule(new RepositoryModule());
         }
     }
-
 }

@@ -1,18 +1,12 @@
 ﻿using Autofac;
 using DPM.Applications;
 using DPM.Infrastructure.Auth;
-using DPM.Infrastructure.Common;
 using DPM.Infrastructure.Database;
 using DPM.Infrastructure.Modules;
 using DPM.Infrastructure.Providers.Aws;
 using DPM.Infrastructure.Serilog;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DPM.Infrastructure
 {
@@ -41,8 +35,6 @@ namespace DPM.Infrastructure
             builder.RegisterModule(new SerilogModule(_configuration));
             builder.RegisterModule(new MediatRModule(applicationAssembly));
             builder.RegisterModule(new ServiceModule());
-
         }
     }
-
 }

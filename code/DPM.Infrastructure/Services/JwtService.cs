@@ -1,14 +1,9 @@
 ﻿using DPM.Applications.Services;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DPM.Infrastructure.Services
 {
@@ -23,6 +18,7 @@ namespace DPM.Infrastructure.Services
         }
 
         private readonly SymmetricSecurityKey _securityKey;
+
         public JwtService(IOptionsSnapshot<Options> options)
         {
             var secretKey = Convert.FromBase64String(options.Value.SecretKey);
@@ -66,5 +62,4 @@ namespace DPM.Infrastructure.Services
             return result.Claims;
         }
     }
-
 }

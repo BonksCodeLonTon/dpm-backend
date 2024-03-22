@@ -3,11 +3,6 @@ using DPM.Domain.Common;
 using DPM.Domain.Entities;
 using DPM.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DPM.Infrastructure.Database.Repositories
 {
@@ -20,7 +15,6 @@ namespace DPM.Infrastructure.Database.Repositories
         public User GetByUsername(string username, ReadConsistency readConsistency = ReadConsistency.Strong, bool tracking = false, params string[] relations)
         {
             return GetAll(readConsistency, tracking, relations).FirstOrDefault(x => x.Username == username);
-
         }
 
         IQueryable<User> IUserRepository.Find(string query, float minSimilarity, long limit)

@@ -1,13 +1,15 @@
 ﻿using DPM.Domain.Entities;
 using DPM.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
+
 namespace DPM.Infrastructure.Database
 {
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {
-        }         
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -42,8 +44,6 @@ namespace DPM.Infrastructure.Database
                     .HasForeignKey(e => e.UpdatedBy)
                     .OnDelete(DeleteBehavior.SetNull);
                 entity.HasQueryFilter(e => !e.IsDeleted);
-
-
             });
             modelBuilder.Entity<Ship>(entity =>
             {
@@ -55,6 +55,8 @@ namespace DPM.Infrastructure.Database
                 entity.Property(e => e.RegisterNumber).IsRequired().HasColumnType("varchar(128)");
                 entity.Property(e => e.OwnerId).HasColumnType("bigint");
                 entity.Property(e => e.ShipType).IsRequired().HasColumnType("varchar(16)").HasConversion<string>().HasDefaultValue(ShipType.Other);
+                entity.Property(e => e.Length).IsRequired().HasColumnType("varchar(128)");
+                entity.Property(e => e.Position).HasColumnName("array");
                 entity.Property(e => e.ShipStatus).IsRequired().HasColumnType("varchar(16)").HasConversion<string>().HasDefaultValue(ShipStatus.Docked);
                 entity.Property(e => e.GrossTonnage).IsRequired().HasColumnType("varchar(128)");
                 entity.Property(e => e.TotalPower).IsRequired().HasColumnType("varchar(128)");
@@ -80,7 +82,6 @@ namespace DPM.Infrastructure.Database
                   .HasForeignKey(e => e.UpdatedBy)
                   .OnDelete(DeleteBehavior.SetNull);
                 entity.HasQueryFilter(e => !e.IsDeleted);
-
             });
 
             modelBuilder.Entity<ShipCertificate>(entity =>
@@ -128,6 +129,8 @@ namespace DPM.Infrastructure.Database
                 entity.HasNoKey();
                 entity.Property(e => e.CrewId).HasColumnType("bigint");
                 entity.Property(e => e.TripId).HasColumnType("varchar(128)");
+                entity.Ignore(e => e.Id);
+
                 entity
                 .HasOne(e => e.Crew)
                 .WithMany()
@@ -145,16 +148,17 @@ namespace DPM.Infrastructure.Database
             {
                 entity.Ignore(e => e.Id);
                 entity.Property(e => e.ArrivalId).IsRequired().HasColumnType("varchar(128)").HasDefaultValueSql("generate_arrival_id()");
-                entity.Property(e => e.RegisterById).IsRequired().HasColumnType("bigint");
                 entity.Property(e => e.CaptainId).IsRequired().HasColumnType("bigint");
                 entity.Property(e => e.ShipId).IsRequired().HasColumnType("bigint");
                 entity.Property(e => e.ArrivalTime).HasConversion<DateTime>();
                 entity.Property(e => e.ActualArrivalTime).HasConversion<DateTime>();
+                entity.Property(e => e.Attachment).HasColumnType("varchar(256)");
+                entity.Property(e => e.Note).HasColumnType("varchar(256)");
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("now()");
                 entity.Property(e => e.UpdatedAt).HasDefaultValueSql("now()");
-                entity.Property(e => e.CreatedBy).HasColumnType("bigint");
+                entity.Property(e => e.CreatedBy).IsRequired().HasColumnType("bigint");
                 entity.Property(e => e.UpdatedBy).HasColumnType("bigint");
-                entity.HasKey(e => e.ArrivalId); 
+                entity.HasKey(e => e.ArrivalId);
                 entity
                   .HasOne(e => e.Ship)
                   .WithMany()
@@ -162,9 +166,6 @@ namespace DPM.Infrastructure.Database
                 entity.HasOne(e => e.Captain)
                     .WithMany()
                     .HasForeignKey(e => e.CaptainId);
-                entity.HasOne(e => e.RegisterByUser)
-                    .WithMany()
-                    .HasForeignKey(e => e.RegisterById);
                 entity
                   .HasOne(e => e.Creator)
                   .WithMany()
@@ -184,15 +185,17 @@ namespace DPM.Infrastructure.Database
             modelBuilder.Entity<RegisterToDeparture>(entity =>
             {
                 entity.Ignore(e => e.Id);
-                entity.Property(e => e.DepartureId).IsRequired().HasColumnType("varchar(128)").HasDefaultValueSql("generate_departure_id()");                ;
-                entity.Property(e => e.RegisterById).IsRequired().HasColumnType("bigint");
+                entity.Property(e => e.Attachment).HasColumnType("varchar(256)");
+                entity.Property(e => e.DepartureId).IsRequired().HasColumnType("varchar(128)").HasDefaultValueSql("generate_departure_id()"); ;
                 entity.Property(e => e.CaptainId).IsRequired().HasColumnType("bigint");
                 entity.Property(e => e.ShipId).IsRequired().HasColumnType("bigint");
                 entity.Property(e => e.DepartureTime).HasConversion<DateTime>();
                 entity.Property(e => e.ActualDepartureTime).HasConversion<DateTime>();
+                entity.Property(e => e.Attachment).HasColumnType("varchar(256)");
+                entity.Property(e => e.Note).HasColumnType("varchar(256)");
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("now()");
                 entity.Property(e => e.UpdatedAt).HasDefaultValueSql("now()");
-                entity.Property(e => e.CreatedBy).HasColumnType("bigint");
+                entity.Property(e => e.CreatedBy).IsRequired().HasColumnType("bigint");
                 entity.Property(e => e.UpdatedBy).HasColumnType("bigint");
                 entity.HasKey(e => e.DepartureId);
 
@@ -210,9 +213,6 @@ namespace DPM.Infrastructure.Database
                 entity.HasOne(e => e.Port)
                     .WithMany()
                     .HasForeignKey(e => e.PortId);
-                entity.HasOne(e => e.RegisterByUser)
-                    .WithMany()
-                    .HasForeignKey(e => e.RegisterById);
                 entity
                   .HasOne(e => e.Creator)
                   .WithMany()
@@ -239,25 +239,26 @@ namespace DPM.Infrastructure.Database
                   .WithMany()
                   .HasForeignKey(e => e.UpdatedBy)
                   .OnDelete(DeleteBehavior.SetNull);
-
             });
         }
+
         public override int SaveChanges()
         {
             throw new NotSupportedException("Only asynchronous operations are supported.");
         }
 
-
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
             throw new NotSupportedException("Only asynchronous operations are supported.");
         }
+
         public override void Dispose()
         {
             GC.SuppressFinalize(this);
             base.Dispose();
         }
     }
+
     public class ReadOnlyAppDbContext : AppDbContext
     {
         public ReadOnlyAppDbContext(DbContextOptions options) : base(options)

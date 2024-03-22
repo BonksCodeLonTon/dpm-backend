@@ -1,13 +1,13 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using System.Text.Json;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
-using Microsoft.AspNetCore.Localization;
-using DPM.Infrastructure.Common;
 using DPM.Infrastructure;
+using DPM.Infrastructure.Common;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -126,4 +126,3 @@ app.UseEndpoints(config =>
     });
 
 app.Run();
-    

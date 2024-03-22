@@ -2,15 +2,10 @@
 using DPM.Domain.Common;
 using DPM.Domain.Common.Interfaces;
 using DPM.Domain.Common.Models;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EFCoreSecondLevelCacheInterceptor;
-using Microsoft.Extensions.Options;
 using DPM.Infrastructure.Modules;
+using EFCoreSecondLevelCacheInterceptor;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace DPM.Infrastructure.Database.Repositories
 {
@@ -101,5 +96,4 @@ namespace DPM.Infrastructure.Database.Repositories
             await _context.SaveChangesAsync(cancellationToken);
         }
     }
-
 }

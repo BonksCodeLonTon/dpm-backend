@@ -1,32 +1,32 @@
 ﻿using AutoMapper;
-using DPM.Applications.Common;
 using DPM.Domain.Entities;
 using DPM.Domain.Enums;
 using FluentValidation;
 using MediatR;
-using System.Text.RegularExpressions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace DPM.Applications.Features.SailingRegister.RegisterToArrivalCommand
+namespace DPM.Applications.Features.SailingRegister.RegisterToDepartureCommand
 {
-    public class RegisterToArrivalCommand : IRequest<bool>
+    public class RegisterToDepartureCommand : IRequest<RegisterToDeparture>
     {
-        public long RegisterById { get; set; }
         public long ShipId { get; set; }
         public long PortId { get; set; }
         public long CaptainId { get; set; }
+        public long[] CrewIds { get; set; }
         public ApproveStatus ApproveStatus { get; set; } = ApproveStatus.None;
         public DateTime ArrivalTime { get; set; }
         public DateTime ActualArrivalTime { get; set; }
         public bool IsStart { get; set; }
 
-        public class RequestCommandValidator : AbstractValidator<RegisterToArrivalCommand>
+        public class RequestCommandValidator : AbstractValidator<RegisterToDeparture>
         {
             public RequestCommandValidator()
             {
                 RuleFor(x => x.ShipId).NotEmpty();
-                RuleFor(v => v.RegisterById).NotEmpty();
-
-
             }
         }
 
@@ -34,7 +34,7 @@ namespace DPM.Applications.Features.SailingRegister.RegisterToArrivalCommand
         {
             public RegisterToArrivalCommandProfile()
             {
-                CreateMap<RegisterToArrivalCommand, RegisterToArrival>();
+                CreateMap<RegisterToDepartureCommand, RegisterToArrival>();
             }
         }
     }

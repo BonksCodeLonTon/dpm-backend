@@ -1,5 +1,4 @@
-﻿
-namespace DPM.Infrastructure.I18n
+﻿namespace DPM.Infrastructure.I18n
 {
     public interface II18nService
     {

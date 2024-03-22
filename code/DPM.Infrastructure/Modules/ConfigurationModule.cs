@@ -1,7 +1,5 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using DPM.Applications.Common;
-using DPM.Infrastructure.Auth;
 using DPM.Infrastructure.Database;
 using DPM.Infrastructure.Providers.Aws.Services;
 using DPM.Infrastructure.Serilog;
@@ -19,6 +17,7 @@ namespace DPM.Infrastructure.Modules
         {
             _configuration = configuration;
         }
+
         protected override void Load(ContainerBuilder builder)
         {
             var services = new ServiceCollection();
@@ -45,6 +44,5 @@ namespace DPM.Infrastructure.Modules
               .ValidateOnStart();
             builder.Populate(services);
         }
-
     }
 }

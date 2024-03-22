@@ -1,19 +1,12 @@
 ﻿using Amazon.CognitoIdentityProvider;
 using Amazon.CognitoIdentityProvider.Model;
-using DPM.Applications.Common;
 using DPM.Applications.Features.Auth.SendForgotPasswordCode;
 using DPM.Applications.Features.Auth.SignIn;
 using DPM.Applications.Services;
 using DPM.Domain.Entities;
 using DPM.Domain.Exceptions;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DPM.Infrastructure.Providers.Aws.Services
 {
@@ -38,6 +31,7 @@ namespace DPM.Infrastructure.Providers.Aws.Services
             _cognitoIdentityProvider = cognitoIdentityProvider;
             _options = options.Value;
         }
+
         public async Task<string> SignUpAsync(string email, string username, string? password, string phone, string fullName)
         {
             try
@@ -64,6 +58,7 @@ namespace DPM.Infrastructure.Providers.Aws.Services
                 throw;
             }
         }
+
         public async Task<bool> ConfirmSignUpAsync(string username, string confirmationCode)
         {
             try
@@ -82,6 +77,7 @@ namespace DPM.Infrastructure.Providers.Aws.Services
                 throw;
             }
         }
+
         public async Task<SignInResponse> SignInAsync(string username, string password)
         {
             try
@@ -103,11 +99,12 @@ namespace DPM.Infrastructure.Providers.Aws.Services
                     RefreshToken = cognitoAuthResult.RefreshToken
                 };
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
         }
+
         public async Task<bool> ConfirmForgotPasswordAsync(string username, string password, string confirmationCode)
         {
             try
@@ -128,6 +125,7 @@ namespace DPM.Infrastructure.Providers.Aws.Services
                 throw;
             }
         }
+
         public async Task<bool> ResendConfirmationCodeAsync(string userName)
         {
             try
@@ -147,6 +145,7 @@ namespace DPM.Infrastructure.Providers.Aws.Services
                 throw;
             }
         }
+
         public async Task<bool> SignOutAsync(string? accessToken)
         {
             try
@@ -165,11 +164,11 @@ namespace DPM.Infrastructure.Providers.Aws.Services
                 throw;
             }
         }
+
         public async Task<SendForgotPasswordResponse> SendForgotPasswordCodeAsync(string username)
         {
             try
             {
-
                 ForgotPasswordRequest cognitoRequest = new ForgotPasswordRequest
                 {
                     Username = username,
@@ -192,7 +191,6 @@ namespace DPM.Infrastructure.Providers.Aws.Services
         {
             try
             {
-
                 ChangePasswordRequest cognitoRequest = new ChangePasswordRequest
                 {
                     PreviousPassword = previousPassword,
@@ -256,5 +254,4 @@ namespace DPM.Infrastructure.Providers.Aws.Services
             return response.User.Attributes.First(x => x.Name == "sub").Value;
         }
     }
-
 }

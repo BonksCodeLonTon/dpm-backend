@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using DPM.Applications.Common;
-using DPM.Domain.Common.Interfaces;
+﻿using DPM.Applications.Common;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,10 +10,12 @@ namespace DPM.API.Controllers
     public class BaseController : ControllerBase
     {
         protected readonly IMediator _mediator;
+
         public BaseController(IMediator mediator)
         {
             _mediator = mediator;
         }
+
         protected IActionResult CreateSuccessResult<T>(T result)
         {
             return Ok(new HandlerResult<T>(result));

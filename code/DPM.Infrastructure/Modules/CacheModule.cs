@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-
-using Autofac;
+﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using EasyCaching.InMemory;
 using EFCoreSecondLevelCacheInterceptor;
@@ -10,6 +7,7 @@ using MessagePack.Formatters;
 using MessagePack.Resolvers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.ComponentModel;
 
 namespace DPM.Infrastructure.Modules
 {
@@ -21,6 +19,7 @@ namespace DPM.Infrastructure.Modules
 
             public string? Host { get; set; }
             public ushort? Port { get; set; }
+
             [DefaultValue(300)]
             public uint Ttl { get; set; } = 300;
         }
@@ -102,6 +101,7 @@ namespace DPM.Infrastructure.Modules
             builder.Populate(services);
         }
     }
+
     public class DBNullFormatter : IMessagePackFormatter<DBNull>
     {
         public static DBNullFormatter Instance = new();

@@ -1,11 +1,6 @@
 ﻿using DPM.Domain.Common.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DPM.Infrastructure.Common.Extensions
 {
@@ -32,5 +27,4 @@ namespace DPM.Infrastructure.Common.Extensions
             await Task.WhenAll(tasks);
         }
     }
-
 }

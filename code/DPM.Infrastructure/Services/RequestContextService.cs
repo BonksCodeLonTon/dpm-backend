@@ -5,12 +5,7 @@ using DPM.Domain.Entities;
 using DPM.Domain.Exceptions;
 using DPM.Domain.Repositories;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DPM.Infrastructure.Services
 {
@@ -18,6 +13,7 @@ namespace DPM.Infrastructure.Services
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ILifetimeScope _parentScope;
+
         public RequestContextService(IHttpContextAccessor httpContextAccessor, ILifetimeScope parentScope)
         {
             _httpContextAccessor = httpContextAccessor;
@@ -25,14 +21,18 @@ namespace DPM.Infrastructure.Services
         }
 
         public bool IsAuthenticated => _httpContextAccessor.HttpContext?.User?.Identity?.IsAuthenticated ?? false;
+
         public long UserId => IsAuthenticated
           ? long.Parse(_httpContextAccessor.HttpContext?.User.FindFirstValue("user_id")!)
           : throw new UnauthorizedException();
+
         public string RoleType => IsAuthenticated
           ? _httpContextAccessor.HttpContext?.User.FindFirstValue("role_type")!
           : throw new UnauthorizedException();
+
         public string Origin => GetOrigin();
         public User User => GetUser();
+
         public string GetOrigin()
         {
             if (_httpContextAccessor?.HttpContext?.Request.Headers.TryGetValue("Custom-Origin", out var origin) ?? false)
@@ -63,7 +63,6 @@ namespace DPM.Infrastructure.Services
 
             return (User)(context.Items["User"] = user);
         }
-
 
         public Ship GetShip()
         {
@@ -97,5 +96,4 @@ namespace DPM.Infrastructure.Services
             return _httpContextAccessor.HttpContext?.Items[key];
         }
     }
-
 }

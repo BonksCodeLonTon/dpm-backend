@@ -8,8 +8,8 @@ namespace DPM.Applications.Common
 {
     public class ErrorCodeDetail
     {
-        public string Code { get; set; }
+        public string? Code { get; set; }
 
-        public string Message { get; set; }
+        public string? Message { get; set; }
     }
 }

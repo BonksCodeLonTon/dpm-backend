@@ -1,16 +1,8 @@
-﻿using DPM.Applications.Services;
-using DPM.Domain.Enums;
-using Microsoft.AspNetCore.Authorization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 
 namespace DPM.Infrastructure.Auth.Policies
 {
-    internal class IsPortAuthorityRequirement: IAuthorizationRequirement
+    internal class IsPortAuthorityRequirement : IAuthorizationRequirement
     {
-
     }
 }

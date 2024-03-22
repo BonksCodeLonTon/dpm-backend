@@ -8,14 +8,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\MilitaryUsers\Admin\CreateMilitaryUser\CreateMilitaryUser.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DPM.Domain\DPM.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\MilitaryUsers\MilitarySailingApproval\" />
-    <Folder Include="Features\PortAuthorityUsers\PortAuthoritySailingApproval\" />
-    <Folder Include="Features\Weather\" />
+    <Folder Include="Features\MilitaryUsers\MilitaryDepartApprove\" />
+    <Folder Include="Features\MilitaryUsers\MilitaryArriveApprove\" />
+    <Folder Include="Features\MilitaryUsers\MilitaryArriveReject\" />
+    <Folder Include="Features\MilitaryUsers\MilitaryDepartReject\" />
+    <Folder Include="Features\PortAuthorityUsers\PortAuthorityDepartReject\" />
+    <Folder Include="Features\PortAuthorityUsers\PortAuthorityArrivelReject\" />
+    <Folder Include="Features\PortAuthorityUsers\PortAuthorityDepartApprove\" />
+    <Folder Include="Features\PortAuthorityUsers\PortAuthorityArriveApproval\" />
+    <Folder Include="Features\SailingRegister\GetArrivalRegistationsQuery\" />
+    <Folder Include="Features\SailingRegister\GetDepartRegistrationsQuery\" />
+    <Folder Include="Features\Ships\UpdateShipLocationById\" />
     <Folder Include="Features\Ships\DeleteShip\" />
+    <Folder Include="Features\Users\DepartRegister\" />
+    <Folder Include="Features\Users\ArriveRegister\" />
   </ItemGroup>
 
 </Project>

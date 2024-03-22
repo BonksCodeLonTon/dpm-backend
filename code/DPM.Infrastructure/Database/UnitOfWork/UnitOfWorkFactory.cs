@@ -1,6 +1,6 @@
-﻿using System.Data;
+﻿using DPM.Domain.Common.Interfaces;
 using MediatR;
-using DPM.Domain.Common.Interfaces;
+using System.Data;
 
 namespace DPM.Infrastructure.Database.UnitOfWork
 {
@@ -8,6 +8,7 @@ namespace DPM.Infrastructure.Database.UnitOfWork
     {
         private readonly IMediator _mediator;
         private readonly AppDbContext _context;
+
         public UnitOfWorkFactory(IMediator mediator, AppDbContext context)
         {
             _mediator = mediator;
@@ -19,5 +20,4 @@ namespace DPM.Infrastructure.Database.UnitOfWork
             return new UnitOfWork(_context, _mediator, isolationLevel, deferred);
         }
     }
-
 }

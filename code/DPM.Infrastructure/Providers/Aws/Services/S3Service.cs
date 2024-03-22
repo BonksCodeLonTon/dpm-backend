@@ -1,13 +1,10 @@
 ﻿using Amazon.S3;
 using Amazon.S3.Model;
+using Amazon.S3.Transfer;
 using DPM.Applications.Services;
+using DPM.Infrastructure.Common.Extensions;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DPM.Infrastructure.Providers.Aws.Services
 {
@@ -48,18 +45,52 @@ namespace DPM.Infrastructure.Providers.Aws.Services
             return _s3Client.GetPreSignedURL(request);
         }
 
+        public string GetObject(string objectKey)
+        {
+            GetObjectResponse response = _s3Client.GetObjectAsync(new GetObjectRequest
+            {
+                BucketName = BucketName,
+                Key = objectKey
+            }).Result;
+
+            return S3Extensions.ReadObjectAsString(response);
+        }
+
         public string GetUrl(string objectKey)
         {
             var request = new GetPreSignedUrlRequest
             {
                 BucketName = BucketName,
                 Key = objectKey,
-                Expires = System.DateTime.Now.AddMinutes(5),
+                Expires = DateTime.Now.AddMinutes(5),
                 Verb = HttpVerb.GET
             };
 
             return _s3Client.GetPreSignedURL(request);
         }
-    }
 
+        public async Task<bool> UploadFileAsync(string filePath, string objectKey, string contentType)
+        {
+            try
+            {
+                var fileTransferUtility = new TransferUtility(_s3Client);
+
+                var request = new TransferUtilityUploadRequest
+                {
+                    BucketName = BucketName,
+                    FilePath = filePath,
+                    Key = objectKey,
+                    ContentType = contentType
+                };
+
+                await fileTransferUtility.UploadAsync(request);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+    }
 }

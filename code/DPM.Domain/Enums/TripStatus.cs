@@ -8,10 +8,10 @@ namespace DPM.Domain.Enums
 {
     public enum TripStatus
     {
-        Fishing,
-        GetShip,
+        NotStart,
+        Ongoing,
         Finish,
-        Undefined
+
     }
 
 }

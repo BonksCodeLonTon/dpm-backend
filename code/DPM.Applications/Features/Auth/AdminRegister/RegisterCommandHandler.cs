@@ -1,16 +1,11 @@
 ﻿using AutoMapper;
-using DPM.Applications.Common;
 using DPM.Applications.Services;
 using DPM.Domain.Entities;
 using DPM.Domain.Exceptions;
 using DPM.Domain.Features.Auth.Register;
 using DPM.Domain.Repositories;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DPM.Applications.Features.Auth.Register
 {
@@ -42,6 +37,7 @@ namespace DPM.Applications.Features.Auth.Register
             var sub = await _authService.CreateUserAsync(request.Email, request.Username, request.Password);
             var user = _mapper.Map<RegisterCommand, User>(request);
             user.CognitoSub = sub;
+            user.RoleType = Domain.Enums.RoleType.Admin;
             _userRepository.Add(user);
             await _userRepository.SaveChangesAsync(cancellationToken);
             var response = new RegisterResponse { Id = user.Id };

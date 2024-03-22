@@ -12,10 +12,10 @@ namespace DPM.API.Controllers
     [ApiExplorerSettings(IgnoreApi = false)]
     public class PortAuthorityController : BaseController
     {
-
         public PortAuthorityController(IMediator mediator) : base(mediator)
         {
         }
+
         [HttpPost("admin/invite/send")]
         [ProducesResponseType(typeof(HandlerResult<bool>), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
@@ -23,8 +23,8 @@ namespace DPM.API.Controllers
         {
             var result = await _mediator.Send(command);
             return CreateSuccessResult(result);
-
         }
+
         [HttpGet("invite/{token}")]
         [ProducesResponseType(typeof(HandlerResult<bool>), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]

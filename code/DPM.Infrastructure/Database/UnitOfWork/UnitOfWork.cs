@@ -1,5 +1,4 @@
-﻿
-using DPM.Domain.Common.Interfaces;
+﻿using DPM.Domain.Common.Interfaces;
 using DPM.Infrastructure.Common.Extensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -39,7 +38,6 @@ namespace DPM.Infrastructure.Database.UnitOfWork
                 await _context.SaveChangesAsync(cancellationToken);
                 await _transaction.CommitAsync(cancellationToken);
                 await _context.DispatchDomainEventsAsync(_mediator, cancellationToken);
-
             }
             finally
             {
@@ -68,5 +66,4 @@ namespace DPM.Infrastructure.Database.UnitOfWork
             GC.SuppressFinalize(this);
         }
     }
-
 }

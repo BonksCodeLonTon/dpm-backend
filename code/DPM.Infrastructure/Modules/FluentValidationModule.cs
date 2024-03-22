@@ -1,8 +1,8 @@
-﻿using System.Reflection;
-using Autofac;
+﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection;
 using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace DPM.Infrastructure.Modules
 {
@@ -24,5 +24,4 @@ namespace DPM.Infrastructure.Modules
             builder.Populate(services);
         }
     }
-
 }

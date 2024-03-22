@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using DPM.Applications.Common;
+﻿using DPM.Applications.Common;
 using DPM.Applications.Features.Auth.ChangePassword;
 using DPM.Applications.Features.Auth.ConfirmForgotPassword;
 using DPM.Applications.Features.Auth.ConfirmSignUp;
@@ -8,12 +7,12 @@ using DPM.Applications.Features.Auth.SendForgotPasswordCode;
 using DPM.Applications.Features.Auth.SignIn;
 using DPM.Applications.Features.Auth.SignOut;
 using DPM.Applications.Features.Auth.SignUp;
-using DPM.Domain.Common.Interfaces;
 using DPM.Domain.Features.Auth.Register;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+
 namespace DPM.API.Controllers
 {
     [Route("api/[controller]")]
@@ -21,19 +20,19 @@ namespace DPM.API.Controllers
     [ApiExplorerSettings(IgnoreApi = false)]
     public class AuthController : BaseController
     {
-
         public AuthController(IMediator mediator) : base(mediator)
         {
         }
+
         [HttpPost("admin/register")]
         [ProducesResponseType(typeof(HandlerResult<bool>), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
-
         public async Task<IActionResult> Register(RegisterCommand command)
         {
             var result = await _mediator.Send(command);
             return CreateSuccessResult(result);
         }
+
         [HttpPost("register")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(HandlerResult<bool>), (int)HttpStatusCode.OK)]
@@ -43,6 +42,7 @@ namespace DPM.API.Controllers
             var result = await _mediator.Send(command);
             return CreateSuccessResult(result);
         }
+
         [HttpPost("register/confirm")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(HandlerResult<bool>), (int)HttpStatusCode.OK)]
@@ -52,6 +52,7 @@ namespace DPM.API.Controllers
             var result = await _mediator.Send(command);
             return CreateSuccessResult(result);
         }
+
         [HttpPost("register/confirm/resend")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(HandlerResult<bool>), (int)HttpStatusCode.OK)]
@@ -61,6 +62,7 @@ namespace DPM.API.Controllers
             var result = await _mediator.Send(command);
             return CreateSuccessResult(result);
         }
+
         [HttpDelete("signout")]
         [ProducesResponseType(typeof(HandlerResult<bool>), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
@@ -80,7 +82,6 @@ namespace DPM.API.Controllers
             return CreateSuccessResult(result);
         }
 
-
         [HttpGet("password/forgot/getcode")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(HandlerResult<SendForgotPasswordResponse>), (int)HttpStatusCode.OK)]
@@ -90,6 +91,7 @@ namespace DPM.API.Controllers
             var result = await _mediator.Send(command);
             return CreateSuccessResult(result);
         }
+
         [HttpPost("password/forgot")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(HandlerResult<bool>), (int)HttpStatusCode.OK)]
@@ -108,9 +110,5 @@ namespace DPM.API.Controllers
             var result = await _mediator.Send(command);
             return CreateSuccessResult(result);
         }
-
-
     }
-
 }
-

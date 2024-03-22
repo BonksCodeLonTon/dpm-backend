@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DPM.Applications.Behaviours
+namespace DPM.Applications.Features.MilitaryUsers.Admin.CreateMilitaryUser
 {
-    public class Constants
+    public class CreateMilitaryUser
     {
-        public static readonly string AppDomain = "localhost:5000";
-
+        public long Id;
     }
 }

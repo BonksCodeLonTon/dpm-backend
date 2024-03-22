@@ -12,25 +12,31 @@ namespace DPM.Applications.Features.Users.GetMe
 {
     public class GetMeQueryHandler : IRequestHandler<GetMeQuery, GetMeResponse>
     {
-        private readonly IUserRepository _userRepository;
         private readonly IRequestContextService _requestContextService;
         private readonly IMapper _mapper;
+        private readonly IStorageService _storageService;
 
         public GetMeQueryHandler(
           IRequestContextService requestContextService,
-          IUserRepository userRepository,
+          IStorageService storageService,
           IMapper mapper)
         {
             _requestContextService = requestContextService;
-            _userRepository = userRepository;
             _mapper = mapper;
+            _storageService = storageService;
+
         }
 
         public Task<GetMeResponse> Handle(GetMeQuery request, CancellationToken cancellationToken)
         {
             var user = _requestContextService.User;
+            var userDto = _mapper.Map<GetMeResponse>(user);
 
-            return Task.FromResult(_mapper.Map<GetMeResponse>(user));
+            if (user?.Avatar != null)
+            {
+                userDto.Avatar = _storageService.GetUrl(user.Avatar);
+            }
+            return Task.FromResult(userDto);
         }
     }
 

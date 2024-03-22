@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
+﻿using System.Globalization;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace DPM.Infrastructure.Common
 {
@@ -13,6 +8,8 @@ namespace DPM.Infrastructure.Common
         public static readonly string AwsRegion = "ap-southeast-1";
 
         public static readonly string AppDomain = "localhost:5000";
+
+        public static readonly string TimestampServerUrl = @"http://timestamp.digicert.com";
 
         public static readonly CultureInfo[] SupportedCultures = new[]
         {
@@ -28,5 +25,4 @@ namespace DPM.Infrastructure.Common
             PropertyNameCaseInsensitive = true,
         };
     }
-
 }

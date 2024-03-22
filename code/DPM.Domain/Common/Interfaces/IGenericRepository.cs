@@ -24,5 +24,4 @@ namespace DPM.Domain.Common.Interfaces
 
         Task SaveChangesAsync(CancellationToken cancellationToken = default);
     }
-
 }

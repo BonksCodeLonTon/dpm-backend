@@ -11,17 +11,18 @@ namespace DPM.Domain.Entities
     public class RegisterToArrival : BaseEntity, IAuditableEntity, IRegister
     {
         public string? ArrivalId { get; set; }
-        public long RegisterById { get; set ; }
-        public virtual User RegisterByUser { get; set; }
         public long ShipId { get; set; }
-        public virtual Ship Ship { get; set; }
+        public virtual Ship? Ship { get; set; }
         public long PortId { get; set; }
-        public virtual Port Port { get; set; }
+        public virtual Port? Port { get; set; }
         public long CaptainId { get; set; }
-        public virtual User Captain { get; set; }
+        public virtual User? Captain { get; set; }
+        public virtual List<Crew> Crews { get; set; }
         public ApproveStatus ApproveStatus { get; set; }
         public DateTime ArrivalTime { get; set; }
         public DateTime ActualArrivalTime { get; set; }
+        public string? Attachment { get; set; }
+        public string? Note { get; set; }
         public bool IsStart { get; set; }
         public long? CreatedBy { get; set; }
         public long? UpdatedBy { get; set; }

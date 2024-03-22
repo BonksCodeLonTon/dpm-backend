@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DPM.Applications.Features.SailingRegister.RegisterToDepartureCommand
+namespace DPM.Applications.Features.Ships.UpdateShipLocationById
 {
-    internal class RegisterToDepartureCommand
+    internal class UpdateShipLocationByIdCommandHandler
     {
     }
 }

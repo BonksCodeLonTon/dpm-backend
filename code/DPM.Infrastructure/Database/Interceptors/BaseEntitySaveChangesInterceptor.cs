@@ -1,15 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using DPM.Applications.Services;
+﻿using DPM.Applications.Services;
 using DPM.Domain.Common.Models;
 using DPM.Infrastructure.Common.Extensions;
 using MediatR;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-
 
 namespace DPM.Infrastructure.Database.Interceptors
 {
@@ -92,5 +87,4 @@ namespace DPM.Infrastructure.Database.Interceptors
             }
         }
     }
-
 }

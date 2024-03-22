@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-
-namespace DPM.Domain.Common.Interfaces
+﻿namespace DPM.Domain.Common.Interfaces
 {
     public interface IBaseRepository<T> where T : class
     {

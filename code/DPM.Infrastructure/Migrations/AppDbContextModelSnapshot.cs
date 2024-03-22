@@ -160,6 +160,10 @@ namespace DPM.Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("arrival_time");
 
+                    b.Property<string>("Attachment")
+                        .HasColumnType("varchar(256)")
+                        .HasColumnName("attachment");
+
                     b.Property<long>("CaptainId")
                         .HasColumnType("bigint")
                         .HasColumnName("captain_id");
@@ -171,12 +175,17 @@ namespace DPM.Infrastructure.Migrations
                         .HasDefaultValueSql("now()");
 
                     b.Property<long?>("CreatedBy")
+                        .IsRequired()
                         .HasColumnType("bigint")
                         .HasColumnName("created_by");
 
                     b.Property<bool>("IsStart")
                         .HasColumnType("boolean")
                         .HasColumnName("is_start");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("varchar(256)")
+                        .HasColumnName("note");
 
                     b.Property<long>("PortId")
                         .HasColumnType("bigint")
@@ -212,9 +221,6 @@ namespace DPM.Infrastructure.Migrations
                     b.HasIndex("PortId")
                         .HasDatabaseName("ix_register_to_arrival_port_id");
 
-                    b.HasIndex("RegisterById")
-                        .HasDatabaseName("ix_register_to_arrival_register_by_id");
-
                     b.HasIndex("ShipId")
                         .HasDatabaseName("ix_register_to_arrival_ship_id");
 
@@ -240,6 +246,10 @@ namespace DPM.Infrastructure.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("approve_status");
 
+                    b.Property<string>("Attachment")
+                        .HasColumnType("varchar(256)")
+                        .HasColumnName("attachment");
+
                     b.Property<long>("CaptainId")
                         .HasColumnType("bigint")
                         .HasColumnName("captain_id");
@@ -251,6 +261,7 @@ namespace DPM.Infrastructure.Migrations
                         .HasDefaultValueSql("now()");
 
                     b.Property<long?>("CreatedBy")
+                        .IsRequired()
                         .HasColumnType("bigint")
                         .HasColumnName("created_by");
 
@@ -265,6 +276,10 @@ namespace DPM.Infrastructure.Migrations
                     b.Property<bool>("IsStart")
                         .HasColumnType("boolean")
                         .HasColumnName("is_start");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("varchar(256)")
+                        .HasColumnName("note");
 
                     b.Property<long>("PortId")
                         .HasColumnType("bigint")
@@ -299,9 +314,6 @@ namespace DPM.Infrastructure.Migrations
 
                     b.HasIndex("PortId")
                         .HasDatabaseName("ix_register_to_departure_port_id");
-
-                    b.HasIndex("RegisterById")
-                        .HasDatabaseName("ix_register_to_departure_register_by_id");
 
                     b.HasIndex("ShipId")
                         .HasDatabaseName("ix_register_to_departure_ship_id");
@@ -355,6 +367,11 @@ namespace DPM.Infrastructure.Migrations
                         .HasColumnType("boolean")
                         .HasColumnName("is_disabled");
 
+                    b.Property<string>("Length")
+                        .IsRequired()
+                        .HasColumnType("varchar(128)")
+                        .HasColumnName("length");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("varchar(128)")
@@ -363,6 +380,10 @@ namespace DPM.Infrastructure.Migrations
                     b.Property<long?>("OwnerId")
                         .HasColumnType("bigint")
                         .HasColumnName("owner_id");
+
+                    b.Property<long[]>("Position")
+                        .HasColumnType("bigint[]")
+                        .HasColumnName("array");
 
                     b.Property<string>("RegisterNumber")
                         .IsRequired()
@@ -695,6 +716,7 @@ namespace DPM.Infrastructure.Migrations
                         .WithMany()
                         .HasForeignKey("CreatedBy")
                         .OnDelete(DeleteBehavior.SetNull)
+                        .IsRequired()
                         .HasConstraintName("fk_register_to_arrival_users_creator_id");
 
                     b.HasOne("DPM.Domain.Entities.Port", "Port")
@@ -703,13 +725,6 @@ namespace DPM.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_register_to_arrival_port_port_id");
-
-                    b.HasOne("DPM.Domain.Entities.User", "RegisterByUser")
-                        .WithMany()
-                        .HasForeignKey("RegisterById")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_register_to_arrival_users_register_by_user_id");
 
                     b.HasOne("DPM.Domain.Entities.Ship", "Ship")
                         .WithMany()
@@ -730,8 +745,6 @@ namespace DPM.Infrastructure.Migrations
 
                     b.Navigation("Port");
 
-                    b.Navigation("RegisterByUser");
-
                     b.Navigation("Ship");
 
                     b.Navigation("Updater");
@@ -750,6 +763,7 @@ namespace DPM.Infrastructure.Migrations
                         .WithMany()
                         .HasForeignKey("CreatedBy")
                         .OnDelete(DeleteBehavior.SetNull)
+                        .IsRequired()
                         .HasConstraintName("fk_register_to_departure_users_creator_id");
 
                     b.HasOne("DPM.Domain.Entities.Port", "Port")
@@ -758,13 +772,6 @@ namespace DPM.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_register_to_departure_port_port_id");
-
-                    b.HasOne("DPM.Domain.Entities.User", "RegisterByUser")
-                        .WithMany()
-                        .HasForeignKey("RegisterById")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_register_to_departure_users_register_by_user_id");
 
                     b.HasOne("DPM.Domain.Entities.Ship", "Ship")
                         .WithMany()
@@ -784,8 +791,6 @@ namespace DPM.Infrastructure.Migrations
                     b.Navigation("Creator");
 
                     b.Navigation("Port");
-
-                    b.Navigation("RegisterByUser");
 
                     b.Navigation("Ship");
 

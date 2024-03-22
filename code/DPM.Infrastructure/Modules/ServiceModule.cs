@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using DPM.Applications.Services;
+using DPM.Infrastructure.Providers.DevExpress;
 using DPM.Infrastructure.Services;
 using Microsoft.AspNetCore.Http;
 
@@ -21,7 +22,9 @@ namespace DPM.Infrastructure.Modules
             builder.RegisterType<AsyncRunnerService>()
               .As<IAsyncRunnerService>()
               .SingleInstance();
+            builder.RegisterType<DigitalSigningService>()
+                .As<IDigitalSigningService>()
+                .SingleInstance();
         }
     }
-
 }

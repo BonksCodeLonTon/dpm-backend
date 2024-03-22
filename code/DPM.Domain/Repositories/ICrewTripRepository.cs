@@ -1,4 +1,5 @@
-﻿using DPM.Domain.Entities;
+﻿using DPM.Domain.Common.Interfaces;
+using DPM.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

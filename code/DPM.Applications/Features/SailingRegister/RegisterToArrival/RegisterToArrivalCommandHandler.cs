@@ -41,12 +41,7 @@ namespace DPM.Applications.Features.SailingRegister.RegisterToArrivalCommand
             var ship = _shipRepository.GetById(request.ShipId) ?? throw new NotFoundException(nameof(Ship));
             var captain = _userRepository.GetById(request.CaptainId) ?? throw new NotFoundException(nameof(User));
             var port = _portRepository.GetById(request.PortId)  ?? throw new NotFoundException(nameof(Port));
-            var matchingCrewIds = request.CrewIds.Where(id => _crewTripRepository.GetAll().Any(crewTrip => crewTrip.CrewId == id)).ToList();
 
-            if (matchingCrewIds.Any())
-            {
-                throw new ConflictException($"Crews with Ids {string.Join(",", matchingCrewIds)} are already on a trip.");
-            }
 
             if (ship.ShipStatus == Domain.Enums.ShipStatus.Docked)
             {

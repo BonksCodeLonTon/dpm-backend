@@ -24,12 +24,7 @@
     <Folder Include="Features\PortAuthorityUsers\PortAuthorityArrivelReject\" />
     <Folder Include="Features\PortAuthorityUsers\PortAuthorityDepartApprove\" />
     <Folder Include="Features\PortAuthorityUsers\PortAuthorityArriveApproval\" />
-    <Folder Include="Features\SailingRegister\GetArrivalRegistationsQuery\" />
-    <Folder Include="Features\SailingRegister\GetDepartRegistrationsQuery\" />
-    <Folder Include="Features\Ships\UpdateShipLocationById\" />
     <Folder Include="Features\Ships\DeleteShip\" />
-    <Folder Include="Features\Users\DepartRegister\" />
-    <Folder Include="Features\Users\ArriveRegister\" />
   </ItemGroup>
 
 </Project>

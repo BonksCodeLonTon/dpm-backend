@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DPM.Domain.Entities;
+using DPM.Domain.Enums;
 using FluentValidation;
 using MediatR;
 using System;
@@ -15,10 +16,14 @@ namespace DPM.Applications.Features.Ships.CreateShip
         public string Name { get; set; } = default!;
         public string ClassNumber { get; set; } = default!;
         public string IMONumber { get; set; }  = default!;
+        public string Length { get; set; } = default!;
+        public ShipType ShipType { get; set; }
+        public long[] Position { get; set; } = new long[] { 16, 108 };
         public string Purpose { get; set; } = default!;
         public string RegisterNumber { get; set; } = default!;
         public string GrossTonnage { get; set; } = default!;
         public string TotalPower { get; set; } = default!;
+        public long OwnerId { get; set; } = default!; 
     }
     public class CreateShipCommandProfile : Profile
     {

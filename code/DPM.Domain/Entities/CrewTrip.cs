@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace DPM.Domain.Entities
 {
-    [Keyless]
     public class CrewTrip : BaseEntity
     {
         public string? TripId { get; set; }

@@ -10,13 +10,16 @@ using System.Net;
 
 namespace DPM.API.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
+    [ApiExplorerSettings(IgnoreApi = false)]
     public class UserController : BaseController
     {
         public UserController(IMediator mediator) : base(mediator)
         {
         }
 
-        [HttpGet("users/me")]
+        [HttpGet("me")]
         [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> GetMe(GetMeQuery query)
@@ -25,7 +28,7 @@ namespace DPM.API.Controllers
             return CreateSuccessResult(result);
         }
 
-        [HttpGet("users/{id}")]
+        [HttpGet("{id}")]
         [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> FindUser(FindUsersQuery query)
@@ -34,7 +37,7 @@ namespace DPM.API.Controllers
             return CreateSuccessResult(result);
         }
 
-        [HttpPost("users")]
+        [HttpGet("all")]
         [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> GetAllUsers(GetUsersQuery query)
@@ -43,7 +46,7 @@ namespace DPM.API.Controllers
             return CreateSuccessResult(result);
         }
 
-        [HttpPatch("users/me")]
+        [HttpPatch("me")]
         [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> UpdateMe(UpdateMeCommand command)
@@ -52,7 +55,7 @@ namespace DPM.API.Controllers
             return CreateSuccessResult(result);
         }
 
-        [HttpPost("users/status")]
+        [HttpPatch("status")]
         [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> UpdateUserStatus(UpdateUserStatusCommand command)

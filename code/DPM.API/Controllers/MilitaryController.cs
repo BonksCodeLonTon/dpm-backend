@@ -1,4 +1,5 @@
 ﻿using DPM.Applications.Common;
+using DPM.Applications.Features.MilitaryUsers.Admin.GetMilitaryUsers;
 using DPM.Applications.Features.MilitaryUsers.Admin.InviteToMilitary;
 using DPM.Applications.Features.MilitaryUsers.Admin.ReadInviteTokenMilitary;
 using MediatR;
@@ -33,6 +34,14 @@ namespace DPM.API.Controllers
             var origin = await _mediator.Send(new ReadInviteTokenMilitaryCommand { Token = token });
 
             return Redirect(origin);
+        }
+        [HttpGet("all")]
+        [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> GetAllUsers(GetMilitaryUsersQuery query)
+        {
+            var result = await _mediator.Send(query);
+            return CreateSuccessResult(result);
         }
     }
 }

@@ -129,7 +129,6 @@ namespace DPM.Infrastructure.Database
                 entity.HasNoKey();
                 entity.Property(e => e.CrewId).HasColumnType("bigint");
                 entity.Property(e => e.TripId).HasColumnType("varchar(128)");
-                entity.Ignore(e => e.Id);
 
                 entity
                 .HasOne(e => e.Crew)

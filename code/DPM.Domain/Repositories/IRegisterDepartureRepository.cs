@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DPM.Domain.Repositories
 {
-    public interface IRegisterDepartureRepository : IGenericRepository<RegisterToDeparture>
+    public interface IRegisterDepartureRepository : IGenericRepository<DepartureRegistration>
     {
     }
 }

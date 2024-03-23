@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DPM.Domain.Entities;
+using MediatR;
+
 
 namespace DPM.Applications.Features.SailingRegister.GetDepartRegistrations
 {
-    internal class GetDepartRegistrationsQuery
+    public class GetDepartRegistrationsQuery : IRequest<IQueryable<DepartureRegistration>>
     {
     }
 }

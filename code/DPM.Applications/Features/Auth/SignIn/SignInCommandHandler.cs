@@ -16,12 +16,10 @@ namespace DPM.Applications.Features.Auth.SignIn
     internal class SignInCommandHandler : IRequestHandler<SignInCommand, SignInResponse>
     {
         private readonly IUserRepository _userRepository;
-        private readonly IMapper _mapper;
         private readonly IAuthenticationService _authService;
-        public SignInCommandHandler(IUserRepository userRepository, IMapper mapper, IAuthenticationService authService)
+        public SignInCommandHandler(IUserRepository userRepository, IAuthenticationService authService)
         {
             _userRepository = userRepository;
-            _mapper = mapper;
             _authService = authService;
         }
 
@@ -35,8 +33,10 @@ namespace DPM.Applications.Features.Auth.SignIn
             {
                 throw new NotFoundException(nameof(User));
             }
-            await _userRepository.SaveChangesAsync(cancellationToken);
+
             SignInResponse response = await _authService.SignInAsync(request.Username, request.Password);
+
+            await _userRepository.SaveChangesAsync(cancellationToken);
 
             return response;
         }

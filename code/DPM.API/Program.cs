@@ -8,6 +8,7 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +28,7 @@ builder.Host.ConfigureContainer<ContainerBuilder>((ctx, containerBuilder) =>
 // Adding services for Controllers
 builder.Services
     .AddControllers()
+    .AddJsonOptions(options => { options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()); })
     .AddApplicationPart(typeof(InfrastructureModule).Assembly);
 
 // Configure CORS
@@ -40,6 +42,7 @@ builder.Services.AddCors(options =>
 // Configure Swagger
 builder.Services.AddSwaggerGen(c =>
 {
+
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "DPM.API", Version = "v1" });
 
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

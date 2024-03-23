@@ -20,7 +20,7 @@ namespace DPM.Domain.Entities
         public string Email { get; set; } = default!;
         public Gender? Gender { get; set; }
         public string? Avatar { get; set; }
-        public RoleType RoleType { get; set; } = default!;
+        public RoleType RoleType { get; set; }
         public Role Role { get; set; }
         public bool IsDisabled { get; set; }
         public bool IsDeleted { get; set; }

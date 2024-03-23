@@ -10,6 +10,6 @@ namespace DPM.Applications.Features.Auth.SignOut
 {
     public class SignOutCommand : IRequest<bool>
     {
-        public long username { get; set; } = default!;
+        public string accessToken { get; set; }
     }
 }

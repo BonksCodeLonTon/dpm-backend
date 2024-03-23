@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DPM.Domain.Repositories
 {
-    public interface IRegisterArrivalRepository : IGenericRepository<RegisterToArrival>
+    public interface IRegisterArrivalRepository : IGenericRepository<ArrivalRegistration>
     {
     }
 }

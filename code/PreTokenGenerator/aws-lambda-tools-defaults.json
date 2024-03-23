@@ -21,7 +21,7 @@
     "function-role"         : "arn:aws:iam::111640046973:role/service-role/PreTokenGeneration-role-axdd3ayw",
     "function-subnets"      : "",
     "function-security-groups" : "",
-    "tracing-mode"             : "Active",
+    "tracing-mode"             : "PassThrough",
     "environment-variables"    : "",
     "image-tag"                : ""
 }

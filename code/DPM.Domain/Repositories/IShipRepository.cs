@@ -6,5 +6,6 @@ namespace DPM.Domain.Repositories
 {
     public interface IShipRepository : IGenericRepository<Ship>
     {
+        public IEnumerable<Ship> GetAllShipWithRelatedUserAsync(long userId);
     }
 }

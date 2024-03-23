@@ -6,9 +6,9 @@ using DPM.Domain.Repositories;
 using MediatR;
 
 
-namespace DPM.Applications.Features.SailingRegister.RegisterToArrivalCommand
+namespace DPM.Applications.Features.SailingRegister
 {
-    public class RegisterToArrivalCommandHandler : IRequestHandler<RegisterToArrivalCommand, RegisterToArrival>
+    public class RegisterToArrivalCommandHandler : IRequestHandler<RegisterToArrivalCommand, ArrivalRegistration>
     {
         private readonly IRegisterArrivalRepository _registerArrivalRepository;
         private readonly IUserRepository _userRepository;
@@ -36,27 +36,27 @@ namespace DPM.Applications.Features.SailingRegister.RegisterToArrivalCommand
             _crewTripRepository = crewTripRepository;
         }
 
-        public async Task<RegisterToArrival> Handle(RegisterToArrivalCommand request, CancellationToken cancellationToken)
+        public async Task<ArrivalRegistration> Handle(RegisterToArrivalCommand request, CancellationToken cancellationToken)
         {
             var ship = _shipRepository.GetById(request.ShipId) ?? throw new NotFoundException(nameof(Ship));
             var captain = _userRepository.GetById(request.CaptainId) ?? throw new NotFoundException(nameof(User));
-            var port = _portRepository.GetById(request.PortId)  ?? throw new NotFoundException(nameof(Port));
+            var port = _portRepository.GetById(request.PortId) ?? throw new NotFoundException(nameof(Port));
 
 
             if (ship.ShipStatus == Domain.Enums.ShipStatus.Docked)
             {
                 throw new ConflictException(nameof(Ship));
             }
-            var arrivalRegistration = _mapper.Map<RegisterToArrivalCommand, RegisterToArrival>(request);
-            arrivalRegistration.Ship = ship;
-            arrivalRegistration.Captain = captain;
-            arrivalRegistration.Port = port;
+            var arrivalRegistration = _mapper.Map<RegisterToArrivalCommand, ArrivalRegistration>(request);
+
             using var unitOfWork = _unitOfWorkFactory.Create(deferred: true);
 
             _registerArrivalRepository.Add(arrivalRegistration);
             await _shipRepository.SaveChangesAsync(cancellationToken);
             await unitOfWork.CommitAsync(cancellationToken);
-
+            arrivalRegistration.Ship = ship;
+            arrivalRegistration.Captain = captain;
+            arrivalRegistration.Port = port;
             return arrivalRegistration;
         }
     }

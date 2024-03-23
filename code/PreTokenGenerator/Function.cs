@@ -21,13 +21,14 @@ public class Function
         "SELECT * FROM users WHERE username = @username",
           new { username = cognitoEvent.UserName }
         );
+        Console.WriteLine(user.RoleType);
         cognitoEvent.Response.ClaimsOverrideDetails = new ClaimOverrideDetails
         {
             ClaimsToAddOrOverride = new Dictionary<string, string>
         {
           { "user_id", user.Id.ToString() },
-          { "role_type", Enum.GetName(user.RoleType)! },
-            {"role", Enum.GetName(user.Role)! }
+          { "role_type", user.RoleType.ToString()  },
+          { "role", Enum.GetName(user.Role)! }
         }
         };
 

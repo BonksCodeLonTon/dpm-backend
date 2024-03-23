@@ -20,6 +20,7 @@
     <Folder Include="Features\MilitaryUsers\MilitaryArriveApprove\" />
     <Folder Include="Features\MilitaryUsers\MilitaryArriveReject\" />
     <Folder Include="Features\MilitaryUsers\MilitaryDepartReject\" />
+    <Folder Include="Features\Crew\" />
     <Folder Include="Features\PortAuthorityUsers\PortAuthorityDepartReject\" />
     <Folder Include="Features\PortAuthorityUsers\PortAuthorityArrivelReject\" />
     <Folder Include="Features\PortAuthorityUsers\PortAuthorityDepartApprove\" />

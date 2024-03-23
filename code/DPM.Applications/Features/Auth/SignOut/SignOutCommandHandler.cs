@@ -11,17 +11,14 @@ namespace DPM.Applications.Features.Auth.SignOut
     internal class SignOutCommandHandler : IRequestHandler<SignOutCommand, bool>
     {
         private readonly IAuthenticationService _authService;
-        private readonly IRequestContextService _requestContextService;
-        public SignOutCommandHandler(IAuthenticationService authService, IRequestContextService requestContextService)
+        public SignOutCommandHandler(IAuthenticationService authService)
         {
             _authService = authService;
-            _requestContextService = requestContextService;
         }
         public async Task<bool> Handle(SignOutCommand request, CancellationToken cancellationToken)
         {
-            string? accessToken = _requestContextService.GetValue("Authorization")?.ToString()?.Replace("Bearer ", "");
 
-            bool response = await _authService.SignOutAsync(accessToken);
+            bool response = await _authService.SignOutAsync(request.accessToken);
 
             return response;
         }

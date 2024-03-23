@@ -5,9 +5,9 @@ using DPM.Domain.Exceptions;
 using DPM.Domain.Repositories;
 using MediatR;
 
-namespace DPM.Applications.Features.SailingRegister.RegisterToDepartureCommand
+namespace DPM.Applications.Features.SailingRegister
 {
-    public class RegisterToArrivalCommandHandler : IRequestHandler<RegisterToDepartureCommand, RegisterToDeparture>
+    public class RegisterToDepartureCommandHandler : IRequestHandler<RegisterToDepartureCommand, DepartureRegistration>
     {
         private readonly IRegisterDepartureRepository _registerDepartureRepository;
         private readonly IUserRepository _userRepository;
@@ -17,7 +17,7 @@ namespace DPM.Applications.Features.SailingRegister.RegisterToDepartureCommand
         private readonly ICrewTripRepository _crewTripRepository;
         private readonly ICrewRepository _crewRepository;
         private readonly IMapper _mapper;
-        public RegisterToArrivalCommandHandler(
+        public RegisterToDepartureCommandHandler(
             IRegisterDepartureRepository registerDeparturRepository,
             IShipRepository shipRepository,
             IMapper mapper,
@@ -38,7 +38,7 @@ namespace DPM.Applications.Features.SailingRegister.RegisterToDepartureCommand
             _crewTripRepository = crewTripRepository;
         }
 
-        public async Task<RegisterToDeparture> Handle(RegisterToDepartureCommand request, CancellationToken cancellationToken)
+        public async Task<DepartureRegistration> Handle(RegisterToDepartureCommand request, CancellationToken cancellationToken)
         {
             var ship = _shipRepository.GetById(request.ShipId) ?? throw new NotFoundException(nameof(Ship));
             var captain = _userRepository.GetById(request.CaptainId) ?? throw new NotFoundException(nameof(User));
@@ -57,17 +57,17 @@ namespace DPM.Applications.Features.SailingRegister.RegisterToDepartureCommand
 
             var crews = _crewRepository.GetAll().Where(crew => request.CrewIds.Contains(crew.Id)).ToList();
 
-            var departureRegistration = _mapper.Map<RegisterToDepartureCommand, RegisterToDeparture>(request);
-            departureRegistration.Ship = ship;
-            departureRegistration.Captain = captain;
-            departureRegistration.Port = port;
-            departureRegistration.Crews = crews;
+            var departureRegistration = _mapper.Map<RegisterToDepartureCommand, DepartureRegistration>(request);
+
             using var unitOfWork = _unitOfWorkFactory.Create(deferred: true);
 
             _registerDepartureRepository.Add(departureRegistration);
             await _shipRepository.SaveChangesAsync(cancellationToken);
             await unitOfWork.CommitAsync(cancellationToken);
-
+            departureRegistration.Ship = ship;
+            departureRegistration.Captain = captain;
+            departureRegistration.Port = port;
+            departureRegistration.Crews = crews;
             return departureRegistration;
         }
     }

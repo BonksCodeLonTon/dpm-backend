@@ -25,6 +25,7 @@ namespace DPM.API.Controllers
         }
 
         [HttpPost("admin/register")]
+        [AllowAnonymous]
         [ProducesResponseType(typeof(HandlerResult<bool>), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> Register(RegisterCommand command)

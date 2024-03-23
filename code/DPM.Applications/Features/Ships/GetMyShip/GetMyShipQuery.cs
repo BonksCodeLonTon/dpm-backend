@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DPM.Applications.Features.Ships.GetMyShip
 {
-    public class GetMyShipQuery : IRequest<IQueryable<Ship>>
+    public class GetMyShipQuery : IRequest<IEnumerable<Ship>>
     {
     }
 }

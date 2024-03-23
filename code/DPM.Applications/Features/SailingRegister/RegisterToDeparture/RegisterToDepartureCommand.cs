@@ -9,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DPM.Applications.Features.SailingRegister.RegisterToDepartureCommand
+namespace DPM.Applications.Features.SailingRegister
 {
-    public class RegisterToDepartureCommand : IRequest<RegisterToDeparture>
+    public class RegisterToDepartureCommand : IRequest<DepartureRegistration>
     {
         public long ShipId { get; set; }
         public long PortId { get; set; }
@@ -22,7 +22,7 @@ namespace DPM.Applications.Features.SailingRegister.RegisterToDepartureCommand
         public DateTime ActualArrivalTime { get; set; }
         public bool IsStart { get; set; }
 
-        public class RequestCommandValidator : AbstractValidator<RegisterToDeparture>
+        public class RequestCommandValidator : AbstractValidator<DepartureRegistration>
         {
             public RequestCommandValidator()
             {
@@ -34,7 +34,7 @@ namespace DPM.Applications.Features.SailingRegister.RegisterToDepartureCommand
         {
             public RegisterToArrivalCommandProfile()
             {
-                CreateMap<RegisterToDepartureCommand, RegisterToArrival>();
+                CreateMap<RegisterToDepartureCommand, ArrivalRegistration>();
             }
         }
     }

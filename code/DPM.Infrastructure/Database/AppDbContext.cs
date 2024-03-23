@@ -23,8 +23,8 @@ namespace DPM.Infrastructure.Database
                 entity.Property(e => e.PhoneNumber).IsRequired().HasColumnType("varchar(16)");
                 entity.Property(e => e.Avatar).HasColumnType("varchar(256)");
                 entity.Property(e => e.Gender).HasColumnType("varchar(8)").HasConversion<string>();
-                entity.Property(e => e.RoleType).IsRequired().HasColumnType("varchar(16)").HasConversion<string>().HasDefaultValue(RoleType.User);
-                entity.Property(e => e.Role).IsRequired().HasColumnType("varchar(16)").HasConversion<string>().HasDefaultValue(Role.None);
+                entity.Property(e => e.RoleType).IsRequired().HasColumnType("varchar(16)").HasConversion<int>();
+                entity.Property(e => e.Role).IsRequired().HasColumnType("varchar(16)").HasConversion<int>();
                 entity.Property(e => e.IsDisabled).HasDefaultValue(false);
                 entity.Property(e => e.IsDeleted).HasDefaultValue(false);
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("now()");
@@ -56,7 +56,7 @@ namespace DPM.Infrastructure.Database
                 entity.Property(e => e.OwnerId).HasColumnType("bigint");
                 entity.Property(e => e.ShipType).IsRequired().HasColumnType("varchar(16)").HasConversion<string>().HasDefaultValue(ShipType.Other);
                 entity.Property(e => e.Length).IsRequired().HasColumnType("varchar(128)");
-                entity.Property(e => e.Position).HasColumnName("array");
+                entity.Property(e => e.Position);
                 entity.Property(e => e.ShipStatus).IsRequired().HasColumnType("varchar(16)").HasConversion<string>().HasDefaultValue(ShipStatus.Docked);
                 entity.Property(e => e.GrossTonnage).IsRequired().HasColumnType("varchar(128)");
                 entity.Property(e => e.TotalPower).IsRequired().HasColumnType("varchar(128)");
@@ -69,8 +69,8 @@ namespace DPM.Infrastructure.Database
                 entity.HasIndex(e => e.IMONumber).IsUnique();
                 entity
                   .HasOne(e => e.Owner)
-                  .WithOne()
-                  .HasForeignKey<Ship>(e => e.OwnerId);
+                  .WithMany()
+                  .HasForeignKey(e => e.OwnerId);
                 entity
                   .HasOne(e => e.Creator)
                   .WithMany()
@@ -143,7 +143,7 @@ namespace DPM.Infrastructure.Database
                 .HasForeignKey<CrewTrip>(e => e.TripId)
                 .IsRequired(false);
             });
-            modelBuilder.Entity<RegisterToArrival>(entity =>
+            modelBuilder.Entity<ArrivalRegistration>(entity =>
             {
                 entity.Ignore(e => e.Id);
                 entity.Property(e => e.ArrivalId).IsRequired().HasColumnType("varchar(128)").HasDefaultValueSql("generate_arrival_id()");
@@ -181,7 +181,7 @@ namespace DPM.Infrastructure.Database
                   .OnDelete(DeleteBehavior.SetNull);
                 entity.HasQueryFilter(e => !e.Creator.IsDeleted && !e.Updater.IsDeleted);
             });
-            modelBuilder.Entity<RegisterToDeparture>(entity =>
+            modelBuilder.Entity<DepartureRegistration>(entity =>
             {
                 entity.Ignore(e => e.Id);
                 entity.Property(e => e.Attachment).HasColumnType("varchar(256)");

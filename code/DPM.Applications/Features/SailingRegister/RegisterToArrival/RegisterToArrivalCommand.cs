@@ -6,14 +6,14 @@ using FluentValidation;
 using MediatR;
 using System.Text.RegularExpressions;
 
-namespace DPM.Applications.Features.SailingRegister.RegisterToArrivalCommand
+namespace DPM.Applications.Features.SailingRegister
 {
-    public class RegisterToArrivalCommand : IRequest<RegisterToArrival>
+    public class RegisterToArrivalCommand : IRequest<ArrivalRegistration>
     {
         public long ShipId { get; set; }
         public long PortId { get; set; }
         public long CaptainId { get; set; }
-        public long[] CrewIds { get; set; } 
+        public long[] CrewIds { get; set; }
         public ApproveStatus ApproveStatus { get; set; } = ApproveStatus.None;
         public DateTime ArrivalTime { get; set; }
         public DateTime ActualArrivalTime { get; set; }
@@ -34,7 +34,7 @@ namespace DPM.Applications.Features.SailingRegister.RegisterToArrivalCommand
         {
             public RegisterToArrivalCommandProfile()
             {
-                CreateMap<RegisterToArrivalCommand, RegisterToArrival>();
+                CreateMap<RegisterToArrivalCommand, ArrivalRegistration>();
             }
         }
     }

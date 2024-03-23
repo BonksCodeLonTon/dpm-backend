@@ -11,20 +11,17 @@ namespace DPM.Applications.Features.Ships.CreateShip
 {
     public class CreateShipCommandHandler : IRequestHandler<CreateShipCommand, Ship>
     {
-        private readonly IUnitOfWorkFactory _unitOfWorkFactory;
         private readonly IUserRepository _userRepository;
         private readonly IShipRepository _shipRepository;
         private readonly IMapper _mapper;
 
 
         public CreateShipCommandHandler(
-            IUnitOfWorkFactory unitOfWorkFactory,
             IUserRepository userRepository,
             IShipRepository shipRepository,
             IMapper mapper
         )
         {
-            _unitOfWorkFactory = unitOfWorkFactory;
             _userRepository = userRepository;
             _shipRepository = shipRepository;
             _mapper = mapper;
@@ -39,11 +36,11 @@ namespace DPM.Applications.Features.Ships.CreateShip
             {
                 throw new ConflictException(nameof(Ship));
             }
-            var ship = _mapper.Map<CreateShipCommand, Ship>(request);
-            ship.Owner = owner;
+            var ship = _mapper.Map<Ship>(request);
+            ship.Position = new long[]{ 16, 108 };
             _shipRepository.Add(ship);
             await _shipRepository.SaveChangesAsync(cancellationToken);
-
+            ship.Owner = owner;
             return ship;
         }
     }

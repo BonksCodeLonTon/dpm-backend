@@ -408,7 +408,7 @@ namespace DPM.Infrastructure.Migrations
 
                     b.Property<long[]>("Position")
                         .HasColumnType("bigint[]")
-                        .HasColumnName("array");
+                        .HasColumnName("position");
 
                     b.Property<string>("RegisterNumber")
                         .IsRequired()
@@ -455,7 +455,6 @@ namespace DPM.Infrastructure.Migrations
                         .HasDatabaseName("ix_ships_imo_number");
 
                     b.HasIndex("OwnerId")
-                        .IsUnique()
                         .HasDatabaseName("ix_ships_owner_id");
 
                     b.HasIndex("UpdatedBy")
@@ -613,16 +612,12 @@ namespace DPM.Infrastructure.Migrations
 
                     b.Property<string>("Role")
                         .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("varchar(16)")
-                        .HasDefaultValue("None")
                         .HasColumnName("role");
 
                     b.Property<string>("RoleType")
                         .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("varchar(16)")
-                        .HasDefaultValue("User")
                         .HasColumnName("role_type");
 
                     b.Property<DateTime?>("UpdatedAt")
@@ -841,8 +836,8 @@ namespace DPM.Infrastructure.Migrations
                         .HasConstraintName("fk_ships_users_creator_id");
 
                     b.HasOne("DPM.Domain.Entities.User", "Owner")
-                        .WithOne()
-                        .HasForeignKey("DPM.Domain.Entities.Ship", "OwnerId")
+                        .WithMany()
+                        .HasForeignKey("OwnerId")
                         .HasConstraintName("fk_ships_users_owner_id");
 
                     b.HasOne("DPM.Domain.Entities.User", "Updater")

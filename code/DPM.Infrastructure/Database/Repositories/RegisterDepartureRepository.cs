@@ -4,7 +4,7 @@ using DPM.Domain.Repositories;
 
 namespace DPM.Infrastructure.Database.Repositories
 {
-    internal class RegisterDepartureRepository : GenericRepository<RegisterToDeparture>, IRegisterDepartureRepository
+    internal class RegisterDepartureRepository : GenericRepository<DepartureRegistration>, IRegisterDepartureRepository
     {
         public RegisterDepartureRepository(ILifetimeScope scope) : base(scope)
         {

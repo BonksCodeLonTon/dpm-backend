@@ -18,7 +18,7 @@ namespace DPM.Applications.Features.Ships.CreateShip
         public string IMONumber { get; set; }  = default!;
         public string Length { get; set; } = default!;
         public ShipType ShipType { get; set; }
-        public long[] Position { get; set; } = new long[] { 16, 108 };
+        public long[] Position { get; set; } = default!;
         public string Purpose { get; set; } = default!;
         public string RegisterNumber { get; set; } = default!;
         public string GrossTonnage { get; set; } = default!;

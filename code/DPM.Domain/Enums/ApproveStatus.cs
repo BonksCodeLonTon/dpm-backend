@@ -1,17 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace DPM.Domain.Enums
 {
     public enum ApproveStatus
     {
+        [Description("Rejected by Military")]
         RejectedByMilitary,
+
+        [Description("Rejected by Port Authority")]
         RejectedByPortAuthority,
+
+        [Description("Approved by Military")]
+        ApprovedByMilitary,
+
+        [Description("Approved by Port Authority")]
+        ApprovedByPortAuthority,
+
+        [Description("Approving")]
         Approving,
-        Approved,
+
+        [Description("None")]
         None
     }
 }

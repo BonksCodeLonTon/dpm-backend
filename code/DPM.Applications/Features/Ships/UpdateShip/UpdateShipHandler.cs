@@ -11,12 +11,10 @@ namespace DPM.Applications.Features.Ships.UpdateShip
     {
         private readonly IShipRepository _shipRepostory;
         private readonly IMapper _mapper;
-        private readonly IRequestContextService _requestContextService;
-        public UpdateShipHandler(IShipRepository shipRepostory, IMapper mapper, IRequestContextService requestContextService)
+        public UpdateShipHandler(IShipRepository shipRepostory, IMapper mapper)
         {
             _shipRepostory = shipRepostory;
             _mapper = mapper;
-            _requestContextService = requestContextService;
         }
 
         public async Task<bool> Handle(UpdateShipCommand request, CancellationToken cancellationToken)

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace DPM.Applications.Features.Ships.GetMyShip
 {
-    internal class GetMyShipQueryHandler : IRequestHandler<GetMyShipQuery, IQueryable<Ship>>
+    internal class GetMyShipQueryHandler : IRequestHandler<GetMyShipQuery, IEnumerable<Ship>>
     {
         private readonly IRequestContextService _requestContextService;
         private readonly IShipRepository _shipRepository;
@@ -28,12 +28,10 @@ namespace DPM.Applications.Features.Ships.GetMyShip
             _shipRepository = shipRepository;
         }
 
-        public  Task<IQueryable<Ship>> Handle(GetMyShipQuery request, CancellationToken cancellationToken)
+        public  Task<IEnumerable<Ship>> Handle(GetMyShipQuery request, CancellationToken cancellationToken)
         {
             var userId = _requestContextService.UserId;
-            return Task.FromResult(_shipRepository
-                .GetAll(ReadConsistency.Eventual)
-                .Where(ship => ship.OwnerId == userId));
+            return Task.FromResult(_shipRepository.GetAllShipWithRelatedUserAsync(userId));
         }
     }
 }

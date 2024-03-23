@@ -6,6 +6,7 @@ using DPM.Applications.Features.Ships.GetShip;
 using DPM.Applications.Features.Ships.GetShips;
 using DPM.Applications.Features.Ships.UpdateShip;
 using DPM.Applications.Features.Ships.UpdateShipLocationById;
+using DPM.Applications.Features.Ships.UpdateShipStatus;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -31,13 +32,12 @@ namespace DPM.API.Controllers
             return CreateSuccessResult(result);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("get-single")]
         [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> GetShip(int id)
+        public async Task<IActionResult> GetShip([FromQuery] GetShipQuery query)
         {
-            var getShipQuery = new GetShipQuery { Id = id };
-            var result = await _mediator.Send(getShipQuery);
+            var result = await _mediator.Send(query);
             return CreateSuccessResult(result);
         }
 
@@ -60,7 +60,7 @@ namespace DPM.API.Controllers
             return CreateSuccessResult(result);
         }
 
-        [HttpDelete("id")]
+        [HttpDelete("delete")]
         [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> DeleteShip(long id)
@@ -70,7 +70,7 @@ namespace DPM.API.Controllers
             return CreateSuccessResult(result);
         }
 
-        [HttpPatch("{id}")]
+        [HttpPatch("update")]
         [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> UpdateShip(UpdateShipCommand command)
@@ -79,10 +79,18 @@ namespace DPM.API.Controllers
             return CreateSuccessResult(result);
         }
 
-        [HttpPatch("position/{id}")]
+        [HttpPatch("update/position")]
         [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> UpdateShipPosition(UpdateShipLocationByIdCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return CreateSuccessResult(result);
+        }
+        [HttpPatch("update/status")]
+        [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> UpdateShipStatus(UpdateShipStatusCommand command)
         {
             var result = await _mediator.Send(command);
             return CreateSuccessResult(result);

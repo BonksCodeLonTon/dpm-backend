@@ -22,7 +22,7 @@ namespace DPM.API.Controllers
         [HttpGet("me")]
         [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> GetMe(GetMeQuery query)
+        public async Task<IActionResult> GetMe([FromQuery] GetMeQuery query)
         {
             var result = await _mediator.Send(query);
             return CreateSuccessResult(result);
@@ -31,7 +31,7 @@ namespace DPM.API.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> FindUser(FindUsersQuery query)
+        public async Task<IActionResult> FindUser([FromQuery] FindUsersQuery query)
         {
             var result = await _mediator.Send(query);
             return CreateSuccessResult(result);
@@ -40,7 +40,7 @@ namespace DPM.API.Controllers
         [HttpGet("all")]
         [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> GetAllUsers(GetUsersQuery query)
+        public async Task<IActionResult> GetAllUsers([FromQuery] GetUsersQuery query)
         {
             var result = await _mediator.Send(query);
             return CreateSuccessResult(result);
@@ -49,7 +49,7 @@ namespace DPM.API.Controllers
         [HttpPatch("me")]
         [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> UpdateMe(UpdateMeCommand command)
+        public async Task<IActionResult> UpdateMe([FromBody] UpdateMeCommand command)
         {
             var result = await _mediator.Send(command);
             return CreateSuccessResult(result);
@@ -58,7 +58,7 @@ namespace DPM.API.Controllers
         [HttpPatch("status")]
         [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> UpdateUserStatus(UpdateUserStatusCommand command)
+        public async Task<IActionResult> UpdateUserStatus([FromBody] UpdateUserStatusCommand command)
         {
             var result = await _mediator.Send(command);
             return CreateSuccessResult(result);

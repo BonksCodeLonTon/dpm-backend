@@ -2,14 +2,9 @@
 using DPM.Domain.Common;
 using DPM.Domain.Common.Interfaces;
 using DPM.Domain.Entities;
-using DPM.Domain.Exceptions;
 using DPM.Domain.Repositories;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DPM.Applications.Features.Ships.GetMyShip
 {

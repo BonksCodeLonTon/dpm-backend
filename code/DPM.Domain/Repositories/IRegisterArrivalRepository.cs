@@ -1,14 +1,17 @@
-﻿using DPM.Domain.Common.Interfaces;
+﻿using DPM.Domain.Common;
+using DPM.Domain.Common.Interfaces;
 using DPM.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace DPM.Domain.Repositories
 {
     public interface IRegisterArrivalRepository : IGenericRepository<ArrivalRegistration>
     {
+        ArrivalRegistration GetByStringId(string id,
+            ReadConsistency readConsistency = ReadConsistency.Strong,
+            bool tracking = false,
+            params string[] relations);
+        IQueryable<ArrivalRegistration> GetAllArrivalRegistrationWithRelations(
+        ReadConsistency readConsistency = ReadConsistency.Strong,
+        bool tracking = false,
+        params string[] relations);
     }
 }

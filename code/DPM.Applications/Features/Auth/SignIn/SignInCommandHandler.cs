@@ -27,8 +27,7 @@ namespace DPM.Applications.Features.Auth.SignIn
         {
             var isExisted = _userRepository
               .GetAll()
-              .Any(u => u.Username == request.Username);
-
+              .Any(u => u.Username == request.Username || u.Email == request.Username && !u.IsDisabled);
             if (!isExisted)
             {
                 throw new NotFoundException(nameof(User));
@@ -42,3 +41,4 @@ namespace DPM.Applications.Features.Auth.SignIn
         }
     }
 }
+    

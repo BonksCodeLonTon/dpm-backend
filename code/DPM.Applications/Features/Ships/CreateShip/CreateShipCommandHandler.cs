@@ -37,7 +37,7 @@ namespace DPM.Applications.Features.Ships.CreateShip
                 throw new ConflictException(nameof(Ship));
             }
             var ship = _mapper.Map<Ship>(request);
-            ship.Position = new long[]{ 16, 108 };
+            ship.Position = new double[]{ 16, 108 };
             _shipRepository.Add(ship);
             await _shipRepository.SaveChangesAsync(cancellationToken);
             ship.Owner = owner;

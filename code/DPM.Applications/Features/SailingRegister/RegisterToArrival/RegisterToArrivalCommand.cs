@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace DPM.Applications.Features.SailingRegister
 {
-    public class RegisterToArrivalCommand : IRequest<ArrivalRegistration>
+    public class RegisterToArrivalCommand : IRequest<bool>
     {
         public long ShipId { get; set; }
         public long PortId { get; set; }

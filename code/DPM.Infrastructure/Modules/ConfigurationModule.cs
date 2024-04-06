@@ -26,6 +26,14 @@ namespace DPM.Infrastructure.Modules
               .Bind(_configuration.GetRequiredSection(CognitoService.Options.SectionName))
               .ValidateDataAnnotations()
               .ValidateOnStart();
+            services.AddOptions<SesService.Options>()
+              .Bind(_configuration.GetRequiredSection(SesService.Options.SectionName))
+              .ValidateDataAnnotations()
+              .ValidateOnStart();
+            services.AddOptions<S3Service.Options>()
+              .Bind(_configuration.GetRequiredSection(S3Service.Options.SectionName))
+              .ValidateDataAnnotations()
+              .ValidateOnStart();
             services.AddOptions<CacheModule.Options>()
               .Bind(_configuration.GetSection(CacheModule.Options.SectionName))
               .ValidateDataAnnotations()

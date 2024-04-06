@@ -11,12 +11,13 @@ namespace DPM.Domain.Entities
         public string? RegisterNumber {get; set; }
         public string? GrossTonnage { get; set; }
         public string? Length { get; set; }
+        public string? ImagePath { get; set; }
         public ShipType ShipType { get; set; }
         public ShipStatus ShipStatus { get; set; }
         public string? TotalPower { get; set; }
         public long? OwnerId { get; set; }
         public User? Owner { get; set; }
-        public long[]? Position { get; set; }
+        public double[]? Position { get; set; }
         public bool IsDisabled { get; set; }
         public bool IsDeleted { get; set; }
         public long? CreatedBy { get; set; }

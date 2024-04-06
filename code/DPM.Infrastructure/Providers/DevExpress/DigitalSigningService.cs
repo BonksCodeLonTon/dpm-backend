@@ -14,23 +14,24 @@ namespace DPM.Infrastructure.Providers.DevExpress
     {
         public class Options
         {
-            public static readonly string SectionName = "Sign";
+            public static readonly string SectionName = "DigitalSign";
 
             [Required]
             public string TimestampServerUrl { get; set; } = default!;
-
             [Required]
             public string Certificate { get; set; } = default!;
-
             [Required]
             public string Secret { get; set; } = default!;
         }
 
         private readonly Options _options;
 
-        public DigitalSigningService(IOptionsSnapshot<Options> options)
+        private readonly IStorageService _storageService;
+
+        public DigitalSigningService(IOptionsSnapshot<Options> options, IStorageService storageService)
         {
             _options = options.Value;
+            _storageService = storageService;
         }
 
         public async Task<bool> SignAsync(string documentPath, Domain.Common.Models.PdfSignature signatures)
@@ -38,7 +39,7 @@ namespace DPM.Infrastructure.Providers.DevExpress
             try
             {
                 var timestampServerUrl = _options.TimestampServerUrl;
-                var certificate = _options.Certificate;
+                var certificate = _storageService.GetUrl(_options.Certificate);
                 var secret = _options.Secret;
 
                 string documentName = Path.GetFileName(documentPath);

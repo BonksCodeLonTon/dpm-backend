@@ -16,8 +16,7 @@ namespace DPM.Applications.Features.SailingRegister.GetDepartRegistrations
         }
         public Task<IQueryable<DepartureRegistration>> Handle(GetDepartRegistrationsQuery request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(
-              _registerDepartRepository.GetAll(ReadConsistency.Cached));
+            return Task.FromResult(_registerDepartRepository.GetAllDepartureRegistrationWithRelations(ReadConsistency.Cached));
         }
     }
 }

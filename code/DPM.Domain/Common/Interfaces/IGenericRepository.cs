@@ -19,9 +19,7 @@ namespace DPM.Domain.Common.Interfaces
         void Update(TEntity entity);
 
         TEntity? Delete(TEntity entity);
-
         int Count(bool readConsistency = true);
-
         Task SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

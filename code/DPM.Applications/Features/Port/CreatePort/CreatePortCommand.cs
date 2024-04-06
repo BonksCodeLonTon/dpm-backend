@@ -1,9 +1,6 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using FluentValidation;
+using MediatR;
 
 namespace DPM.Applications.Features.Port.CreatePort
 {
@@ -11,5 +8,18 @@ namespace DPM.Applications.Features.Port.CreatePort
     {
         public string? Name { get; set; }
     }
-
+    public class CreatePortCommandProfile : Profile
+    {
+        public CreatePortCommandProfile()
+        {
+            CreateMap<CreatePortCommand, Domain.Entities.Port>();
+        }
+    }
+    public class CreateShipCommandValidator : AbstractValidator<CreatePortCommand>
+    {
+        public CreateShipCommandValidator()
+        {
+            RuleFor(x => x.Name).NotEmpty().MaximumLength(100);
+        }
+    }
 }

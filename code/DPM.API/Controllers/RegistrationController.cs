@@ -1,9 +1,11 @@
 ﻿using DPM.Applications.Common;
 using DPM.Applications.Features.SailingRegister;
 using DPM.Applications.Features.SailingRegister.GetArrivalRegistations;
+using DPM.Applications.Features.SailingRegister.GetArrivalRegistrationById;
 using DPM.Applications.Features.SailingRegister.GetArrivalRegistrationsWithStatus;
 using DPM.Applications.Features.SailingRegister.GetDepartRegistrations;
 using DPM.Applications.Features.SailingRegister.GetDepartRegistrationsWithStatus;
+using DPM.Applications.Features.SailingRegister.GetDepartureRegistrationById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -62,6 +64,22 @@ namespace DPM.API.Controllers
         [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> GetArrivalRegistrationWithStatus([FromQuery] GetArrivalRegistrationsWithStatusQuery query)
+        {
+            var result = await _mediator.Send(query);
+            return CreateSuccessResult(result);
+        }
+        [HttpGet("departure/get-single")]
+        [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> GetDepartRegistrationById([FromQuery] GetDepartureRegistrationByIdQuery query)
+        {
+            var result = await _mediator.Send(query);
+            return CreateSuccessResult(result);
+        }
+        [HttpGet("arrival/get-single")]
+        [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> GetArrivalRegistrationById([FromQuery] GetArrivalRegistrationByIdQuery query)
         {
             var result = await _mediator.Send(query);
             return CreateSuccessResult(result);

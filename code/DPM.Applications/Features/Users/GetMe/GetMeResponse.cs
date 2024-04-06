@@ -18,7 +18,8 @@ namespace DPM.Applications.Features.Users.GetMe
         public string? PhoneNumber { get; set; }
         public Gender? Gender { get; set; }
         public string? Avatar { get; set; }
-        public string RoleType { get; set; } = default!;
+        public RoleType RoleType { get; set; } 
+        public Role Role { get; set; }
     }
     public class GetMeResponseProfile : Profile
     {

@@ -15,7 +15,6 @@ namespace DPM.Infrastructure.Providers.DevExpress
                 string documentName = Path.GetFileName(documentPath);
                 string signedDocumentName = $"Signed {documentName}";
                 string SignedDocumentPath = Path.Combine(Path.GetDirectoryName(documentPath), signedDocumentName);
-                // Sign and save the document
                 signer.SaveDocument(SignedDocumentPath, GetSignatureBuilders(signatures));
             }
         }
@@ -26,7 +25,7 @@ namespace DPM.Infrastructure.Providers.DevExpress
 
             ITsaClient tsaClient = new TsaClient(new Uri(Constants.TimestampServerUrl), HashAlgorithmType.SHA256);
 
-            Pkcs7Signer pkcs7Signature = new Pkcs7Signer("Signing Documents/certificate.pfx", "123", HashAlgorithmType.SHA256, tsaClient, null, null, PdfSignatureProfile.PAdES_BES);
+            Pkcs7Signer pkcs7Signature = new Pkcs7Signer("", "", HashAlgorithmType.SHA256, tsaClient, null, null, PdfSignatureProfile.PAdES_BES);
 
             var signatureBuilder = new PdfSignatureBuilder(pkcs7Signature);
 
@@ -35,7 +34,7 @@ namespace DPM.Infrastructure.Providers.DevExpress
             signatureBuilder.Name = signature.Name;
             signatureBuilder.Reason = signature.Reason;
 
-            signatureBuilders.Add(signatureBuilder);
+            signatureBuilders.Add(signatureBuilder); 
 
             return signatureBuilders.ToArray();
         }

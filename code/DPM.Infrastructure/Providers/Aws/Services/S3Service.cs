@@ -33,7 +33,7 @@ namespace DPM.Infrastructure.Providers.Aws.Services
             {
                 BucketName = BucketName,
                 Key = objectKey,
-                Expires = System.DateTime.Now.AddMinutes(15),
+                Expires = DateTime.Now.AddMinutes(15),
                 Verb = HttpVerb.PUT,
                 ContentType = type,
                 Headers =
@@ -71,8 +71,6 @@ namespace DPM.Infrastructure.Providers.Aws.Services
 
         public async Task<bool> UploadFileAsync(string filePath, string objectKey, string contentType)
         {
-            try
-            {
                 var fileTransferUtility = new TransferUtility(_s3Client);
 
                 var request = new TransferUtilityUploadRequest
@@ -87,10 +85,5 @@ namespace DPM.Infrastructure.Providers.Aws.Services
 
                 return true;
             }
-            catch (Exception ex)
-            {
-                return false;
-            }
         }
     }
-}

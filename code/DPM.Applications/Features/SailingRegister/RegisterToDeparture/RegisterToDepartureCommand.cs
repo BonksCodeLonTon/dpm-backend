@@ -11,15 +11,18 @@ using System.Threading.Tasks;
 
 namespace DPM.Applications.Features.SailingRegister
 {
-    public class RegisterToDepartureCommand : IRequest<DepartureRegistration>
+    public class RegisterToDepartureCommand : IRequest<bool>
     {
         public long ShipId { get; set; }
         public long PortId { get; set; }
+        public string? Attachment { get; set; }
         public long CaptainId { get; set; }
-        public long[] CrewIds { get; set; }
-        public ApproveStatus ApproveStatus { get; set; } = ApproveStatus.None;
-        public DateTime ArrivalTime { get; set; }
-        public DateTime ActualArrivalTime { get; set; }
+        public virtual long[]? CrewIds { get; set; }
+        public DateTime DepartureTime { get; set; }
+        public DateTime ActualDepartureTime { get; set; }
+        public DateTime GuessTimeArrival { get; set; }
+        public ApproveStatus ApproveStatus { get; set; }
+        public string? Note { get; set; }
         public bool IsStart { get; set; }
 
         public class RequestCommandValidator : AbstractValidator<DepartureRegistration>
@@ -34,7 +37,7 @@ namespace DPM.Applications.Features.SailingRegister
         {
             public RegisterToArrivalCommandProfile()
             {
-                CreateMap<RegisterToDepartureCommand, ArrivalRegistration>();
+                CreateMap<RegisterToDepartureCommand, DepartureRegistration>();
             }
         }
     }

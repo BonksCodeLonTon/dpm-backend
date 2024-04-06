@@ -2,27 +2,39 @@
 using DPM.Domain.Entities;
 using DPM.Domain.Repositories;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace DPM.Applications.Features.Ships.GetShip
 {
     public class GetShipQueryHandler : IRequestHandler<GetShipQuery, IQueryable<Ship>>
     {
         private readonly IShipRepository _shipRepository;
+        private readonly IUserRepository _userRepository;
 
-        public GetShipQueryHandler(IShipRepository shipRepository)
+        public GetShipQueryHandler(IShipRepository shipRepository, IUserRepository userRepository)
         {
             _shipRepository = shipRepository;
+            _userRepository = userRepository;
         }
-        public Task<IQueryable<Ship>> Handle(GetShipQuery request, CancellationToken cancellationToken)
+        public async Task<IQueryable<Ship>> Handle(GetShipQuery request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(
-              _shipRepository.GetAll(ReadConsistency.Cached)
-              .Where(o => o.Id == request.Id));
+            var ships = _shipRepository.GetAll(ReadConsistency.Cached)
+                                       .Where(s => s.Id == request.Id);
+
+            var ship = await ships.AsNoTracking().SingleOrDefaultAsync(cancellationToken);
+
+            if (ship == null)
+                return Enumerable.Empty<Ship>().AsQueryable();
+
+            var owner = await _userRepository.GetAll(ReadConsistency.Cached)
+                                             .Where(u => u.Id == ship.OwnerId)
+                                             .AsNoTracking()
+                                             .SingleOrDefaultAsync(cancellationToken);
+
+            ship.Owner = owner;
+
+            return new[] { ship }.AsQueryable();
         }
     }
 }

@@ -48,7 +48,7 @@ namespace DPM.Applications.Features.PortAuthorityUsers.Admin.InviteToPortAuthori
                   new
                   {
                       senderName = _requestContextService.User.FullName?.Split(' ')?[0] ?? _requestContextService.User.Email,
-                      token = $"{Constants.AppDomain}/Military/invite?token={token}",
+                      token = $"{Constants.AppDomain}/PortAuthority/invite?token={token}",
                   });
             return true;
         }

@@ -29,9 +29,8 @@ namespace DPM.Applications.Features.Auth.ConfirmSignUp
             using var unitOfWork = _unitOfWorkFactory.Create(deferred: true);
             bool result = await _authService.ConfirmSignUpAsync(request.Username, request.ConfirmationCode);
             var user = _mapper.Map<ConfirmSignUpCommand, User>(request);
-
             user.CognitoSub = request.Sub;
-
+            user.Role = Domain.Enums.Role.User;
             _userRepository.Add(user);
             await _userRepository.SaveChangesAsync(cancellationToken);
             await unitOfWork.CommitAsync(cancellationToken);

@@ -14,20 +14,23 @@ namespace DPM.Infrastructure.Modules
             builder.RegisterType<ShipRepository>()
               .As<IShipRepository>()
               .InstancePerLifetimeScope();
-            builder.RegisterType<ShipRepository>()
-              .As<IShipRepository>()
+            builder.RegisterType<CrewRepository>()
+              .As<ICrewRepository>()
               .InstancePerLifetimeScope();
-            builder.RegisterType<ShipRepository>()
-              .As<IShipRepository>()
+            builder.RegisterType<PortRepository>()
+              .As<IPortRepository>()
               .InstancePerLifetimeScope();
-            builder.RegisterType<ShipRepository>()
-              .As<IShipRepository>()
+            builder.RegisterType<RegisterArrivalRepository>()
+              .As<IRegisterArrivalRepository>()
               .InstancePerLifetimeScope();
-            builder.RegisterType<ShipRepository>()
-              .As<IShipRepository>()
+            builder.RegisterType<RegisterDepartureRepository>()
+              .As<IRegisterDepartureRepository>()
               .InstancePerLifetimeScope();
-            builder.RegisterType<ShipRepository>()
-              .As<IShipRepository>()
+            builder.RegisterType<ShipCertificateRepository>()
+              .As<IShipCertificateRepository>()
+              .InstancePerLifetimeScope();
+            builder.RegisterType<CrewTripRepository>()
+              .As<ICrewTripRepository>()
               .InstancePerLifetimeScope();
         }
     }

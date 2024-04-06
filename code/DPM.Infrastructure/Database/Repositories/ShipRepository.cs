@@ -8,7 +8,6 @@ namespace DPM.Infrastructure.Database.Repositories
     internal class ShipRepository : GenericRepository<Ship>, IShipRepository
     {
         private readonly IUserRepository _userRepository;
-
         public ShipRepository(ILifetimeScope scope) : base(scope)
         {
             _userRepository = scope.Resolve<IUserRepository>();

@@ -12,7 +12,6 @@ namespace DPM.Infrastructure.Providers.Aws.Services
         public class Options
         {
             public static readonly string SectionName = "Email";
-
             [Required]
             public string Sender { get; set; } = default!;
         }

@@ -1,10 +1,5 @@
 ﻿using FluentValidation;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DPM.Applications.Features.MilitaryUsers.Admin.RemoveMilitaryUser
 {
@@ -12,9 +7,9 @@ namespace DPM.Applications.Features.MilitaryUsers.Admin.RemoveMilitaryUser
     {
         public int Id { get; set; }
     }
-    public class DeleteOrganizationCommandValidator : AbstractValidator<RemoveMilitaryUserCommand>
+    public class RemoveMilitaryUserCommandValidator : AbstractValidator<RemoveMilitaryUserCommand>
     {
-        public DeleteOrganizationCommandValidator()
+        public RemoveMilitaryUserCommandValidator()
         {
             RuleFor(v => v.Id).GreaterThan(0);
         }

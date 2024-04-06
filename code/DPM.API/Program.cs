@@ -77,7 +77,14 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
+    app.UseSwagger(
+        c =>
+{
+    c.PreSerializeFilters.Add((swagger, httpReq) =>
+    {
+        swagger.Servers = new List<OpenApiServer> { new OpenApiServer { Url = $"https://{httpReq.Host.Value}/{httpReq.Headers["X-Forwarded-Prefix"]}" } };
+    });
+});
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("./swagger/v1/swagger.json", "API v1");
@@ -86,7 +93,6 @@ if (app.Environment.IsDevelopment())
 }
 app.UseCors("AllOrigins");
 
-// Request Localization Middleware
 app.UseRequestLocalization(new RequestLocalizationOptions
 {
     SupportedCultures = Constants.SupportedCultures,
@@ -104,7 +110,6 @@ app.UseAuthorization();
 
 app.UseEndpoints(config =>
     {
-        // Health Checks
         config.MapHealthChecks("/health", new HealthCheckOptions
         {
             Predicate = _ => true,

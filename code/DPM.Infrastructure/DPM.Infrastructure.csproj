@@ -55,6 +55,7 @@
 
   <ItemGroup>
     <Folder Include="I18n\Locales\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -18,7 +18,6 @@ namespace DPM.Domain.Entities
         public string? Attachment { get; set; }
         public long CaptainId { get; set; }
         public virtual User? Captain { get; set; }
-        public virtual long[]? CrewId { get; set; }
         public virtual List<Crew>? Crews { get; set; }
         public DateTime DepartureTime { get; set; }
         public DateTime ActualDepartureTime { get; set; }

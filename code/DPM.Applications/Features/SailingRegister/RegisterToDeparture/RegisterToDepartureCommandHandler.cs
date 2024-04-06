@@ -7,7 +7,7 @@ using MediatR;
 
 namespace DPM.Applications.Features.SailingRegister
 {
-    public class RegisterToDepartureCommandHandler : IRequestHandler<RegisterToDepartureCommand, DepartureRegistration>
+    public class RegisterToDepartureCommandHandler : IRequestHandler<RegisterToDepartureCommand, bool>
     {
         private readonly IRegisterDepartureRepository _registerDepartureRepository;
         private readonly IUserRepository _userRepository;
@@ -38,13 +38,13 @@ namespace DPM.Applications.Features.SailingRegister
             _crewTripRepository = crewTripRepository;
         }
 
-        public async Task<DepartureRegistration> Handle(RegisterToDepartureCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(RegisterToDepartureCommand request, CancellationToken cancellationToken)
         {
             var ship = _shipRepository.GetById(request.ShipId) ?? throw new NotFoundException(nameof(Ship));
             var captain = _userRepository.GetById(request.CaptainId) ?? throw new NotFoundException(nameof(User));
             var port = _portRepository.GetById(request.PortId) ?? throw new NotFoundException(nameof(User));
 
-            if (ship.ShipStatus == Domain.Enums.ShipStatus.Docked)
+            if (ship.ShipStatus == Domain.Enums.ShipStatus.Departed)
             {
                 throw new ConflictException(nameof(Ship));
             }
@@ -62,13 +62,15 @@ namespace DPM.Applications.Features.SailingRegister
             using var unitOfWork = _unitOfWorkFactory.Create(deferred: true);
 
             _registerDepartureRepository.Add(departureRegistration);
-            await _shipRepository.SaveChangesAsync(cancellationToken);
+            await _registerDepartureRepository.SaveChangesAsync(cancellationToken);
+            foreach (var crew in crews)
+            {
+                _crewTripRepository.Add(new CrewTrip(departureRegistration.DepartureId, crew.Id));
+            }
+            await _crewTripRepository.SaveChangesAsync(cancellationToken);
             await unitOfWork.CommitAsync(cancellationToken);
-            departureRegistration.Ship = ship;
-            departureRegistration.Captain = captain;
-            departureRegistration.Port = port;
-            departureRegistration.Crews = crews;
-            return departureRegistration;
+
+            return true;
         }
     }
 

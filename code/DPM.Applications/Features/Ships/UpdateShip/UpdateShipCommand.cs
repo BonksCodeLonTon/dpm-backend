@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DPM.Applications.Features.Ships.UpdateShip
 {
-    public class UpdateShipCommand : IRequest<bool>
+    public class UpdateShipCommand : IRequest<Ship>
     {
         public long Id { get; set; }
         public string? Name { get; set; }

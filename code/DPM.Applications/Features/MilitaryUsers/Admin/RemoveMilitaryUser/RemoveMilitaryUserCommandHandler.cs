@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DPM.Applications.Features.MilitaryUsers.Admin.RemoveMilitaryUser
 {
-    public class RemoveMilitaryUserCommandHandler: IRequestHandler<RemoveMilitaryUserCommand, bool>
+    public class RemoveMilitaryUserCommandHandler : IRequestHandler<RemoveMilitaryUserCommand, bool>
     {
         private readonly IUserRepository _userRepository;
 
@@ -29,8 +29,7 @@ namespace DPM.Applications.Features.MilitaryUsers.Admin.RemoveMilitaryUser
             {
                 return false;
             }
-
-            _userRepository.Delete(user);
+            user.Role = Domain.Enums.Role.None;
             await _userRepository.SaveChangesAsync(cancellationToken);
 
             return true;

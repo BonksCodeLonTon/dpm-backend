@@ -16,15 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\MilitaryUsers\MilitaryDepartApprove\" />
-    <Folder Include="Features\MilitaryUsers\MilitaryArriveApprove\" />
-    <Folder Include="Features\MilitaryUsers\MilitaryArriveReject\" />
-    <Folder Include="Features\MilitaryUsers\MilitaryDepartReject\" />
-    <Folder Include="Features\Crew\" />
-    <Folder Include="Features\PortAuthorityUsers\PortAuthorityDepartReject\" />
-    <Folder Include="Features\PortAuthorityUsers\PortAuthorityArrivelReject\" />
-    <Folder Include="Features\PortAuthorityUsers\PortAuthorityDepartApprove\" />
-    <Folder Include="Features\PortAuthorityUsers\PortAuthorityArriveApproval\" />
     <Folder Include="Features\Ships\DeleteShip\" />
   </ItemGroup>
 

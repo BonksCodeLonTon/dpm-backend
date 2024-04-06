@@ -12,7 +12,6 @@ namespace DPM.Domain.Repositories
     public interface IUserRepository : IGenericRepository<User>
     {
         User GetByUsername(string username, ReadConsistency readConsistency = ReadConsistency.Strong, bool tracking = false, params string[] relations);
-
         IQueryable<User> Find(string query, float minSimilarity = 0.7f, long limit = 10);
 
     }

@@ -23,8 +23,11 @@ namespace DPM.Infrastructure.Database
                 entity.Property(e => e.PhoneNumber).IsRequired().HasColumnType("varchar(16)");
                 entity.Property(e => e.Avatar).HasColumnType("varchar(256)");
                 entity.Property(e => e.Gender).HasColumnType("varchar(8)").HasConversion<string>();
-                entity.Property(e => e.RoleType).IsRequired().HasColumnType("varchar(16)").HasConversion<int>();
-                entity.Property(e => e.Role).IsRequired().HasColumnType("varchar(16)").HasConversion<int>();
+                entity.Property(e => e.RoleType).IsRequired().HasColumnType("varchar(16)").HasConversion<string>();
+                entity.Property(e => e.DateOfBirth);
+                entity.Property(e => e.NationalId);
+                entity.Property(e => e.Country).HasColumnType("varchar(32)").HasConversion<string>().HasDefaultValue(Countries.VN);
+                entity.Property(e => e.Role).IsRequired().HasColumnType("varchar(16)").HasConversion<string>();
                 entity.Property(e => e.IsDisabled).HasDefaultValue(false);
                 entity.Property(e => e.IsDeleted).HasDefaultValue(false);
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("now()");
@@ -56,6 +59,7 @@ namespace DPM.Infrastructure.Database
                 entity.Property(e => e.OwnerId).HasColumnType("bigint");
                 entity.Property(e => e.ShipType).IsRequired().HasColumnType("varchar(16)").HasConversion<string>().HasDefaultValue(ShipType.Other);
                 entity.Property(e => e.Length).IsRequired().HasColumnType("varchar(128)");
+                entity.Property(e => e.ImagePath).HasColumnType("varchar(128)");
                 entity.Property(e => e.Position);
                 entity.Property(e => e.ShipStatus).IsRequired().HasColumnType("varchar(16)").HasConversion<string>().HasDefaultValue(ShipStatus.Docked);
                 entity.Property(e => e.GrossTonnage).IsRequired().HasColumnType("varchar(128)");
@@ -105,13 +109,16 @@ namespace DPM.Infrastructure.Database
             modelBuilder.Entity<Crew>(entity =>
             {
                 entity.Property(e => e.Id).IsRequired().HasColumnType("bigint").HasDefaultValueSql("generate_id()");
-                entity.Property(e => e.Countries).HasConversion(
-                            v => v.ToString(),
-                            v => (Countries)Enum.Parse(typeof(Countries), v));
+                entity.Property(e => e.Fullname).IsRequired().HasColumnType("varchar(128)");
+                entity.Property(e => e.NationalId).IsRequired();
+                entity.Property(e => e.YearExperience).IsRequired();
+                entity.Property(e => e.RelativePhoneNumber).IsRequired();
+                entity.Property(e => e.Countries).IsRequired().HasColumnType("varchar(128)").HasConversion<string>().HasDefaultValue(Countries.VN);
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("now()");
                 entity.Property(e => e.UpdatedAt).HasDefaultValueSql("now()");
                 entity.Property(e => e.CreatedBy).HasColumnType("bigint");
                 entity.Property(e => e.UpdatedBy).HasColumnType("bigint");
+                entity.HasIndex(e => e.NationalId).IsUnique();
                 entity
                   .HasOne(e => e.Creator)
                   .WithMany()
@@ -126,22 +133,11 @@ namespace DPM.Infrastructure.Database
             );
             modelBuilder.Entity<CrewTrip>(entity =>
             {
-                entity.HasNoKey();
+                entity.Property(e => e.Id).IsRequired().HasColumnType("bigint").HasDefaultValueSql("generate_id()");
                 entity.Property(e => e.CrewId).HasColumnType("bigint");
                 entity.Property(e => e.TripId).HasColumnType("varchar(128)");
-
-                entity
-                .HasOne(e => e.Crew)
-                .WithMany()
-                .HasForeignKey(e => e.CrewId);
-                entity.HasOne(e => e.RegisterToArrival)
-                .WithOne()
-                .HasForeignKey<CrewTrip>(e => e.TripId)
-                .IsRequired(false);
-                entity.HasOne(e => e.RegisterToDeparture)
-                .WithOne()
-                .HasForeignKey<CrewTrip>(e => e.TripId)
-                .IsRequired(false);
+                entity.Ignore(e => e.RegisterToDeparture);
+                entity.Ignore(e => e.RegisterToArrival);
             });
             modelBuilder.Entity<ArrivalRegistration>(entity =>
             {

@@ -22,8 +22,9 @@ namespace DPM.Applications.Features.Ships.UpdateShip
         public string? Length { get; set; }
         public ShipType ShipType { get; set; }
         public ShipStatus ShipStatus { get; set; }
-        public string? TotalPower { get; set; }
         public long? OwnerId { get; set; }
+        public string? ImagePath { get; set; }
+
     }
     public class UpdateShipCommandProfile : Profile
     {

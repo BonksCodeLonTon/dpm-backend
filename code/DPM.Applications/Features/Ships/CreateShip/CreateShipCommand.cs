@@ -23,7 +23,9 @@ namespace DPM.Applications.Features.Ships.CreateShip
         public string RegisterNumber { get; set; } = default!;
         public string GrossTonnage { get; set; } = default!;
         public string TotalPower { get; set; } = default!;
-        public long OwnerId { get; set; } = default!; 
+        public long OwnerId { get; set; } = default!;
+        public string? ImagePath { get; set; }
+
     }
     public class CreateShipCommandProfile : Profile
     {

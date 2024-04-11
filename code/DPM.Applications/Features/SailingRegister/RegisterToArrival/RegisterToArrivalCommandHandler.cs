@@ -45,7 +45,6 @@ namespace DPM.Applications.Features.SailingRegister
             var captain = _userRepository.GetById(request.CaptainId) ?? throw new NotFoundException(nameof(User));
             var port = _portRepository.GetById(request.PortId) ?? throw new NotFoundException(nameof(Port));
 
-
             if (ship.ShipStatus == Domain.Enums.ShipStatus.Docked)
             {
                 throw new ConflictException(nameof(Ship));

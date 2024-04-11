@@ -186,6 +186,7 @@ namespace DPM.Infrastructure.Database
                 entity.Property(e => e.ShipId).IsRequired().HasColumnType("bigint");
                 entity.Property(e => e.DepartureTime).HasConversion<DateTime>();
                 entity.Property(e => e.ActualDepartureTime).HasConversion<DateTime>();
+                entity.Property(e => e.GuessTimeArrival).HasConversion<DateTime>();
                 entity.Property(e => e.Attachment).HasColumnType("varchar(256)");
                 entity.Property(e => e.Note).HasColumnType("varchar(256)");
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("now()");

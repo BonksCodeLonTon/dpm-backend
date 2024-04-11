@@ -10,6 +10,5 @@ namespace DPM.Applications.Features.MilitaryUsers.MilitaryDepartApprove
     public class MilitaryDepartApproveCommand : IRequest<bool>
     {
         public string DepartureId { get; set; }
-        public string? Path { get; set; }
     }
 }

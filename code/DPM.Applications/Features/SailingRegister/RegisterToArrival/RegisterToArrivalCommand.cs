@@ -13,6 +13,7 @@ namespace DPM.Applications.Features.SailingRegister
         public long ShipId { get; set; }
         public long PortId { get; set; }
         public long CaptainId { get; set; }
+        public string Attachment { get; set; }
         public long[] CrewIds { get; set; }
         public ApproveStatus ApproveStatus { get; set; } = ApproveStatus.None;
         public DateTime ArrivalTime { get; set; }

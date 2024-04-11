@@ -10,17 +10,5 @@ namespace DPM.Infrastructure.Services
         {
             _storageService = storageService;
         }
-
-        public string GenerateRegisterArrivalFile(string objectKey)
-        {
-            var arrivalTemplate = _storageService.GetObject(objectKey);
-            return arrivalTemplate;
-        }
-
-        public string GenerateRegisterDepartureFile(string objectKey)
-        {
-            var departureTemplate = _storageService.GetObject(objectKey);
-            return departureTemplate;
-        }
     }
 }

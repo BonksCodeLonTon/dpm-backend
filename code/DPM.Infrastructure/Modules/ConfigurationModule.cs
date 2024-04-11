@@ -2,6 +2,7 @@
 using Autofac.Extensions.DependencyInjection;
 using DPM.Infrastructure.Database;
 using DPM.Infrastructure.Providers.Aws.Services;
+using DPM.Infrastructure.Providers.DevExpress;
 using DPM.Infrastructure.Serilog;
 using DPM.Infrastructure.Services;
 using Microsoft.Extensions.Configuration;
@@ -32,6 +33,10 @@ namespace DPM.Infrastructure.Modules
               .ValidateOnStart();
             services.AddOptions<S3Service.Options>()
               .Bind(_configuration.GetRequiredSection(S3Service.Options.SectionName))
+              .ValidateDataAnnotations()
+              .ValidateOnStart();
+            services.AddOptions<DigitalSigningService.Options>()
+              .Bind(_configuration.GetRequiredSection(DigitalSigningService.Options.SectionName))
               .ValidateDataAnnotations()
               .ValidateOnStart();
             services.AddOptions<CacheModule.Options>()

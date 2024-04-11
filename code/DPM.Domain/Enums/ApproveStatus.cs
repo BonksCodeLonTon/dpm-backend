@@ -15,8 +15,8 @@ namespace DPM.Domain.Enums
         ApprovedByMilitary,
         [Description("Approved by Port Authority")]
         ApprovedByPortAuthority,
-        [Description("Approving")]
-        Approving,
+        [Description("Approved")]
+        Approved,
 
 
     }

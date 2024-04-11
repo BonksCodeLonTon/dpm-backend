@@ -19,6 +19,7 @@ namespace DPM.Infrastructure.Providers.Aws.Services
         }
 
         public string BucketName { get; }
+
         private readonly IAmazonS3 _s3Client;
 
         public S3Service(IAmazonS3 s3Client, IOptionsSnapshot<Options> options)
@@ -45,15 +46,31 @@ namespace DPM.Infrastructure.Providers.Aws.Services
             return _s3Client.GetPreSignedURL(request);
         }
 
-        public string GetObject(string objectKey)
+        public async Task<byte[]> GetObject(string objectKey)
         {
-            GetObjectResponse response = _s3Client.GetObjectAsync(new GetObjectRequest
+            try
             {
-                BucketName = BucketName,
-                Key = objectKey
-            }).Result;
+                GetObjectResponse response = _s3Client.GetObjectAsync(new GetObjectRequest
+                {
+                    BucketName = BucketName,
+                    Key = objectKey
+                }).Result;
+                using (var stream = response.ResponseStream)
+                {
+                    var memoryStream = new MemoryStream();
+                    await stream.CopyToAsync(memoryStream);
+                    return memoryStream.ToArray();
+                }
+            }
+            catch (AmazonS3Exception ex)
+            {
+                throw new Exception($"Error downloading object '{objectKey}' from S3", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error downloading object '{objectKey}' from S3", ex);
+            }
 
-            return S3Extensions.ReadObjectAsString(response);
         }
 
         public string GetUrl(string objectKey)
@@ -84,6 +101,68 @@ namespace DPM.Infrastructure.Providers.Aws.Services
                 await fileTransferUtility.UploadAsync(request);
 
                 return true;
+        }
+        public async Task<bool> UploadStreamAsync(byte[] file, string objectKey)
+        {
+            try
+            {
+                var fileTransferUtility = new TransferUtility(_s3Client);
+                var fileTransferUtilityRequest = new TransferUtilityUploadRequest
+                {
+                    BucketName = BucketName,
+                    StorageClass = S3StorageClass.Standard,
+                    PartSize = 6291456,
+                    CannedACL = S3CannedACL.NoACL,
+                    Key = objectKey
+                };
+                using (var stream = new MemoryStream(file))
+                {
+                    fileTransferUtilityRequest.InputStream = stream;
+                    await fileTransferUtility.UploadAsync(stream, BucketName, objectKey);
+
+                }
+
+
+                return true;
+            }
+            catch (AmazonS3Exception ex)
+            {
+                throw new Exception($"Error uploading object to S3: {ex.Message}", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error uploading object to S3: {ex.Message}", ex);
             }
         }
+
+        public async Task<Stream> DownloadAsync(string objectKey)
+        {
+            try
+            {
+                GetObjectResponse response = await _s3Client.GetObjectAsync(new GetObjectRequest
+                {
+                    BucketName = BucketName,
+                    Key = objectKey
+                });
+
+                MemoryStream memStream = new MemoryStream();
+                using (Stream responseStream = response.ResponseStream)
+                {
+                    await responseStream.CopyToAsync(memStream);
+                    memStream.Seek(0, SeekOrigin.Begin);
+                }
+
+                return memStream;
+            }
+            catch (AmazonS3Exception ex)
+            {
+                throw new Exception($"Error downloading object '{objectKey}' from S3", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error downloading object '{objectKey}' from S3", ex);
+            }
+        }
+
     }
+}

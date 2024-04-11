@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DPM.Domain.Common;
 using DPM.Domain.Common.Interfaces;
 using DPM.Domain.Entities;
 using DPM.Domain.Exceptions;
@@ -17,6 +18,7 @@ namespace DPM.Applications.Features.SailingRegister
         private readonly ICrewTripRepository _crewTripRepository;
         private readonly ICrewRepository _crewRepository;
         private readonly IMapper _mapper;
+
         public RegisterToDepartureCommandHandler(
             IRegisterDepartureRepository registerDeparturRepository,
             IShipRepository shipRepository,
@@ -43,11 +45,11 @@ namespace DPM.Applications.Features.SailingRegister
             var ship = _shipRepository.GetById(request.ShipId) ?? throw new NotFoundException(nameof(Ship));
             var captain = _userRepository.GetById(request.CaptainId) ?? throw new NotFoundException(nameof(User));
             var port = _portRepository.GetById(request.PortId) ?? throw new NotFoundException(nameof(User));
-
             if (ship.ShipStatus == Domain.Enums.ShipStatus.Departed)
             {
                 throw new ConflictException(nameof(Ship));
             }
+
             var matchingCrewIds = request.CrewIds.Where(id => _crewTripRepository.GetAll().Any(crewTrip => crewTrip.CrewId == id)).ToList();
 
             if (matchingCrewIds.Any())

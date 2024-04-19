@@ -6,6 +6,8 @@ using DPM.Applications.Features.SailingRegister.GetArrivalRegistrationsWithStatu
 using DPM.Applications.Features.SailingRegister.GetDepartRegistrations;
 using DPM.Applications.Features.SailingRegister.GetDepartRegistrationsWithStatus;
 using DPM.Applications.Features.SailingRegister.GetDepartureRegistrationById;
+using DPM.Applications.Features.SailingRegister.UpdateArrivalShipStatusById;
+using DPM.Applications.Features.SailingRegister.UpdateDepartureShipStatusById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -82,6 +84,22 @@ namespace DPM.API.Controllers
         public async Task<IActionResult> GetArrivalRegistrationById([FromQuery] GetArrivalRegistrationByIdQuery query)
         {
             var result = await _mediator.Send(query);
+            return CreateSuccessResult(result);
+        }
+        [HttpPost("arrival/update-ship-status")]
+        [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> UpdateArrivalShipStatus(UpdateArrivalShipStatusByIdCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return CreateSuccessResult(result);
+        }
+        [HttpPost("departure/update-ship-status")]
+        [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> UpdateDepartureShipStatus(UpdateDepartureShipStatusByIdCommand command)
+        {
+            var result = await _mediator.Send(command);
             return CreateSuccessResult(result);
         }
     }

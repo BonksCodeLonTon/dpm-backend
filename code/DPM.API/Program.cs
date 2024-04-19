@@ -28,8 +28,13 @@ builder.Host.ConfigureContainer<ContainerBuilder>((ctx, containerBuilder) =>
 // Adding services for Controllers
 builder.Services
     .AddControllers()
-    .AddJsonOptions(options => { options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()); })
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    })
     .AddApplicationPart(typeof(InfrastructureModule).Assembly);
+
 
 // Configure CORS
 builder.Services.AddCors(options =>

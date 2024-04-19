@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DPM.Applications.Features.SailingRegister
 {
-    public class RegisterToDepartureCommand : IRequest<bool>
+    public class RegisterToDepartureCommand : IRequest<string>
     {
         public long ShipId { get; set; }
         public long PortId { get; set; }

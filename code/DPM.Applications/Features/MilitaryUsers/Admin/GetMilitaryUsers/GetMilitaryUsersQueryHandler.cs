@@ -3,10 +3,8 @@ using DPM.Domain.Entities;
 using DPM.Domain.Repositories;
 using DPM.Domain.Enums;
 using MediatR;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DPM.Applications.Features.MilitaryUsers.Admin.GetMilitaryUsers
@@ -22,12 +20,8 @@ namespace DPM.Applications.Features.MilitaryUsers.Admin.GetMilitaryUsers
 
         public Task<IQueryable<User>> Handle(GetMilitaryUsersQuery request, CancellationToken cancellationToken)
         {
-            IQueryable<User> users = _userRepository.GetAll(ReadConsistency.Eventual);
-
-            users = users.Where(u => u.Role == Role.Military);
-
-            return Task.FromResult(users);
+            IQueryable<User> users =  _userRepository.GetAll(ReadConsistency.Cached);
+            return Task.FromResult(users.Where(u => u.Role == Role.Military));
         }
-
     }
 }

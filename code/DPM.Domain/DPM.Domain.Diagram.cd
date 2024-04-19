@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DPM.Domain.Common.Models.BaseDomainEvent" Collapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Models\BaseDomainEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Domain.Common.Models.BaseEntity">
+    <Position X="9.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAACAAAACAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Models\BaseEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Domain.Common.Models.PdfSignature" Collapsed="true">
+    <Position X="26.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIIAAAIAAIAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Models\PdfSignature.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Domain.Entities.ArrivalRegistration">
+    <Position X="16.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAIiEAAAAAAAAAEAAAAAEABACACAAAABEAAAiQEAAAE=</HashCode>
+      <FileName>Entities\ArrivalRegistration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Domain.Entities.ContactInformation">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ContactInformation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Domain.Entities.Crew">
+    <Position X="5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAEAAEAAAAAAAAAAAAAQAAAAAAABAAEAAQAQAAAAE=</HashCode>
+      <FileName>Entities\Crew.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Domain.Entities.CrewTrip">
+    <Position X="7.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAJAAAAAAAAQAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Entities\CrewTrip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Domain.Entities.DepartureRegistration">
+    <Position X="9.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAjEAAAAAAAAAMAAAAAAgBACACAAAABEAAAiQEAAAE=</HashCode>
+      <FileName>Entities\DepartureRegistration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Domain.Entities.Notification" Collapsed="true">
+    <Position X="24.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAQAAAAAEAgAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Notification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Domain.Entities.Port">
+    <Position X="11.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAQAAAAE=</HashCode>
+      <FileName>Entities\Port.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Domain.Entities.Ship">
+    <Position X="14" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEEGIAAAEAABgAAAAAIZAAAAAAAEBEAAAAQAAAAE=</HashCode>
+      <FileName>Entities\Ship.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Domain.Entities.ShipCertificate">
+    <Position X="18.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAEEAAAAAAiAAAAAAAAAAAAAACAACABEAAAAQAAAAE=</HashCode>
+      <FileName>Entities\ShipCertificate.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Domain.Entities.User">
+    <Position X="2.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAEAAEACAAAICAEQQAQAAAAAIQACECEAAAAQAAAAE=</HashCode>
+      <FileName>Entities\User.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Domain.Exceptions.BadRequestException">
+    <Position X="6.25" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\BadRequestException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Domain.Exceptions.ConflictException">
+    <Position X="8.5" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\ConflictException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Domain.Exceptions.ForbiddenException">
+    <Position X="10.75" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\ForbiddenException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Domain.Exceptions.HttpException">
+    <Position X="7.5" Y="20.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAEAAA=</HashCode>
+      <FileName>Exceptions\HttpException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Domain.Exceptions.LockedException">
+    <Position X="13" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\LockedException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Domain.Exceptions.NotFoundException">
+    <Position X="1.75" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\NotFoundException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Domain.Exceptions.UnauthorizedException">
+    <Position X="4" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\UnauthorizedException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Domain.Exceptions.ValidationException">
+    <Position X="6.25" Y="25.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\ValidationException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Domain.Repositories.INotificationRepository" Collapsed="true">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\INotificationRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="DPM.Domain.Common.Interfaces.IBaseRepository&lt;T&gt;" Collapsed="true">
+    <Position X="23" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAIAAAAAAAAEIAAAAAAAQAAIEAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Common\Interfaces\IBaseRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Common.Interfaces.IGenericRepository&lt;TEntity&gt;">
+    <Position X="8.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAIAAAAAAAAEIAAAAAAAQAAIEAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Common\Interfaces\IGenericRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Common.Interfaces.IUnitOfWork" Collapsed="true">
+    <Position X="21.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Common\Interfaces\IUnitOfWork.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Common.Interfaces.IUnitOfWorkFactory" Collapsed="true">
+    <Position X="23" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Interfaces\IUnitOfWorkFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Common.Models.IAuditableEntity" Collapsed="true">
+    <Position X="21.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAQAAAAE=</HashCode>
+      <FileName>Common\Models\IAuditableEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Common.Models.IBelongToMilitary" Collapsed="true">
+    <Position X="24.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Models\IBelongToMilitary.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Common.Models.IBelongToPortAuthority" Collapsed="true">
+    <Position X="26.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Models\IBelongToPortAuthority.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Common.Models.IDegitalSigner" Collapsed="true">
+    <Position X="21.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Models\IDegitalSigner.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Common.Models.IRegister" Collapsed="true">
+    <Position X="23" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAEAAAAAAABAAAAAAAABAAAAgAEAAAA=</HashCode>
+      <FileName>Common\Models\IRegister.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Common.Models.ISoftDeletableEntity" Collapsed="true">
+    <Position X="24.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Common\Models\ISoftDeletableEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Common.Models.IUnderVoyage" Collapsed="true">
+    <Position X="26.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Models\IUnderVoyage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Repositories.ICrewRepository">
+    <Position X="7.25" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\ICrewRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Repositories.ICrewTripRepository">
+    <Position X="11.75" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\ICrewTripRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Repositories.IPortRepository">
+    <Position X="14" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IPortRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Repositories.IRegisterArrivalRepository">
+    <Position X="16.25" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IRegisterArrivalRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Repositories.IRegisterDepartureRepository">
+    <Position X="0.5" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IRegisterDepartureRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Repositories.IShipCertificateRepository">
+    <Position X="2.75" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IShipCertificateRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Repositories.IShipRepository">
+    <Position X="5" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Repositories\IShipRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Domain.Repositories.IUserRepository">
+    <Position X="9.5" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IUserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="DPM.Domain.Common.ReadConsistency" Collapsed="true">
+    <Position X="23" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAABAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Common\Constraints.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DPM.Domain.Enums.ApproveStatus" Collapsed="true">
+    <Position X="21.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAACAgAAAAAAAAEAAAQAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Enums\ApproveStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DPM.Domain.Enums.CertificateStatus" Collapsed="true">
+    <Position X="23" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAQAAAAAAAAAAAAAAAAAAAAhAAAAAAEAAAA=</HashCode>
+      <FileName>Enums\CertificateStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DPM.Domain.Enums.Countries" Collapsed="true">
+    <Position X="24.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>v37n//+9ame/3/oWjt//55OI9vv/fwSA8NO9HYDA9+4=</HashCode>
+      <FileName>Enums\Countries.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DPM.Domain.Enums.EmailType" Collapsed="true">
+    <Position X="26.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Enums\EmailType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DPM.Domain.Enums.Gender" Collapsed="true">
+    <Position X="21.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Enums\Gender.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DPM.Domain.Enums.Role" Collapsed="true">
+    <Position X="24.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Enums\Role.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DPM.Domain.Enums.RoleType" Collapsed="true">
+    <Position X="26.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\RoleType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DPM.Domain.Enums.ShipStatus" Collapsed="true">
+    <Position X="21.25" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Enums\ShipStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DPM.Domain.Enums.ShipType" Collapsed="true">
+    <Position X="23" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAACAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\ShipType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DPM.Domain.Enums.TripStatus" Collapsed="true">
+    <Position X="24.75" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Enums\TripStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

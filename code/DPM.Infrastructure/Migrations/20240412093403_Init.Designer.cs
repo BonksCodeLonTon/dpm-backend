@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DPM.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240331012620_UpdateYearExperienceCol")]
-    partial class UpdateYearExperienceCol
+    [Migration("20240412093403_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -125,7 +125,9 @@ namespace DPM.Infrastructure.Migrations
 
                     b.Property<string>("Countries")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("varchar(128)")
+                        .HasDefaultValue("VN")
                         .HasColumnName("countries");
 
                     b.Property<DateTime>("CreatedAt")
@@ -137,6 +139,10 @@ namespace DPM.Infrastructure.Migrations
                     b.Property<long?>("CreatedBy")
                         .HasColumnType("bigint")
                         .HasColumnName("created_by");
+
+                    b.Property<long?>("CrewTripId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("crew_trip_id");
 
                     b.Property<string>("DepartureRegistrationDepartureId")
                         .HasColumnType("varchar(128)")
@@ -181,8 +187,15 @@ namespace DPM.Infrastructure.Migrations
                     b.HasIndex("CreatedBy")
                         .HasDatabaseName("ix_crew_created_by");
 
+                    b.HasIndex("CrewTripId")
+                        .HasDatabaseName("ix_crew_crew_trip_id");
+
                     b.HasIndex("DepartureRegistrationDepartureId")
                         .HasDatabaseName("ix_crew_departure_registration_departure_id");
+
+                    b.HasIndex("NationalId")
+                        .IsUnique()
+                        .HasDatabaseName("ix_crew_national_id");
 
                     b.HasIndex("UpdatedBy")
                         .HasDatabaseName("ix_crew_updated_by");
@@ -192,20 +205,20 @@ namespace DPM.Infrastructure.Migrations
 
             modelBuilder.Entity("DPM.Domain.Entities.CrewTrip", b =>
                 {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasColumnName("id")
+                        .HasDefaultValueSql("generate_id()");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("created_at");
 
-                    b.Property<long>("CrewId")
-                        .HasColumnType("bigint")
-                        .HasColumnName("crew_id");
-
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasColumnName("id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+                    b.Property<long[]>("CrewIds")
+                        .IsRequired()
+                        .HasColumnType("bigint[]")
+                        .HasColumnName("crew_ids");
 
                     b.Property<string>("TripId")
                         .HasColumnType("varchar(128)")
@@ -215,12 +228,8 @@ namespace DPM.Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("updated_at");
 
-                    b.HasIndex("CrewId")
-                        .HasDatabaseName("ix_crew_trip_crew_id");
-
-                    b.HasIndex("TripId")
-                        .IsUnique()
-                        .HasDatabaseName("ix_crew_trip_trip_id");
+                    b.HasKey("Id")
+                        .HasName("pk_crew_trip");
 
                     b.ToTable("crew_trip", (string)null);
                 });
@@ -259,10 +268,6 @@ namespace DPM.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("bigint")
                         .HasColumnName("created_by");
-
-                    b.Property<long[]>("CrewId")
-                        .HasColumnType("bigint[]")
-                        .HasColumnName("crew_id");
 
                     b.Property<DateTime>("DepartureTime")
                         .HasColumnType("timestamp with time zone")
@@ -585,6 +590,13 @@ namespace DPM.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("cognito_sub");
 
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("varchar(32)")
+                        .HasDefaultValue("VN")
+                        .HasColumnName("country");
+
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
@@ -594,6 +606,10 @@ namespace DPM.Infrastructure.Migrations
                     b.Property<long?>("CreatedBy")
                         .HasColumnType("bigint")
                         .HasColumnName("created_by");
+
+                    b.Property<DateTime?>("DateOfBirth")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_of_birth");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -619,6 +635,11 @@ namespace DPM.Infrastructure.Migrations
                         .HasColumnType("boolean")
                         .HasDefaultValue(false)
                         .HasColumnName("is_disabled");
+
+                    b.Property<string>("NationalId")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("national_id");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
@@ -726,7 +747,7 @@ namespace DPM.Infrastructure.Migrations
                     b.HasOne("DPM.Domain.Entities.ArrivalRegistration", null)
                         .WithMany("Crews")
                         .HasForeignKey("ArrivalRegistrationArrivalId")
-                        .HasConstraintName("fk_crew_arrival_registration_arrival_registration_temp_id1");
+                        .HasConstraintName("fk_crew_arrival_registration_arrival_registration_temp_id");
 
                     b.HasOne("DPM.Domain.Entities.User", "Creator")
                         .WithMany()
@@ -734,10 +755,15 @@ namespace DPM.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.SetNull)
                         .HasConstraintName("fk_crew_users_creator_id");
 
+                    b.HasOne("DPM.Domain.Entities.CrewTrip", null)
+                        .WithMany("Crew")
+                        .HasForeignKey("CrewTripId")
+                        .HasConstraintName("fk_crew_crew_trip_crew_trip_id");
+
                     b.HasOne("DPM.Domain.Entities.DepartureRegistration", null)
                         .WithMany("Crews")
                         .HasForeignKey("DepartureRegistrationDepartureId")
-                        .HasConstraintName("fk_crew_departure_registration_departure_registration_temp_id1");
+                        .HasConstraintName("fk_crew_departure_registration_departure_registration_temp_id");
 
                     b.HasOne("DPM.Domain.Entities.User", "Updater")
                         .WithMany()
@@ -748,32 +774,6 @@ namespace DPM.Infrastructure.Migrations
                     b.Navigation("Creator");
 
                     b.Navigation("Updater");
-                });
-
-            modelBuilder.Entity("DPM.Domain.Entities.CrewTrip", b =>
-                {
-                    b.HasOne("DPM.Domain.Entities.Crew", "Crew")
-                        .WithMany()
-                        .HasForeignKey("CrewId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_crew_trip_crew_crew_id");
-
-                    b.HasOne("DPM.Domain.Entities.ArrivalRegistration", "RegisterToArrival")
-                        .WithOne()
-                        .HasForeignKey("DPM.Domain.Entities.CrewTrip", "TripId")
-                        .HasConstraintName("fk_crew_trip_arrival_registration_register_to_arrival_id");
-
-                    b.HasOne("DPM.Domain.Entities.DepartureRegistration", "RegisterToDeparture")
-                        .WithOne()
-                        .HasForeignKey("DPM.Domain.Entities.CrewTrip", "TripId")
-                        .HasConstraintName("fk_crew_trip_departure_registration_register_to_departure_id");
-
-                    b.Navigation("Crew");
-
-                    b.Navigation("RegisterToArrival");
-
-                    b.Navigation("RegisterToDeparture");
                 });
 
             modelBuilder.Entity("DPM.Domain.Entities.DepartureRegistration", b =>
@@ -915,6 +915,11 @@ namespace DPM.Infrastructure.Migrations
             modelBuilder.Entity("DPM.Domain.Entities.ArrivalRegistration", b =>
                 {
                     b.Navigation("Crews");
+                });
+
+            modelBuilder.Entity("DPM.Domain.Entities.CrewTrip", b =>
+                {
+                    b.Navigation("Crew");
                 });
 
             modelBuilder.Entity("DPM.Domain.Entities.DepartureRegistration", b =>

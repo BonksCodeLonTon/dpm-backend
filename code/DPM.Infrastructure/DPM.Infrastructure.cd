@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DPM.Infrastructure.Properties.Resources" Collapsed="true">
+    <Position X="26.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABABAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Auth.Policies.IsAdminHandler" Collapsed="true">
+    <Position X="21.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Auth\Policies\IsAdminHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Auth.Policies.IsAdminRequirement" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Auth\Policies\IsAdminRequirement.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Auth.Policies.IsRoleHandler" Collapsed="true">
+    <Position X="24.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Auth\Policies\IsRoleHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Auth.Policies.IsRoleRequirement" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Auth\Policies\IsRoleRequirement.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Auth.AuthModule" Collapsed="true">
+    <Position X="24.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Auth\AuthModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Common.Extensions.DbContextExtensions" Collapsed="true">
+    <Position X="19.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Common\Extensions\DbContextExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Common.Extensions.DigitalSignatureExtension" Collapsed="true">
+    <Position X="23" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Common\Extensions\DigitalSignatureExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Common.Extensions.S3Extensions" Collapsed="true">
+    <Position X="28.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Common\Extensions\S3Extensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Common.Constants" Collapsed="true">
+    <Position X="28.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAACAAAAAAAAQAAAAAAAAAAAIAAACAAACAAAAA=</HashCode>
+      <FileName>Common\Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Database.Interceptors.BaseEntitySaveChangesInterceptor" Collapsed="true">
+    <Position X="19.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAFAAgAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAQAA=</HashCode>
+      <FileName>Database\Interceptors\BaseEntitySaveChangesInterceptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Database.Repositories.CrewRepository" Collapsed="true">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database\Repositories\CrewRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Database.Repositories.CrewTripRepository" Collapsed="true">
+    <Position X="12.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database\Repositories\CrewTripRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Database.Repositories.GenericRepository&lt;TEntity&gt;" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAIAAAAAAABEIAAgABIAQAAIEAAACAAgAAAAAAAIA=</HashCode>
+      <FileName>Database\Repositories\GenericRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Database.Repositories.PortRepository" Collapsed="true">
+    <Position X="14.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database\Repositories\PortRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Database.Repositories.RegisterArrivalRepository" Collapsed="true">
+    <Position X="17" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAhAAAEAAAAAAAAAAAAAAAAAAAAAAAgAAgAAAA=</HashCode>
+      <FileName>Database\Repositories\RegisterArrivalRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Database.Repositories.RegisterDepartureRepository" Collapsed="true">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAhAAAEAAAAAAAAAAAAAAAAAAAAAAAgAAgAAAA=</HashCode>
+      <FileName>Database\Repositories\RegisterDepartureRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Database.Repositories.ShipCertificateRepository" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database\Repositories\ShipCertificateRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Database.Repositories.ShipRepository" Collapsed="true">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Database\Repositories\ShipRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Database.Repositories.UserRepository" Collapsed="true">
+    <Position X="10.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database\Repositories\UserRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Database.UnitOfWork.UnitOfWork" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACAEBAQAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Database\UnitOfWork\UnitOfWork.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Database.UnitOfWork.UnitOfWorkFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAABAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database\UnitOfWork\UnitOfWorkFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Database.AppDbContext" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAACAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database\AppDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Database.ReadOnlyAppDbContext" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database\AppDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Database.AppDbContextFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database\AppDbContextFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Database.DatabaseModule" Collapsed="true">
+    <Position X="30" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Database\DatabaseModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.I18n.I18nService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>I18n\I18nService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Migrations.Init" Collapsed="true">
+    <Position X="19.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20240412093403_Init.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Migrations.ChangeRequire" Collapsed="true">
+    <Position X="23" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20240412094414_ChangeRequire.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Migrations.RemoveTotalPower" Collapsed="true">
+    <Position X="21.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20240412094930_RemoveTotalPower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Migrations.AppDbContextModelSnapshot" Collapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Migrations\AppDbContextModelSnapshot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Modules.AutoMapperModule" Collapsed="true">
+    <Position X="28.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Modules\AutoMapperModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Modules.CacheModule" Collapsed="true">
+    <Position X="21.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Modules\CacheModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Modules.DBNullFormatter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACBAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Modules\CacheModule.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Modules.ConfigurationModule" Collapsed="true">
+    <Position X="26.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Modules\ConfigurationModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Modules.FluentValidationModule" Collapsed="true">
+    <Position X="26.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Modules\FluentValidationModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Modules.MediatRModule" Collapsed="true">
+    <Position X="30" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Modules\MediatRModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Modules.RepositoryModule" Collapsed="true">
+    <Position X="23" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Modules\RepositoryModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Modules.ServiceModule" Collapsed="true">
+    <Position X="21.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Modules\ServiceModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Providers.Aws.Services.CognitoService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEARCAQAAAgAAAAAEAAAAAABAAAAAAAACgAAE=</HashCode>
+      <FileName>Providers\Aws\Services\CognitoServices.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Providers.Aws.Services.S3Service" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAIAAIIAAAAAIAAAAAACIAAAAAABAAAAA=</HashCode>
+      <FileName>Providers\Aws\Services\S3Service.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Providers.Aws.Services.SesService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAACAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Providers\Aws\Services\SesService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Providers.Aws.AwsModule" Collapsed="true">
+    <Position X="30" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Providers\Aws\AwsModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Providers.DevExpress.DigitalSigningService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Providers\DevExpress\DigitalSigningService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Serilog.SerilogModule" Collapsed="true">
+    <Position X="19.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Serilog\SerilogModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Services.AsyncRunnerService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Services\AsyncRunnerService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Services.AuthorizationService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAFAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\AuthorizationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Services.JwtService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAACAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Services\JwtService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Infrastructure.Services.RegisterFileService" Collapsed="true">
+    <Position X="19.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Services\RegisterFileService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Infrastructure.Services.RequestContextService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIFAAACIBAAAgAAAIAAAAggAAAAAAAAEAAAAAgAAAA=</HashCode>
+      <FileName>Services\RequestContextService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Infrastructure.InfrastructureModule" Collapsed="true">
+    <Position X="30" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>InfrastructureModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="DPM.Infrastructure.I18n.II18nService" Collapsed="true">
+    <Position X="19.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>I18n\II18nSerivce.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

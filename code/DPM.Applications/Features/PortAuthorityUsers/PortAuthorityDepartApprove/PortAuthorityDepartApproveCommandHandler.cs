@@ -1,4 +1,5 @@
-﻿using DevExpress.Pdf;
+﻿using PdfSignature = DPM.Domain.Common.Models.PdfSignature;
+using DevExpress.Pdf;
 using DPM.Applications.Common;
 using DPM.Applications.Services;
 using DPM.Domain.Entities;
@@ -6,7 +7,6 @@ using DPM.Domain.Exceptions;
 using DPM.Domain.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using PdfSignature = DPM.Domain.Common.Models.PdfSignature;
 
 namespace DPM.Applications.Features.PortAuthorityUsers.PortAuthorityDepartApprove
 {

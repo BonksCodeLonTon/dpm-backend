@@ -1,7 +1,6 @@
 ﻿using DevExpress.Office.DigitalSignatures;
 using DevExpress.Office.Tsp;
 using DevExpress.Pdf;
-
 namespace DPM.Infrastructure.Common.Extensions
 {
     public class DigitalSignatureExtension

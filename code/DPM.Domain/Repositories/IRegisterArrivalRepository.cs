@@ -9,9 +9,9 @@ namespace DPM.Domain.Repositories
             ReadConsistency readConsistency = ReadConsistency.Strong,
             bool tracking = false,
             params string[] relations);
-        IQueryable<ArrivalRegistration> GetAllArrivalRegistrationWithRelations(
+/*        IQueryable<ArrivalRegistration> GetAllArrivalRegistrationWithRelations(
         ReadConsistency readConsistency = ReadConsistency.Strong,
         bool tracking = false,
-        params string[] relations);
+        params string[] relations);*/
     }
 }

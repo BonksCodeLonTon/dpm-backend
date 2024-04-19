@@ -13,6 +13,14 @@ namespace DPM.Applications.Common
 
         [Required]
         public string DomainName { get; set; } = default!;
+
+        public int Property
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 
 }

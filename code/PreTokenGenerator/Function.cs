@@ -6,9 +6,9 @@ using Dapper;
 using DPM.Functions.Shared;
 using DPM.Domain.Entities;
 using System.Text.RegularExpressions;
+using DPM.Domain.Enums;
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(DefaultLambdaJsonSerializer))]
-
 namespace DPM.PreTokenGeneration;
 
 public class Function
@@ -42,8 +42,8 @@ public class Function
             ClaimsToAddOrOverride = new Dictionary<string, string>
         {
           { "user_id", user.Id.ToString() },
-          { "role_type", Enum.GetName(user.RoleType)   },
-          { "role", Enum.GetName(user.Role) }
+          { "role_type", Enum.GetName(typeof(RoleType), user.RoleType) },
+          { "role", Enum.GetName(typeof(Role), user.Role) }
         }
         };
 

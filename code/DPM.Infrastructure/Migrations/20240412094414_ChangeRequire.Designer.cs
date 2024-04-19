@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DPM.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240331043107_UpdateCrewTripRelation3")]
-    partial class UpdateCrewTripRelation3
+    [Migration("20240412094414_ChangeRequire")]
+    partial class ChangeRequire
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -127,7 +127,7 @@ namespace DPM.Infrastructure.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("varchar(128)")
-                        .HasDefaultValue("242")
+                        .HasDefaultValue("VN")
                         .HasColumnName("countries");
 
                     b.Property<DateTime>("CreatedAt")
@@ -139,6 +139,10 @@ namespace DPM.Infrastructure.Migrations
                     b.Property<long?>("CreatedBy")
                         .HasColumnType("bigint")
                         .HasColumnName("created_by");
+
+                    b.Property<long?>("CrewTripId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("crew_trip_id");
 
                     b.Property<string>("DepartureRegistrationDepartureId")
                         .HasColumnType("varchar(128)")
@@ -183,6 +187,9 @@ namespace DPM.Infrastructure.Migrations
                     b.HasIndex("CreatedBy")
                         .HasDatabaseName("ix_crew_created_by");
 
+                    b.HasIndex("CrewTripId")
+                        .HasDatabaseName("ix_crew_crew_trip_id");
+
                     b.HasIndex("DepartureRegistrationDepartureId")
                         .HasDatabaseName("ix_crew_departure_registration_departure_id");
 
@@ -208,9 +215,10 @@ namespace DPM.Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("created_at");
 
-                    b.Property<long>("CrewId")
-                        .HasColumnType("bigint")
-                        .HasColumnName("crew_id");
+                    b.Property<long[]>("CrewIds")
+                        .IsRequired()
+                        .HasColumnType("bigint[]")
+                        .HasColumnName("crew_ids");
 
                     b.Property<string>("TripId")
                         .HasColumnType("varchar(128)")
@@ -222,9 +230,6 @@ namespace DPM.Infrastructure.Migrations
 
                     b.HasKey("Id")
                         .HasName("pk_crew_trip");
-
-                    b.HasIndex("CrewId")
-                        .HasDatabaseName("ix_crew_trip_crew_id");
 
                     b.ToTable("crew_trip", (string)null);
                 });
@@ -263,10 +268,6 @@ namespace DPM.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("bigint")
                         .HasColumnName("created_by");
-
-                    b.Property<long[]>("CrewId")
-                        .HasColumnType("bigint[]")
-                        .HasColumnName("crew_id");
 
                     b.Property<DateTime>("DepartureTime")
                         .HasColumnType("timestamp with time zone")
@@ -589,6 +590,13 @@ namespace DPM.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("cognito_sub");
 
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("varchar(32)")
+                        .HasDefaultValue("VN")
+                        .HasColumnName("country");
+
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
@@ -598,6 +606,10 @@ namespace DPM.Infrastructure.Migrations
                     b.Property<long?>("CreatedBy")
                         .HasColumnType("bigint")
                         .HasColumnName("created_by");
+
+                    b.Property<DateTime?>("DateOfBirth")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_of_birth");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -623,6 +635,10 @@ namespace DPM.Infrastructure.Migrations
                         .HasColumnType("boolean")
                         .HasDefaultValue(false)
                         .HasColumnName("is_disabled");
+
+                    b.Property<string>("NationalId")
+                        .HasColumnType("text")
+                        .HasColumnName("national_id");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
@@ -738,6 +754,11 @@ namespace DPM.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.SetNull)
                         .HasConstraintName("fk_crew_users_creator_id");
 
+                    b.HasOne("DPM.Domain.Entities.CrewTrip", null)
+                        .WithMany("Crew")
+                        .HasForeignKey("CrewTripId")
+                        .HasConstraintName("fk_crew_crew_trip_crew_trip_id");
+
                     b.HasOne("DPM.Domain.Entities.DepartureRegistration", null)
                         .WithMany("Crews")
                         .HasForeignKey("DepartureRegistrationDepartureId")
@@ -752,18 +773,6 @@ namespace DPM.Infrastructure.Migrations
                     b.Navigation("Creator");
 
                     b.Navigation("Updater");
-                });
-
-            modelBuilder.Entity("DPM.Domain.Entities.CrewTrip", b =>
-                {
-                    b.HasOne("DPM.Domain.Entities.Crew", "Crew")
-                        .WithMany()
-                        .HasForeignKey("CrewId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_crew_trip_crew_crew_id");
-
-                    b.Navigation("Crew");
                 });
 
             modelBuilder.Entity("DPM.Domain.Entities.DepartureRegistration", b =>
@@ -905,6 +914,11 @@ namespace DPM.Infrastructure.Migrations
             modelBuilder.Entity("DPM.Domain.Entities.ArrivalRegistration", b =>
                 {
                     b.Navigation("Crews");
+                });
+
+            modelBuilder.Entity("DPM.Domain.Entities.CrewTrip", b =>
+                {
+                    b.Navigation("Crew");
                 });
 
             modelBuilder.Entity("DPM.Domain.Entities.DepartureRegistration", b =>

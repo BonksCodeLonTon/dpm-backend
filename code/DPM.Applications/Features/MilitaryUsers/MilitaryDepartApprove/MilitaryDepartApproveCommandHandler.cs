@@ -1,14 +1,12 @@
-﻿using DevExpress.Pdf;
-using DPM.Applications.Common;
-using DPM.Applications.Services;
-using DPM.Domain.Common.Models;
+﻿using DPM.Applications.Services;
 using DPM.Domain.Entities;
 using DPM.Domain.Exceptions;
 using DPM.Domain.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using PdfSignature = DPM.Domain.Common.Models.PdfSignature;
-
+using DevExpress.Pdf;
+using DPM.Applications.Common;
 namespace DPM.Applications.Features.MilitaryUsers.MilitaryDepartApprove
 {
     public class MilitaryDepartApproveCommandHandler : IRequestHandler<MilitaryDepartApproveCommand, bool>

@@ -47,7 +47,7 @@ namespace DPM.Infrastructure.Modules
               .Bind(_configuration.GetRequiredSection(DatabaseModule.Options.SectionName))
               .ValidateDataAnnotations()
               .ValidateOnStart();
-            services.AddOptions<DatabaseModule.Options>()
+            services.AddOptions<SerilogModule.Options>()
               .Bind(_configuration.GetRequiredSection(SerilogModule.Options.SectionName))
               .ValidateDataAnnotations()
               .ValidateOnStart();

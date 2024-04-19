@@ -16,8 +16,9 @@ namespace DPM.Applications.Features.SailingRegister.GetDepartRegistrationsWithSt
         }
         public Task<IQueryable<DepartureRegistration>> Handle(GetDepartRegistrationsWithStatusQuery request, CancellationToken cancellationToken)
         {
+            string[] relations = new string[] { "Ship", "Port", "Captain", "Crews" };
             return Task.FromResult(
-              _registerDepartRepository.GetAll(ReadConsistency.Cached).Where(r => r.ApproveStatus == request.Status));
+              _registerDepartRepository.GetAll(ReadConsistency.Cached, tracking: true, relations: relations).Where(r => r.ApproveStatus == request.Status));
         }
     }
 }

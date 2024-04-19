@@ -5,17 +5,16 @@
 namespace DPM.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateCountriesRow3 : Migration
+    public partial class ChangeRequire : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "countries",
-                table: "crew",
-                type: "varchar(128)",
-                nullable: false,
-                defaultValue: "242",
+                name: "national_id",
+                table: "users",
+                type: "text",
+                nullable: true,
                 oldClrType: typeof(string),
                 oldType: "text");
         }
@@ -24,13 +23,14 @@ namespace DPM.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "countries",
-                table: "crew",
+                name: "national_id",
+                table: "users",
                 type: "text",
                 nullable: false,
+                defaultValue: "",
                 oldClrType: typeof(string),
-                oldType: "varchar(128)",
-                oldDefaultValue: "242");
+                oldType: "text",
+                oldNullable: true);
         }
     }
 }

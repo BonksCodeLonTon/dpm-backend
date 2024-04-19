@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using PdfSignature = DPM.Domain.Common.Models.PdfSignature;
-
+﻿using PdfSignature = DPM.Domain.Common.Models.PdfSignature;
 namespace DPM.Applications.Services
 {
     public interface IDigitalSigningService

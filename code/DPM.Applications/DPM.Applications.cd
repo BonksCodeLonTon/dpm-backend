@@ -1,0 +1,1507 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DPM.Applications.Behaviours.ValidationBehavior&lt;TRequest, TResponse&gt;" BaseTypeListCollapsed="true">
+    <Position X="51" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Behaviours\ValidationBehavior.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Common.AppOptions">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Common\AppOptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Common.Constants">
+    <Position X="19.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAgAAAAAAAAQAAAAAAAAAAwAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Common.ErrorCodeDetail">
+    <Position X="12.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Common\ErrorCodeDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Common.FailHandlerResult">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\FailHandlerResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Common.HandlerResult">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAggAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Common\HandlerResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Common.HandlerResult&lt;T&gt;">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\HandlerResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Common.Regexps">
+    <Position X="35.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Regexps.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Domain.Features.Auth.Register.RegisterCommand" BaseTypeListCollapsed="true">
+    <Position X="37" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAICAAQQAQAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\AdminRegister\RegisterCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Domain.Features.Auth.Register.RequestCommandValidator">
+    <Position X="45.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\AdminRegister\RegisterCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Domain.Features.Auth.Register.RegisterCommandProfile">
+    <Position X="44" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\AdminRegister\RegisterCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.Register.RegisterCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="38.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAABAAAgAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\AdminRegister\RegisterCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.Register.RegisterResponse">
+    <Position X="45.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\AdminRegister\RegisterResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.ChangePassword.ChangePasswordCommand" BaseTypeListCollapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Features\Auth\ChangePassword\ChangePasswordCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.ChangePassword.ChangePasswordCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAgAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\ChangePassword\ChangePasswordCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.ConfirmForgotPassword.ConfirmForgotPasswordCommand" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAEAACAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\ConfirmForgotPassword\ConfirmForgotPasswordCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.ConfirmForgotPassword.ConfirmForgotPasswordCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\ConfirmForgotPassword\ConfirmForgotPasswordCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.ConfirmSignUp.ConfirmSignUpCommand" BaseTypeListCollapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAICAEQQAQAAAAAAAEAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Features\Auth\ConfirmSignUp\ConfirmSignUpCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.ConfirmSignUp.RequestCommandValidator">
+    <Position X="44" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\ConfirmSignUp\ConfirmSignUpCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.ConfirmSignUp.ConfirmSignUpCommandProfile">
+    <Position X="17.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\ConfirmSignUp\ConfirmSignUpCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.ConfirmSignUp.ConfirmSignUpCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAgAAAAAAAAAAABAAAgAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\ConfirmSignUp\ConfirmSignUpCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.ResendConfirmationCode.ResendConfirmationCodeCommand" BaseTypeListCollapsed="true">
+    <Position X="47.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\ResendConfirmationCode\ResendConfirmationCodeCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.ResendConfirmationCode.ResendConfirmationCodeCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="49.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\ResendConfirmationCode\ResendConfirmationCodeCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.SendForgotPasswordCode.SendForgotPasswordCodeCommand" BaseTypeListCollapsed="true">
+    <Position X="51" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\SendForgotPasswordCode\SendForgotPasswordCodeCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.SendForgotPasswordCode.SendForgotPasswordCodeCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="52.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\SendForgotPasswordCode\SendForgotPasswordCodeCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.SendForgotPasswordCode.SendForgotPasswordResponse">
+    <Position X="54.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\SendForgotPasswordCode\SendForgotPasswordResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.SignIn.SignInCommand" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\SignIn\SignInCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.SignIn.SignInCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="7" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAgAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\SignIn\SignInCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.SignIn.SignInResponse">
+    <Position X="8.75" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAIAEAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\SignIn\SignInResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.SignOut.SignOutCommand" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Features\Auth\SignOut\SignOutCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.SignOut.SignOutCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\SignOut\SignOutCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.SignUp.SignUpCommand" BaseTypeListCollapsed="true">
+    <Position X="14" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAIAAAQAAQAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\SignUp\SignUpCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.SignUp.SignUpCommandValidator">
+    <Position X="17.5" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\SignUp\SignUpCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.SignUp.SignUpCommandProfile">
+    <Position X="15.75" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\SignUp\SignUpCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Auth.SignUp.SindUpCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAgAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Auth\SignUp\SindUpCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Crews.CreateCrew.CreateCrewCommand" BaseTypeListCollapsed="true">
+    <Position X="21" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAEAAAAAAAAAAAAAQAAAAAAABAAAAAQAAAAAAA=</HashCode>
+      <FileName>Features\Crews\CreateCrew\CreateCrewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Crews.CreateCrew.CreateCrewCommandProfile">
+    <Position X="24.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Crews\CreateCrew\CreateCrewCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Crews.CreateCrew.CreateCrewCommandValidator">
+    <Position X="26.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Crews\CreateCrew\CreateCrewCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Crews.CreateCrew.CreateCrewCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAABAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Crews\CreateCrew\CreateCrewCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Crews.GetCrews.GetCrewsQuery" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Crews\GetCrews\GetCrewsQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Crews.GetCrews.GetCrewsQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="21" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Crews\GetCrews\GetCrewsQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Crews.UpdateCrew.UpdateCrewCommand" BaseTypeListCollapsed="true">
+    <Position X="28" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAEAAAAAAAAAAAAAQAAAAAAABAAAAAQAAAAAAA=</HashCode>
+      <FileName>Features\Crews\UpdateCrew\UpdateCrewCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Crews.UpdateCrew.UpdateCrewCommandProfile">
+    <Position X="7" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Crews\UpdateCrew\UpdateCrewCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Crews.UpdateCrew.UpdateShipCommandValidator">
+    <Position X="37" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Crews\UpdateCrew\UpdateCrewCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Crews.UpdateCrew.UpdateCrewCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAABAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Crews\UpdateCrew\UpdateCrewCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.CrewTrips.GetCrewTripsQuery" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\CrewTrips\GetCrewTrips\GetCrewTripsQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.CrewTrips.GetCrewTripsQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAEAAAAAAAAAAAAAAAAAAIAAAAAAAAAEAA=</HashCode>
+      <FileName>Features\CrewTrips\GetCrewTrips\GetCrewTripsQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.CrewTrips.GetStartCrewTrips.GetStartCrewTripsQuery" BaseTypeListCollapsed="true">
+    <Position X="33.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\CrewTrips\GetStartCrewTrips\GetStartCrewTripsQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.CrewTrips.GetStartCrewTrips.GetStartCrewTripsQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="35.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAEAAAAAAAAAAAAAAAAAAIAAAAAAAAAEAA=</HashCode>
+      <FileName>Features\CrewTrips\GetStartCrewTrips\GetStartCrewTripsQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.CreateMilitaryUser.CreateMilitaryUserCommand" BaseTypeListCollapsed="true">
+    <Position X="28" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAICAAQQAQAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\CreateMilitaryUser\CreateMilitaryUserCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.CreateMilitaryUser.RequestCommandValidator">
+    <Position X="40.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\CreateMilitaryUser\CreateMilitaryUserCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.CreateMilitaryUser.RegisterCommandProfile">
+    <Position X="40.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\CreateMilitaryUser\CreateMilitaryUserCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.CreateMilitaryUser.CreateMilitaryUserCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAgAAAAAAAAAAABAAAwAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\CreateMilitaryUser\CreateMilitaryUserCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.CreateMilitaryUser.CreateMilitaryUserResponse">
+    <Position X="7" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAACAAAICAEQQAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\CreateMilitaryUser\CreateMilitaryUserResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.CreateMilitaryUser.GetMeResponseProfile">
+    <Position X="22.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\CreateMilitaryUser\CreateMilitaryUserResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.FindMilitaryUser.FindMilitaryUserQuery" BaseTypeListCollapsed="true">
+    <Position X="14" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\FindMilitaryUser\FindMilitaryUserQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.FindMilitaryUser.FindMilitaryUserQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\FindMilitaryUser\FindMilitaryUserQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.GetMilitaryUsers.GetMilitaryUsersQuery" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\GetMilitaryUsers\GetMilitaryUsersQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.GetMilitaryUsers.GetMilitaryUsersQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\GetMilitaryUsers\GetMilitaryUsersQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.InviteToMilitary.InviteToMilitaryCommand" BaseTypeListCollapsed="true">
+    <Position X="42.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\InviteToMilitary\InviteToMilitaryCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.InviteToMilitary.InviteToMilitaryCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="44" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAgAAAAAAAAAAAAAAAQAAAAAAIAAABAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\InviteToMilitary\InviteToMilitaryCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.ReadInviteTokenMilitary.ReadInviteTokenMilitaryCommand" BaseTypeListCollapsed="true">
+    <Position X="52.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\ReadInviteTokenMilitary\ReadInviteTokenMilitaryCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.ReadInviteTokenMilitary.ReadInviteTokenMilitaryCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="54.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAABAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\ReadInviteTokenMilitary\ReadInviteTokenMilitaryCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.RemoveMilitaryUser.RemoveMilitaryUserCommand" BaseTypeListCollapsed="true">
+    <Position X="54.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\RemoveMilitaryUser\RemoveMilitaryUserCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.RemoveMilitaryUser.RemoveMilitaryUserCommandValidator">
+    <Position X="33.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\RemoveMilitaryUser\RemoveMilitaryUserCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.Admin.RemoveMilitaryUser.RemoveMilitaryUserCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="31.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\Admin\RemoveMilitaryUser\RemoveMilitaryUserCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.MilitaryArriveApprove.MilitaryArriveApproveCommand" BaseTypeListCollapsed="true">
+    <Position X="49.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\MilitaryArriveApprove\MilitaryArriveApproveCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.MilitaryArriveApprove.MilitaryArriveApproveCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="51" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAGAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAgAAAABAA=</HashCode>
+      <FileName>Features\MilitaryUsers\MilitaryArriveApprove\MilitaryArriveApproveCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.MilitaryArriveReject.MilitaryArriveRejectCommand" BaseTypeListCollapsed="true">
+    <Position X="52.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\MilitaryArriveReject\MilitaryArriveRejectCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.MilitaryArriveReject.MilitaryArriveRejectCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="54.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\MilitaryArriveReject\MilitaryArriveRejectCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.MilitaryDepartApprove.MilitaryDepartApproveCommand" BaseTypeListCollapsed="true">
+    <Position X="31.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\MilitaryDepartApprove\MilitaryDepartApproveCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.MilitaryDepartApprove.MilitaryDepartApproveCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="33.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAEAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAgAAAAFAA=</HashCode>
+      <FileName>Features\MilitaryUsers\MilitaryDepartApprove\MilitaryDepartApproveCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.MilitaryDepartReject.MilitaryDepartRejectCommand" BaseTypeListCollapsed="true">
+    <Position X="35.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\MilitaryUsers\MilitaryDepartReject\MilitaryDepartRejectCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.MilitaryUsers.MilitaryDepartReject.MilitaryDepartRejectCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="37" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAEAA=</HashCode>
+      <FileName>Features\MilitaryUsers\MilitaryDepartReject\MilitaryDepartRejectCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Port.CreatePort.CreatePortCommand" BaseTypeListCollapsed="true">
+    <Position X="14" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Port\CreatePort\CreatePortCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Port.CreatePort.CreatePortCommandProfile">
+    <Position X="17.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Port\CreatePort\CreatePortCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Port.CreatePort.CreateShipCommandValidator">
+    <Position X="26.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Port\CreatePort\CreatePortCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Port.CreatePort.CreatePortCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAIAAAAAAAgAAAA=</HashCode>
+      <FileName>Features\Port\CreatePort\CreatePortCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Port.DeletePort.DeletePortCommand" BaseTypeListCollapsed="true">
+    <Position X="28" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Port\DeletePort\DeletePortCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Port.DeletePort.DeletePortCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAgAAAA=</HashCode>
+      <FileName>Features\Port\DeletePort\DeletePortCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Port.GetPort.GetPortQuery" BaseTypeListCollapsed="true">
+    <Position X="40.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Port\GetPort\GetPortQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Port.GetPort.GetPortQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="42.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAgAAAA=</HashCode>
+      <FileName>Features\Port\GetPort\GetPortQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Port.GetPorts.GetPortsQuery" BaseTypeListCollapsed="true">
+    <Position X="44" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Port\GetPorts\GetPortsQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Port.GetPorts.GetPortsQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="45.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAgAAAA=</HashCode>
+      <FileName>Features\Port\GetPorts\GetPortsQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Port.UpdatePort.UpdatePortCommand" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Port\UpdatePort\UpdatePortCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Port.UpdatePort.UpdatePortCommandProfile">
+    <Position X="26.25" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Port\UpdatePort\UpdatePortCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Port.UpdatePort.UpdateTeamCommandValidator">
+    <Position X="45.75" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Port\UpdatePort\UpdatePortCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Port.UpdatePort.UpdatePortCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAIAAAAAAAgAAAA=</HashCode>
+      <FileName>Features\Port\UpdatePort\UpdatePortCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.CreatePortAuthorityUser.CreatePortAuthorityUserCommand" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAICAAQQAQAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\CreatePortAuthorityUser\CreatePortAuthorityUserCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.CreatePortAuthorityUser.RequestCommandValidator">
+    <Position X="42.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\CreatePortAuthorityUser\CreatePortAuthorityUserCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.CreatePortAuthorityUser.RegisterCommandProfile">
+    <Position X="42.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\CreatePortAuthorityUser\CreatePortAuthorityUserCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.CreatePortAuthorityUser.CreatePortAuthorityUserCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAgAAAAAAAAAAABAAAwAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\CreatePortAuthorityUser\CreatePortAuthorityUserCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.CreatePortAuthorityUser.CreatePortAuthorityUserResponse">
+    <Position X="12.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAACAAAICAEQQAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\CreatePortAuthorityUser\CreatePortAuthorityUserResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.CreatePortAuthorityUser.GetMeResponseProfile">
+    <Position X="21" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\CreatePortAuthorityUser\CreatePortAuthorityUserResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.FindPortAuthorityUser.FindPortAuthorityUserQuery" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\FindPortAuthorityUser\FindPortAuthorityUserQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.FindPortAuthorityUser.FindPortAuthorityUserQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\FindPortAuthorityUser\FindPortAuthorityUserQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.GetPortAuthorityUsers.GetPortAuthorityUsersQuery" BaseTypeListCollapsed="true">
+    <Position X="37" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\GetPortAuthorityUsers\GetPortAuthorityUsersQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.GetPortAuthorityUsers.GetPortAuthorityUsersQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="38.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\GetPortAuthorityUsers\GetPortAuthorityUsersQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.InviteToPortAuthority.InviteToPortAuthorityCommand" BaseTypeListCollapsed="true">
+    <Position X="45.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\InviteToPortAuthority\InviteToPortAuthorityCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.InviteToPortAuthority.InviteToPortAuthorityCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="47.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAgAAAAAAAAAAAAAAAQAAAAAAIAAABAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\InviteToPortAuthority\InviteToPortAuthorityCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.ReadInviteTokenPortAuthority.ReadInviteTokenPortAuthorityCommand" BaseTypeListCollapsed="true">
+    <Position X="31.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\ReadInviteTokenPortAuthority\ReadInviteTokenPortAuthorityCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.ReadInviteTokenPortAuthority.ReadInviteTokenPortAuthorityCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="33.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAABAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\ReadInviteTokenPortAuthority\ReadInviteTokenPortAuthorityCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.RemovePortAuthorityUser.RemovePortAuthorityUserCommand" BaseTypeListCollapsed="true">
+    <Position X="35.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\RemovePortAuthorityUser\RemovePortAuthorityUserCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.RemovePortAuthorityUser.RemovePortAuthorityUserCommandValidator">
+    <Position X="38.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\RemovePortAuthorityUser\RemovePortAuthorityUserCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.Admin.RemovePortAuthorityUser.RemovePortAuthorityUserCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="37" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\Admin\RemovePortAuthorityUser\RemovePortAuthorityUserCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.PortAuthorityArriveApprove.PortAuthorityArriveApproveCommand" BaseTypeListCollapsed="true">
+    <Position X="38.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\PortAuthorityArriveApprove\PortAuthorityArriveApproveCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.PortAuthorityArriveApprove.PortAuthorityArriveApproveCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="40.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAGAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAgAAAABAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\PortAuthorityArriveApprove\PortAuthorityArriveApproveCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.PortAuthorityArriveReject.PortAuthorityArriveRejectCommand" BaseTypeListCollapsed="true">
+    <Position X="42.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\PortAuthorityArriveReject\PortAuthorityArriveRejectCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.PortAuthorityArriveReject.PortAuthorityArriveRejectCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="44" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\PortAuthorityArriveReject\PortAuthorityArriveRejectCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.PortAuthorityDepartApprove.PortAuthorityDepartApproveCommand" BaseTypeListCollapsed="true">
+    <Position X="45.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\PortAuthorityDepartApprove\PortAuthorityDepartApproveCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.PortAuthorityDepartApprove.PortAuthorityDepartApproveCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="47.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAEAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAgAAAAFAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\PortAuthorityDepartApprove\PortAuthorityDepartApproveCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.PortAuthorityDepartReject.PortAuthorityDepartRejectCommand" BaseTypeListCollapsed="true">
+    <Position X="49.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\PortAuthorityDepartReject\PortAuthorityDepartRejectCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.PortAuthorityUsers.PortAuthorityDepartReject.PortAuthorityDepartRejectCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="51" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAEAA=</HashCode>
+      <FileName>Features\PortAuthorityUsers\PortAuthorityDepartReject\PortAuthorityDepartRejectCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.GetArrivalRegistations.GetArrivalRegistationsQuery" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\GetArrivalRegistations\GetArrivalRegistationsQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.GetArrivalRegistations.GetArrivalRegistrationsQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="7" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAABAAAEAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\GetArrivalRegistations\GetArrivalRegistrationsQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.GetArrivalRegistrationById.GetArrivalRegistrationByIdQuery" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\GetArrivalRegistrationById\GetArrivalRegistrationByIdQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.GetArrivalRegistrationById.GetArrivalRegistrationByIdQueryValidator">
+    <Position X="5.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\GetArrivalRegistrationById\GetArrivalRegistrationByIdQuery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.GetArrivalRegistrationById.GetArrivalRegistrationByIdQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="28" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAABAAAEAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\GetArrivalRegistrationById\GetArrivalRegistrationByIdQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.GetArrivalRegistrationsWithStatus.GetArrivalRegistrationsWithStatusQuery" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\GetArrivalRegistrationsWithStatus\GetArrivalRegistrationsWithStatusQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.GetArrivalRegistrationsWithStatus.GetArrivalRegistrationsWithStatusQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\GetArrivalRegistrationsWithStatus\GetArrivalRegistrationsWithStatusQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.GetDepartRegistrations.GetDepartRegistrationsQuery" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\GetDepartRegistrations\GetDepartRegistrationsQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.GetDepartRegistrations.GetDepartRegistrationsQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="28" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAEAAAAAAAAAAAAAAAgAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\GetDepartRegistrations\GetDepartRegistrationsQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.GetDepartRegistrationsWithStatus.GetDepartRegistrationsWithStatusQuery" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\GetDepartRegistrationsWithStatus\GetDepartRegistrationsWithStatusQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.GetDepartRegistrationsWithStatus.GetDepartRegistrationsWithStatusQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="7" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\GetDepartRegistrationsWithStatus\GetDepartRegistrationsWithStatusQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.GetDepartureRegistrationById.GetDepartureRegistrationByIdQuery" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\GetDepartureRegistrationById\GetDepartureRegistrationByIdQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.GetDepartureRegistrationById.GetDepartureRegistrationByIdQueryValidator">
+    <Position X="12.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\GetDepartureRegistrationById\GetDepartureRegistrationByIdQuery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.GetDepartureRegistrationById.GetDepartureRegistrationByIdQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAEAAAAAAAAAAAAAAAAAAIAAAAAAAAAEAA=</HashCode>
+      <FileName>Features\SailingRegister\GetDepartureRegistrationById\GetDepartureRegistrationByIdQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.GetRegisterByUserId.GetRegisterByUserIdQuery">
+    <Position X="47.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\GetRegisterByUserId\GetRegisterByUserIdQuery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.GetRegisterByUserId.GetRegisterByUserIdQueryHandler">
+    <Position X="49.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\GetRegisterByUserId\GetRegisterByUserIdQueryHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.RegisterToArrivalCommand" BaseTypeListCollapsed="true">
+    <Position X="47.5" Y="11.75" Width="1.5" />
+    <NestedTypes>
+      <Class Name="DPM.Applications.Features.SailingRegister.RegisterToArrivalCommand.RequestCommandValidator" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Features\SailingRegister\RegisterToArrival\RegisterToArrivalCommand.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DPM.Applications.Features.SailingRegister.RegisterToArrivalCommand.RegisterToArrivalCommandProfile" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Features\SailingRegister\RegisterToArrival\RegisterToArrivalCommand.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QAACAAAAAAAAAQEAAAAAEABAAAAAAAABAAAAgAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\RegisterToArrival\RegisterToArrivalCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.RegisterToArrivalCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="49.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAEAAAAAAABAAAAAAAAAAIAAAAgAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\RegisterToArrival\RegisterToArrivalCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.RegisterToDepartureCommand" BaseTypeListCollapsed="true">
+    <Position X="51" Y="11.75" Width="1.5" />
+    <NestedTypes>
+      <Class Name="DPM.Applications.Features.SailingRegister.RegisterToDepartureCommand.RequestCommandValidator" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Features\SailingRegister\RegisterToDeparture\RegisterToDepartureCommand.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DPM.Applications.Features.SailingRegister.RegisterToDepartureCommand.RegisterToArrivalCommandProfile" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Features\SailingRegister\RegisterToDeparture\RegisterToDepartureCommand.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QAACAAAAAAAAAQMAAAAAAgBAAAAAAAABAAAAgAEAAAA=</HashCode>
+      <FileName>Features\SailingRegister\RegisterToDeparture\RegisterToDepartureCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.RegisterToDepartureCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="52.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAhAAAEAAAAAAABAAAAAAAAAAIAAAAgAAgAEAA=</HashCode>
+      <FileName>Features\SailingRegister\RegisterToDeparture\RegisterToDepartureCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.UpdateArrivalRegistrationById.UpdateArrivalRegistrationByIdCommand" BaseTypeListCollapsed="true">
+    <Position X="21" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\UpdateArrivalRegistrationById\UpdateArrivalRegistrationByIdCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.UpdateArrivalRegistrationById.UpdateArrivalRegistrationByIdCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\UpdateArrivalRegistrationById\UpdateArrivalRegistrationByIdCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.UpdateArrivalShipStatusById.UpdateArrivalShipStatusByIdCommand" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\UpdateArrivalShipStatusById\UpdateArrivalShipStatusByIdCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.UpdateArrivalShipStatusById.UpdateArrivalShipStatusByIdCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\UpdateArrivalShipStatusById\UpdateArrivalShipStatusByIdCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.UpdateDepartureRegistrationById.UpdateDepartureRegistrationByIdCommand" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\UpdateDepartureRegistrationById\UpdateDepartureRegistrationByIdCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.UpdateDepartureRegistrationById.UpdateDepartureRegistrationByIdCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAEAA=</HashCode>
+      <FileName>Features\SailingRegister\UpdateDepartureRegistrationById\UpdateDepartureRegistrationByIdCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.UpdateDepartureShipStatusById.UpdateDepartureShipStatusByIdCommand" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\SailingRegister\UpdateDepartureShipStatusById\UpdateDepartureShipStatusByIdCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.SailingRegister.UpdateDepartureShipStatusById.UpdateDepartureShipStatusByIdCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="14" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAEAA=</HashCode>
+      <FileName>Features\SailingRegister\UpdateDepartureShipStatusById\UpdateDepartureShipStatusByIdCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.ShipCertificates.GetCertificatesByShipId.GetCertificatesByShipIdQuery" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\ShipCertificates\GetCertificatesByShipId\GetCertificatesByShipIdQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.ShipCertificates.GetCertificatesByShipId.GetCertificatesByShipIdQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\ShipCertificates\GetCertificatesByShipId\GetCertificatesByShipIdQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.CreateShip.CreateShipCommand" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEIAAAEAABAAAAAAIZAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Ships\CreateShip\CreateShipCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.CreateShip.CreateShipCommandProfile">
+    <Position X="22.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Ships\CreateShip\CreateShipCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.CreateShip.CreateShipCommandValidator">
+    <Position X="24.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Ships\CreateShip\CreateShipCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.CreateShip.CreateShipCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="21" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAABAAAAAAAAAAIAAAAgAAAAAAA=</HashCode>
+      <FileName>Features\Ships\CreateShip\CreateShipCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.DeleteShip.DeleteShipCommand" BaseTypeListCollapsed="true">
+    <Position X="7" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Ships\DeleteShip\DeleteShipCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.DeleteShip.DeleteShipCommandValidator">
+    <Position X="10.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Ships\DeleteShip\DeleteShipCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.DeleteShip.DeleteShipCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAA=</HashCode>
+      <FileName>Features\Ships\DeleteShip\DeleteShipCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.GetMyShip.GetMyShipQuery" BaseTypeListCollapsed="true">
+    <Position X="28" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Ships\GetMyShip\GetMyShipQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.GetMyShip.GetMyShipQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="31.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAA=</HashCode>
+      <FileName>Features\Ships\GetMyShip\GetMyShipQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.GetShip.GetShipQuery" BaseTypeListCollapsed="true">
+    <Position X="51" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Ships\GetShip\GetShipQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.GetShip.GetShipQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="52.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAA=</HashCode>
+      <FileName>Features\Ships\GetShip\GetShipQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.GetShips.GetShipsQuery" BaseTypeListCollapsed="true">
+    <Position X="54.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Ships\GetShips\GetShipsQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.GetShips.GetShipsQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="31.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAA=</HashCode>
+      <FileName>Features\Ships\GetShips\GetShipsQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.UpdateShip.UpdateShipCommand" BaseTypeListCollapsed="true">
+    <Position X="28" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEEIAAAEAABAAAAAAIZAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Ships\UpdateShip\UpdateShipCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.UpdateShip.UpdateShipCommandProfile">
+    <Position X="33.5" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Ships\UpdateShip\UpdateShipCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.UpdateShip.UpdateShipCommandValidator">
+    <Position X="35.25" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Ships\UpdateShip\UpdateShipCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.UpdateShip.UpdateShipCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="31.75" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAABAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Ships\UpdateShip\UpdateShipCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.UpdateShipLocationById.UpdateShipLocationByIdCommand" BaseTypeListCollapsed="true">
+    <Position X="38.75" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Ships\UpdateShipLocationById\UpdateShipLocationByIdCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.UpdateShipLocationById.UpdateShipLocationByIdCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="40.5" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAA=</HashCode>
+      <FileName>Features\Ships\UpdateShipLocationById\UpdateShipLocationByIdCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.UpdateShipStatus.UpdateShipStatusCommand" BaseTypeListCollapsed="true">
+    <Position X="42.25" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Ships\UpdateShipStatus\UpdateShipStatusCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Ships.UpdateShipStatus.UpdateShipStatusHandler" BaseTypeListCollapsed="true">
+    <Position X="44" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAABAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Ships\UpdateShipStatus\UpdateShipStatusCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.FindUsers.FindUsersQuery" BaseTypeListCollapsed="true">
+    <Position X="21" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Users\FindUsers\FindUserQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.FindUsers.FindUsersQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Users\FindUsers\FindUserQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.GetCaptainUsers.GetCaptainUsersQuery" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Users\GetCaptainUsers\GetCaptainUsersQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.GetCaptainUsers.GetCaptainUsersQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="14" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAEAA=</HashCode>
+      <FileName>Features\Users\GetCaptainUsers\GetCaptainUsersQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.GetMe.GetMeQuery" BaseTypeListCollapsed="true">
+    <Position X="14" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Users\GetMe\GetMeQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.GetMe.GetMeQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAABAAAAAAAAAAIAAAAAAAAABAA=</HashCode>
+      <FileName>Features\Users\GetMe\GetMeQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.GetMe.GetMeResponse">
+    <Position X="17.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAEACAAAICAEQQAQAAAAAIQAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Users\GetMe\GetMeResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.GetMe.GetMeResponseProfile">
+    <Position X="19.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Users\GetMe\GetMeResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.GetOwnerUsers.GetOwnerUsersQuery" BaseTypeListCollapsed="true">
+    <Position X="33.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Users\GetOwnerUsers\GetOwnerUsersQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.GetOwnerUsers.GetOwnerUsersQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="35.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAA=</HashCode>
+      <FileName>Features\Users\GetOwnerUsers\GetOwnerUsersQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.GetUsers.GetUsersQueryHandler" BaseTypeListCollapsed="true">
+    <Position X="38.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Users\GetUsers\GetUserQueryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.GetUsers.GetUsersQuery" BaseTypeListCollapsed="true">
+    <Position X="37" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Users\GetUsers\GetUsersQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.UpdateMe.UpdateMeCommand" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAICAAAQAQAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Users\UpdateMe\UpdateMeCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.UpdateMe.UpdateMeCommandProfile">
+    <Position X="19.25" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Users\UpdateMe\UpdateMeCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.UpdateMe.UpdateMeCommandValidator">
+    <Position X="21" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Users\UpdateMe\UpdateMeCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.UpdateMe.UpdateMeCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAgAAAAAAAAAAABAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Users\UpdateMe\UpdateMeCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.UpdateUserStatus.UpdateUserStatusCommand" BaseTypeListCollapsed="true">
+    <Position X="47.5" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Users\UpdateUserStatus\UpdateUserStatusCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Features.Users.UpdateUserStatus.UpdateUserStatusCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="49.25" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Users\UpdateUserStatus\UpdateUserStatusCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPM.Applications.Hook">
+    <Position X="40.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Hook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="DPM.Applications.Services.IAsyncRunnerService">
+    <Position X="31.75" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Services\IAsyncRunnerService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Applications.Services.IAuthenticationService">
+    <Position X="33.5" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEABCAQAAAgAAAAAEAAAAAABAAAAAAAACAAAE=</HashCode>
+      <FileName>Services\IAuthenticationService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Applications.Services.IAuthorizationService">
+    <Position X="35.25" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IAuthorizationService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Applications.Services.IDigitalSigningService">
+    <Position X="37" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IDigitalSigningService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Applications.Services.IEmailService">
+    <Position X="38.75" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Services\IEmailService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Applications.Services.II18nService">
+    <Position X="40.5" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Services\II18nService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Applications.Services.IJwtService">
+    <Position X="42.25" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Services\IJwtService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Applications.Services.IRequestContextService">
+    <Position X="44" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIBAAAAIAAAAgAAAAAAAAggAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Services\IRequestContextService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPM.Applications.Services.IStorageService">
+    <Position X="45.75" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAIIAAAAAIAAAAAAAIAAAAAABAAAAA=</HashCode>
+      <FileName>Services\IStorageService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

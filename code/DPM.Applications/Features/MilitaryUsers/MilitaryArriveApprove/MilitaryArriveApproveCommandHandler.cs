@@ -1,16 +1,11 @@
 ﻿using DevExpress.Pdf;
 using DPM.Applications.Common;
 using DPM.Applications.Services;
-using DPM.Domain.Common.Models;
 using DPM.Domain.Entities;
 using DPM.Domain.Exceptions;
 using DPM.Domain.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using PdfSignature = DPM.Domain.Common.Models.PdfSignature;
 
 namespace DPM.Applications.Features.MilitaryUsers.MilitaryArriveApprove

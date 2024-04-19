@@ -14,7 +14,6 @@ namespace DPM.Domain.Entities
         public string? ImagePath { get; set; }
         public ShipType ShipType { get; set; }
         public ShipStatus ShipStatus { get; set; }
-        public string? TotalPower { get; set; }
         public long? OwnerId { get; set; }
         public User? Owner { get; set; }
         public double[]? Position { get; set; }

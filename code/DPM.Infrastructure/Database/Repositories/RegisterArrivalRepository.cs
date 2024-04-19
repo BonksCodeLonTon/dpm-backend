@@ -28,29 +28,11 @@ namespace DPM.Infrastructure.Database.Repositories
             bool tracking = false,
             params string[] relations)
         {
-            var crewTrips = _crewTripRepository.GetAll(readConsistency, tracking, relations);
-            var crewIds = crewTrips.Where(crewTrip => crewTrip.TripId.Equals(id))
-                                   .Select(crewTrip => crewTrip.CrewId)
-                                   .ToList();
-            var crews = _crewRepository.GetAll().Where(crew => crewIds.Contains(crew.Id)).ToList();
+            return GetAll(readConsistency, tracking, relations).FirstOrDefault(x => x.ArrivalId == id);
 
-            var arrivalRegistration = GetAll(readConsistency, tracking, relations)
-                .FirstOrDefault(x => x.ArrivalId.Equals(id));
-            if (arrivalRegistration == null)
-                return null;
-
-            arrivalRegistration.Crews = crews;
-
-            arrivalRegistration.Captain = _userRepository.GetById(arrivalRegistration.CaptainId);
-
-            arrivalRegistration.Port = _portRepository.GetById(arrivalRegistration.PortId);
-
-            arrivalRegistration.Ship = _shipRepository.GetById(arrivalRegistration.ShipId);
-
-            return arrivalRegistration;
         }
 
-        public IQueryable<ArrivalRegistration> GetAllArrivalRegistrationWithRelations(
+        /*public IQueryable<ArrivalRegistration> GetAllArrivalRegistrationWithRelations(
             ReadConsistency readConsistency = ReadConsistency.Strong,
             bool tracking = false,
             params string[] relations)
@@ -103,7 +85,7 @@ namespace DPM.Infrastructure.Database.Repositories
             }
 
             return arrivalRegistrations.AsQueryable();
-        }
+        }*/
 
     }
 }

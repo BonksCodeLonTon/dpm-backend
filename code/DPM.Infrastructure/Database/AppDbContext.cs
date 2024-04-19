@@ -24,8 +24,8 @@ namespace DPM.Infrastructure.Database
                 entity.Property(e => e.Avatar).HasColumnType("varchar(256)");
                 entity.Property(e => e.Gender).HasColumnType("varchar(8)").HasConversion<string>();
                 entity.Property(e => e.RoleType).IsRequired().HasColumnType("varchar(16)").HasConversion<string>();
-                entity.Property(e => e.DateOfBirth);
-                entity.Property(e => e.NationalId);
+                entity.Property(e => e.DateOfBirth).IsRequired(false);
+                entity.Property(e => e.NationalId).IsRequired(false);
                 entity.Property(e => e.Country).HasColumnType("varchar(32)").HasConversion<string>().HasDefaultValue(Countries.VN);
                 entity.Property(e => e.Role).IsRequired().HasColumnType("varchar(16)").HasConversion<string>();
                 entity.Property(e => e.IsDisabled).HasDefaultValue(false);
@@ -63,7 +63,6 @@ namespace DPM.Infrastructure.Database
                 entity.Property(e => e.Position);
                 entity.Property(e => e.ShipStatus).IsRequired().HasColumnType("varchar(16)").HasConversion<string>().HasDefaultValue(ShipStatus.Docked);
                 entity.Property(e => e.GrossTonnage).IsRequired().HasColumnType("varchar(128)");
-                entity.Property(e => e.TotalPower).IsRequired().HasColumnType("varchar(128)");
                 entity.Property(e => e.IsDeleted).IsRequired().HasDefaultValue(false);
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("now()");
                 entity.Property(e => e.UpdatedAt).HasDefaultValueSql("now()");
@@ -134,7 +133,7 @@ namespace DPM.Infrastructure.Database
             modelBuilder.Entity<CrewTrip>(entity =>
             {
                 entity.Property(e => e.Id).IsRequired().HasColumnType("bigint").HasDefaultValueSql("generate_id()");
-                entity.Property(e => e.CrewId).HasColumnType("bigint");
+                entity.Property(e => e.CrewIds);
                 entity.Property(e => e.TripId).HasColumnType("varchar(128)");
                 entity.Ignore(e => e.RegisterToDeparture);
                 entity.Ignore(e => e.RegisterToArrival);

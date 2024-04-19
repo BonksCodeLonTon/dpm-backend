@@ -18,11 +18,8 @@ namespace DPM.Applications.Features.Ships.CreateShip
         public string IMONumber { get; set; }  = default!;
         public string Length { get; set; } = default!;
         public ShipType ShipType { get; set; }
-        public long[] Position { get; set; } = default!;
-        public string Purpose { get; set; } = default!;
         public string RegisterNumber { get; set; } = default!;
         public string GrossTonnage { get; set; } = default!;
-        public string TotalPower { get; set; } = default!;
         public long OwnerId { get; set; } = default!;
         public string? ImagePath { get; set; }
 

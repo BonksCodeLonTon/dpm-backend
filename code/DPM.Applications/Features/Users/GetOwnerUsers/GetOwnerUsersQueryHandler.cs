@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DPM.Applications.Features.Users.GetOwnerUsers
 {
-    internal class GetOwnerUsersQueryHandler : IRequestHandler<GetUsersQuery, IQueryable<User>>
+    internal class GetOwnerUsersQueryHandler : IRequestHandler<GetOwnerUsersQuery, IQueryable<User>>
     {
         private readonly IUserRepository _userRepository;
         private readonly IShipRepository _shipRepository;
@@ -18,7 +18,7 @@ namespace DPM.Applications.Features.Users.GetOwnerUsers
             _shipRepository = shipRepository;
         }
 
-        public async Task<IQueryable<User>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
+        public async Task<IQueryable<User>> Handle(GetOwnerUsersQuery request, CancellationToken cancellationToken)
         {
             var allUsers = _userRepository.GetAll(ReadConsistency.Eventual);
 

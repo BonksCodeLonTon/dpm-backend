@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
-    <PackageReference Include="DevExpress.Document.Processor" Version="23.1.4" />
+    <PackageReference Include="DevExpress.Document.Processor" Version="23.1.9" />
     <PackageReference Include="FluentValidation" Version="11.6.0" />
     <PackageReference Include="MediatR" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.26" />

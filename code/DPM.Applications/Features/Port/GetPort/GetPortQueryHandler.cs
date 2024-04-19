@@ -20,7 +20,7 @@ namespace DPM.Applications.Features.Port.GetPort
         {
             return Task.FromResult(_portRepository
               .GetAll(ReadConsistency.Eventual)
-              .Where(team => team.Id == request.Id));
+              .Where(port => port.Id == request.Id));
         }
     }
 }

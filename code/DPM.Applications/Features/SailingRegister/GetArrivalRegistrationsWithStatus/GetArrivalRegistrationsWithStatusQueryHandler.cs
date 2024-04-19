@@ -20,8 +20,9 @@ namespace DPM.Applications.Features.SailingRegister.GetArrivalRegistrationsWithS
         }
         public Task<IQueryable<ArrivalRegistration>> Handle(GetArrivalRegistrationsWithStatusQuery request, CancellationToken cancellationToken)
         {
+            string[] relations = new string[] { "Ship", "Port", "Captain", "Crews" };
             return Task.FromResult(
-              _registerArrivalRepository.GetAll(ReadConsistency.Cached).Where(r => r.ApproveStatus == request.Status));
+              _registerArrivalRepository.GetAll(ReadConsistency.Cached, tracking: true, relations: relations).Where(r => r.ApproveStatus == request.Status));
         }
     }
 }

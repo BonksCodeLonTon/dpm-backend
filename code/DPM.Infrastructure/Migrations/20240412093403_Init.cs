@@ -1,17 +1,31 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace DPM.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitDatabase : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "crew_trip",
+                columns: table => new
+                {
+                    id = table.Column<long>(type: "bigint", nullable: false, defaultValueSql: "generate_id()"),
+                    trip_id = table.Column<string>(type: "varchar(128)", nullable: true),
+                    crew_ids = table.Column<long[]>(type: "bigint[]", nullable: false),
+                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("pk_crew_trip", x => x.id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "users",
                 columns: table => new
@@ -19,11 +33,14 @@ namespace DPM.Infrastructure.Migrations
                     id = table.Column<long>(type: "bigint", nullable: false, defaultValueSql: "generate_id()"),
                     cognito_sub = table.Column<string>(type: "text", nullable: false),
                     full_name = table.Column<string>(type: "varchar(64)", nullable: true),
+                    date_of_birth = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     address = table.Column<string>(type: "varchar(256)", nullable: true),
                     phone_number = table.Column<string>(type: "varchar(16)", nullable: false),
                     username = table.Column<string>(type: "text", nullable: false),
                     email = table.Column<string>(type: "varchar(128)", nullable: false),
                     gender = table.Column<string>(type: "varchar(8)", nullable: true),
+                    country = table.Column<string>(type: "varchar(32)", nullable: false, defaultValue: "VN"),
+                    national_id = table.Column<string>(type: "text", nullable: false),
                     avatar = table.Column<string>(type: "varchar(256)", nullable: true),
                     role_type = table.Column<string>(type: "varchar(16)", nullable: false),
                     role = table.Column<string>(type: "varchar(16)", nullable: false),
@@ -188,7 +205,6 @@ namespace DPM.Infrastructure.Migrations
                     port_id = table.Column<long>(type: "bigint", nullable: false),
                     attachment = table.Column<string>(type: "varchar(256)", nullable: true),
                     captain_id = table.Column<long>(type: "bigint", nullable: false),
-                    crew_id = table.Column<long[]>(type: "bigint[]", nullable: true),
                     departure_time = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     actual_departure_time = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     guess_time_arrival = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
@@ -280,13 +296,14 @@ namespace DPM.Infrastructure.Migrations
                 {
                     id = table.Column<long>(type: "bigint", nullable: false, defaultValueSql: "generate_id()"),
                     fullname = table.Column<string>(type: "varchar(128)", nullable: false),
-                    countries = table.Column<string>(type: "text", nullable: false),
+                    countries = table.Column<string>(type: "varchar(128)", nullable: false, defaultValue: "VN"),
                     national_id = table.Column<string>(type: "text", nullable: false),
-                    year_experience = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    year_experience = table.Column<string>(type: "text", nullable: false),
                     relative_phone_number = table.Column<string>(type: "text", nullable: false),
                     created_by = table.Column<long>(type: "bigint", nullable: true),
                     updated_by = table.Column<long>(type: "bigint", nullable: true),
                     arrival_registration_arrival_id = table.Column<string>(type: "varchar(128)", nullable: true),
+                    crew_trip_id = table.Column<long>(type: "bigint", nullable: true),
                     departure_registration_departure_id = table.Column<string>(type: "varchar(128)", nullable: true),
                     created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "now()"),
                     updated_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true, defaultValueSql: "now()")
@@ -295,12 +312,17 @@ namespace DPM.Infrastructure.Migrations
                 {
                     table.PrimaryKey("pk_crew", x => x.id);
                     table.ForeignKey(
-                        name: "fk_crew_arrival_registration_arrival_registration_temp_id1",
+                        name: "fk_crew_arrival_registration_arrival_registration_temp_id",
                         column: x => x.arrival_registration_arrival_id,
                         principalTable: "arrival_registration",
                         principalColumn: "arrival_id");
                     table.ForeignKey(
-                        name: "fk_crew_departure_registration_departure_registration_temp_id1",
+                        name: "fk_crew_crew_trip_crew_trip_id",
+                        column: x => x.crew_trip_id,
+                        principalTable: "crew_trip",
+                        principalColumn: "id");
+                    table.ForeignKey(
+                        name: "fk_crew_departure_registration_departure_registration_temp_id",
                         column: x => x.departure_registration_departure_id,
                         principalTable: "departure_registration",
                         principalColumn: "departure_id");
@@ -316,37 +338,6 @@ namespace DPM.Infrastructure.Migrations
                         principalTable: "users",
                         principalColumn: "id",
                         onDelete: ReferentialAction.SetNull);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "crew_trip",
-                columns: table => new
-                {
-                    trip_id = table.Column<string>(type: "varchar(128)", nullable: true),
-                    crew_id = table.Column<long>(type: "bigint", nullable: false),
-                    id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.ForeignKey(
-                        name: "fk_crew_trip_arrival_registration_register_to_arrival_id",
-                        column: x => x.trip_id,
-                        principalTable: "arrival_registration",
-                        principalColumn: "arrival_id");
-                    table.ForeignKey(
-                        name: "fk_crew_trip_crew_crew_id",
-                        column: x => x.crew_id,
-                        principalTable: "crew",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "fk_crew_trip_departure_registration_register_to_departure_id",
-                        column: x => x.trip_id,
-                        principalTable: "departure_registration",
-                        principalColumn: "departure_id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -385,25 +376,25 @@ namespace DPM.Infrastructure.Migrations
                 column: "created_by");
 
             migrationBuilder.CreateIndex(
+                name: "ix_crew_crew_trip_id",
+                table: "crew",
+                column: "crew_trip_id");
+
+            migrationBuilder.CreateIndex(
                 name: "ix_crew_departure_registration_departure_id",
                 table: "crew",
                 column: "departure_registration_departure_id");
 
             migrationBuilder.CreateIndex(
+                name: "ix_crew_national_id",
+                table: "crew",
+                column: "national_id",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "ix_crew_updated_by",
                 table: "crew",
                 column: "updated_by");
-
-            migrationBuilder.CreateIndex(
-                name: "ix_crew_trip_crew_id",
-                table: "crew_trip",
-                column: "crew_id");
-
-            migrationBuilder.CreateIndex(
-                name: "ix_crew_trip_trip_id",
-                table: "crew_trip",
-                column: "trip_id",
-                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "ix_departure_registration_captain_id",
@@ -522,16 +513,16 @@ namespace DPM.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "crew_trip");
+                name: "crew");
 
             migrationBuilder.DropTable(
                 name: "ship_certificate");
 
             migrationBuilder.DropTable(
-                name: "crew");
+                name: "arrival_registration");
 
             migrationBuilder.DropTable(
-                name: "arrival_registration");
+                name: "crew_trip");
 
             migrationBuilder.DropTable(
                 name: "departure_registration");

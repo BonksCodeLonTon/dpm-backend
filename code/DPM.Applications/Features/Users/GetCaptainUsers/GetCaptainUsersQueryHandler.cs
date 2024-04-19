@@ -4,15 +4,10 @@ using DPM.Domain.Entities;
 using DPM.Domain.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DPM.Applications.Features.Users.GetCaptainUsers
 {
-    internal class GetCaptainUsersQueryHandler : IRequestHandler<GetUsersQuery, IQueryable<User>>
+    internal class GetCaptainUsersQueryHandler : IRequestHandler<GetCaptainUsersQuery, IQueryable<User>>
     {
         private readonly IUserRepository _userRepository;
         private readonly IRegisterArrivalRepository _registerArrivalRepository;
@@ -25,7 +20,7 @@ namespace DPM.Applications.Features.Users.GetCaptainUsers
             _registerDepartureRepository = registerDepartureRepository;
         }
 
-        public async Task<IQueryable<User>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
+        public async Task<IQueryable<User>> Handle(GetCaptainUsersQuery request, CancellationToken cancellationToken)
         {
             var allUsers = _userRepository.GetAll(ReadConsistency.Eventual);
 

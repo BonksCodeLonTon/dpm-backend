@@ -10,7 +10,7 @@ using PdfSignature = DPM.Domain.Common.Models.PdfSignature;
 
 namespace DPM.Applications.Features.MilitaryUsers.MilitaryArriveApprove
 {
-    internal class MilitaryArriveApproveCommandHandler : IRequestHandler<MilitaryArriveApproveCommand, bool>
+    internal class BorderGuardApproveArrivalRegistrationCommandHandler : IRequestHandler<BorderGuardApproveArrivalRegistrationCommand, bool>
     {
         private readonly IRequestContextService _requestContextService;
         private readonly IRegisterArrivalRepository _registerArrivalRepository;
@@ -18,7 +18,7 @@ namespace DPM.Applications.Features.MilitaryUsers.MilitaryArriveApprove
         private readonly IStorageService _storageService;
         private readonly IDigitalSigningService _digitalSigningService;
 
-        public MilitaryArriveApproveCommandHandler(
+        public BorderGuardApproveArrivalRegistrationCommandHandler(
             IRequestContextService requestContextService,
             IRegisterArrivalRepository registerArrivalRepository,
             IStorageService storageService,
@@ -32,7 +32,7 @@ namespace DPM.Applications.Features.MilitaryUsers.MilitaryArriveApprove
             _digitalSigningService = digitalSigningService;
         }
 
-        public async Task<bool> Handle(MilitaryArriveApproveCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(BorderGuardApproveArrivalRegistrationCommand request, CancellationToken cancellationToken)
         {
             var arrivalRegistration = await _registerArrivalRepository
                 .GetAll(tracking: true)

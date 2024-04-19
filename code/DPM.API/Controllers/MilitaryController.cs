@@ -93,7 +93,7 @@ namespace DPM.API.Controllers
         [HttpPost("arrive/approve")]
         [ProducesResponseType(typeof(HandlerResult<bool>), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> ApproveArrivalRegistation(MilitaryArriveApproveCommand command)
+        public async Task<IActionResult> ApproveArrivalRegistation(BorderGuardApproveArrivalRegistrationCommand command)
         {
             var result = await _mediator.Send(command);
             return CreateSuccessResult(result);

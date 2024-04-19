@@ -5,6 +5,7 @@ using DPM.Applications.Features.Users.GetMe;
 using DPM.Applications.Features.Users.GetOwnerUsers;
 using DPM.Applications.Features.Users.GetUsers;
 using DPM.Applications.Features.Users.UpdateMe;
+using DPM.Applications.Features.Users.UpdateUser;
 using DPM.Applications.Features.Users.UpdateUserStatus;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -61,6 +62,14 @@ namespace DPM.API.Controllers
         [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> UpdateUserStatus([FromBody] UpdateUserStatusCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return CreateSuccessResult(result);
+        }
+        [HttpPatch("update")]
+        [ProducesResponseType(typeof(HandlerResult), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(FailHandlerResult), (int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> UpdateUserStatus([FromBody] UpdateUserCommand command)
         {
             var result = await _mediator.Send(command);
             return CreateSuccessResult(result);
